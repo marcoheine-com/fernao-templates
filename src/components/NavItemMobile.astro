@@ -1,0 +1,25 @@
+---
+import ArrowRightIcon from './ArrowRightIcon.html'
+
+interface Props {
+  ariaControls: string
+  id: string
+  title: string
+  bold?: boolean
+}
+const { ariaControls, id, title, bold = true } = Astro.props
+---
+
+<li class={`mb-4 px-4 py-2 ${bold ? 'font-bold' : 'font-normal'}`}>
+  <button
+    class='flex w-full justify-between gap-2'
+    aria-controls={ariaControls}
+    id={id}
+  >
+    <span class='text-underline text-underline-colored w-full text-start'>
+      {title}
+    </span>
+    <ArrowRightIcon />
+  </button>
+  <slot />
+</li>

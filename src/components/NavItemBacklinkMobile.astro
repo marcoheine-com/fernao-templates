@@ -1,0 +1,18 @@
+---
+import ArrowLeftIcon from './ArrowLeftIcon.html'
+
+const { ariaControls, title } = Astro.props
+---
+
+<li class='ml-6 font-normal'>
+  <button
+    class='flex w-full gap-3 secondlevel-button'
+    aria-controls={ariaControls}
+    id='secondlevel-button'
+  >
+    <ArrowLeftIcon />
+    <span class='w-full border-b-[1px] border-b-fernaoGreen text-start'>
+      {title}
+    </span>
+  </button>
+</li>
