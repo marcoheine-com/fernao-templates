@@ -1,0 +1,398 @@
+---
+import PrimaryButtonIcon from './PrimaryButton.astro'
+import ArrowRightIcon from './ArrowRightIcon.html'
+import ArrowLeftIcon from './ArrowLeftIcon.html'
+---
+
+<nav>
+  <button
+    type='button'
+    aria-expanded='true'
+    aria-controls='firstlevel-menu'
+    id='menu-button'
+  >
+    {/* Closed Menu Icon */}
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      xmlns='http://www.w3.org/2000/svg'
+      id='menu-closed-icon'
+      class='menu-icon'
+    >
+      <g clip-path='url(#clip0_202_3682)'>
+        <path
+          d='M3 17C3 17.5523 3.44772 18 4 18H20C20.5523 18 21 17.5523 21 17C21 16.4477 20.5523 16 20 16H4C3.44772 16 3 16.4477 3 17ZM3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11H4C3.44772 11 3 11.4477 3 12ZM4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8H20C20.5523 8 21 7.55228 21 7C21 6.44772 20.5523 6 20 6H4Z'
+          fill='#010200'></path>
+      </g>
+      <defs>
+        <clipPath id='clip0_202_3682'>
+          <rect width='24' height='24' fill='white'></rect>
+        </clipPath>
+      </defs>
+    </svg>
+    {/* Open Menu Icon */}
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      class='menu-icon hidden'
+      id='menu-open-icon'
+    >
+      <g clip-path='url(#clip0_202_3679)'>
+        <path
+          d='M18.295 7.115C18.6844 6.72564 18.6844 6.09436 18.295 5.705V5.705C17.9056 5.31564 17.2744 5.31564 16.885 5.705L12 10.59L7.115 5.705C6.72564 5.31564 6.09436 5.31564 5.705 5.705V5.705C5.31564 6.09436 5.31564 6.72564 5.705 7.115L10.59 12L5.705 16.885C5.31564 17.2744 5.31564 17.9056 5.705 18.295V18.295C6.09436 18.6844 6.72564 18.6844 7.115 18.295L12 13.41L16.885 18.295C17.2744 18.6844 17.9056 18.6844 18.295 18.295V18.295C18.6844 17.9056 18.6844 17.2744 18.295 16.885L13.41 12L18.295 7.115Z'
+          fill='#010200'></path>
+      </g>
+      <defs>
+        <clipPath id='clip0_202_3679'>
+          <rect width='24' height='24' fill='white'></rect>
+        </clipPath>
+      </defs>
+    </svg>
+  </button>
+
+  {/* First Level */}
+  <ul
+    class='absolute left-0 top-14 h-screen w-full border-t-2 border-t-fernaoGreen bg-fernaoBGWhite px-9 pt-8 hidden'
+    id='firstlevel-menu'
+  >
+    {/* Nav Item mobile */}
+    <li class='mb-4 px-4 py-2 font-bold'>
+      <button
+        class='flex w-full justify-between gap-2'
+        aria-controls='secondlevel-solutions'
+        id='firstlevel-button'
+      >
+        <span class='text-underline text-underline-colored w-full text-start'>
+          Solutions
+        </span>
+        <ArrowRightIcon />
+      </button>
+
+      {/* Second Level Solutions */}
+      <ul
+        id='secondlevel-solutions'
+        class='absolute left-0 top-0 h-screen w-full bg-fernaoBGWhite px-9 pt-8 hidden'
+      >
+        {/* Nav Item backlink mobile */}
+        <li class='ml-6 font-normal'>
+          <button
+            class='flex w-full gap-3 secondlevel-button'
+            aria-controls='secondlevel-solutions'
+            id='secondlevel-button'
+          >
+            <ArrowLeftIcon />{' '}
+            <span class='w-full border-b-[1px] border-b-fernaoGreen text-start'>
+              Solutions
+            </span>
+          </button>
+        </li>
+        <li>
+          <ul class='mt-6 bg-fernaoGreenA20 px-4 py-6'>
+            {/* Nav Item mobile  - but not bold*/}
+
+            <li class='mb-4 px-4 py-2 font-normal'>
+              <button
+                class='flex w-full justify-between gap-2'
+                id='secondlevel-button'
+                aria-controls='thirdlevel-it-security'
+              >
+                <span
+                  class='text-underline text-underline-colored w-full text-start'
+                >
+                  IT-Security
+                </span>{' '}
+                <ArrowRightIcon />
+              </button>
+              {/* Third Level */}
+              <ul
+                id='thirdlevel-it-security'
+                class='absolute left-0 top-0 h-screen w-full bg-fernaoBGWhite px-9 pt-8 hidden'
+              >
+                {/* Breadcrumb firstlevel mobile */}
+                <li class='mb-10 flex px-8 text-xs'>Solutions &gt;</li>
+                {/* Nav Item backlink mobile */}
+                <li class='ml-6 font-normal'>
+                  <button
+                    class='flex w-full gap-3'
+                    id='thirdlevel-button'
+                    aria-controls='thirdlevel-it-security'
+                  >
+                    <ArrowLeftIcon />{' '}
+                    <span
+                      class='w-full border-b-[1px] border-b-fernaoGreen text-start'
+                    >
+                      IT-Security
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <ul class='mt-6 bg-fernaoGreenA20 px-4 py-6 font-normal'>
+                    {/* Nav Item mobile  - but not bold and as link*/}
+                    <li class='mb-4 px-4 py-2 font-normal'>
+                      <a
+                        class='text-underline text-underline-colored flex w-full justify-between'
+                        href='/solutions/it-security/next-gen-security-platforms'
+                      >
+                        Next Gen Security Platforms
+                      </a>
+                    </li>
+                    <li class='mb-4 px-4 py-2 font-normal'>
+                      <a
+                        class='text-underline text-underline-colored flex w-full justify-between'
+                        href='/solutions/it-security/next-gen-endpoint-security'
+                      >
+                        Next Gen Endpoint Security
+                      </a>
+                    </li>
+                    <li class='mb-4 px-4 py-2 font-normal'>
+                      <button
+                        class='flex w-full justify-between gap-2'
+                        id='fourthlevel-button'
+                        aria-controls='fourthlevel-configuration-audits'
+                      >
+                        <span
+                          class='text-underline text-underline-colored w-full text-start'
+                        >
+                          Configuration Audits
+                        </span>{' '}
+                        <ArrowRightIcon />
+                      </button>
+                      {/* Fourth Level */}
+                      <ul
+                        id='fourthlevel-configuration-audits'
+                        class='absolute left-0 top-0 h-screen w-full bg-fernaoBGWhite px-9 pt-8 hidden'
+                      >
+                        {/* Breadcrumb mobile */}
+                        <li class='mb-10 flex px-8 text-xs'>
+                          Solutions &gt; IT-Security &gt;
+                        </li>
+                        {/* Nav Item backlink mobile */}
+                        <li class='ml-6 font-normal'>
+                          <button
+                            class='flex w-full gap-3'
+                            id='fourthlevel-button'
+                            aria-controls='fourthlevel-configuration-audits'
+                          >
+                            <ArrowLeftIcon />{' '}
+                            <span
+                              class='w-full border-b-[1px] border-b-fernaoGreen text-start'
+                            >
+                              Configuration Audits
+                            </span>
+                          </button>
+                        </li>
+                        <li>
+                          <ul
+                            class='mt-6 bg-fernaoGreenA20 px-4 py-6 font-normal'
+                          >
+                            {/* Nav Item mobile  - but not bold and as link*/}
+                            <li class='mb-4 px-4 py-2 font-normal'>
+                              <a
+                                class='text-underline text-underline-colored flex w-full justify-between'
+                                href='/solutions/it-security/next-gen-security-platforms'
+                              >
+                                Betriebssysteme
+                              </a>
+                            </li>
+                            <li class='mb-4 px-4 py-2 font-normal'>
+                              <a
+                                class='text-underline text-underline-colored flex w-full justify-between'
+                                href='/solutions/it-security/next-gen-security-platforms'
+                              >
+                                Webkomponenten
+                              </a>
+                            </li>
+                            {/* Nav Item mobile link */}
+                            <li>
+                              <a
+                                href='/solutions/it-security/configuration-audtis'
+                                class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
+                              >
+                                Configuration Audits
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    {/* Nav Item mobile link */}
+                    <li>
+                      <a
+                        href='/it-security'
+                        class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
+                      >
+                        IT-Security
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class='mb-4 px-4 py-2'>
+              <button
+                class='flex w-full justify-between font-normal'
+                id='thirdlevel-button'
+                aria-controls='thirdlevel-data-analytics'
+              >
+                Data Analytics <ArrowRightIcon />
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class='mb-4 px-4 py-2 font-bold'>
+      <button
+        class='flex w-full justify-between gap-2'
+        id='secondlevel-button'
+        aria-controls='secondlevel-consulting'
+      >
+        <span class='text-underline text-underline-colored w-full text-start'>
+          Consulting
+        </span>
+        <ArrowRightIcon />
+      </button>
+    </li>
+    <li class='mb-4 px-4 py-2 font-bold'>
+      <button
+        class='flex w-full justify-between gap-2'
+        id='secondlevel-button'
+        aria-controls='secondlevel-service'
+      >
+        <span class='text-underline text-underline-colored w-full text-start'>
+          Service
+        </span>
+        <ArrowRightIcon />
+      </button>
+    </li>
+    <li class='mb-4 px-4 py-2 font-bold'>
+      <button
+        class='flex w-full justify-between gap-2'
+        id='secondlevel-button'
+        aria-controls='secondlevel-cloud'
+      >
+        <span class='text-underline text-underline-colored w-full text-start'>
+          Cloud
+        </span>
+        <ArrowRightIcon />
+      </button>
+    </li>
+    <li class='mb-4 px-4 py-2 font-bold'>
+      <button
+        class='flex w-full justify-between gap-2'
+        id='secondlevel-button'
+        aria-controls='secondlevel-branchen'
+      >
+        <span class='text-underline text-underline-colored w-full text-start'>
+          Branchen
+        </span>
+        <ArrowRightIcon />
+      </button>
+    </li>
+    <li class='mt-14'>
+      <PrimaryButtonIcon>Termin buchen</PrimaryButtonIcon>
+    </li>
+
+    <li>
+      <ul class='mt-4'>
+        <li class='mb-4 px-4 py-2'>
+          <button
+            class='flex w-full justify-between gap-2'
+            id='secondlevel-button'
+            aria-controls='secondlevel-sprache'
+          >
+            <span
+              class='text-underline text-underline-colored w-full text-start'
+            >
+              Sprache
+            </span>
+            <ArrowRightIcon />
+          </button>
+        </li>
+        <li class='mb-4 px-4 py-2'>
+          <button
+            class='flex w-full justify-between gap-2'
+            id='secondlevel-button'
+            aria-controls='secondlevel-uber-uns'
+          >
+            <span
+              class='text-underline text-underline-colored w-full text-start'
+            >
+              Über Uns
+            </span>
+            <ArrowRightIcon />
+          </button>
+        </li>
+        <li class='mb-4 px-4 py-2'>
+          <a
+            class='text-underline text-underline-colored flex w-full justify-between'
+            href='/jobs'
+          >
+            Jobs
+          </a>
+        </li>
+        <li class='mb-4 px-4 py-2 text-black50'>
+          <a
+            class='text-underline text-underline-colored flex w-full justify-between'
+            href='/datenschutz'
+          >
+            Datenschutz
+          </a>
+        </li>
+        <li class='mb-4 px-4 py-2 text-black50'>
+          <a
+            class='text-underline text-underline-colored flex w-full justify-between'
+            href='/impressum'
+          >
+            Impressum
+          </a>
+        </li>
+        <li class='mb-4 px-4 py-2 text-black50'>
+          <a
+            class='text-underline text-underline-colored flex w-full justify-between'
+            href='/cookie-policy'
+          >
+            Cookie Policy
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  const handleClick = (id) => {
+    document.querySelector(id).classList.toggle('hidden')
+
+    // if is main menu
+    if (id === '#firstlevel-menu') {
+      // toggle menun icon
+      document.querySelector('#menu-open-icon').classList.toggle('hidden')
+      document.querySelector('#menu-closed-icon').classList.toggle('hidden')
+
+      const menus = document.querySelectorAll(
+        'ul[id^="secondlevel-"], ul[id^="thirdlevel-"], ul[id^="fourthlevel-"]'
+      )
+      menus.forEach((menu) => {
+        // if open, close all open submenus to reset menu
+        if (!menu.classList.contains('hidden')) {
+          menu.classList.add('hidden')
+        }
+      })
+    }
+  }
+
+  const buttons = document.querySelectorAll(
+    '#menu-button, #firstlevel-button, #secondlevel-button, #thirdlevel-button, #fourthlevel-button'
+  )
+  buttons.forEach((button) => {
+    const id = button.getAttribute('aria-controls')
+    button.addEventListener('click', () => {
+      handleClick(`#${id}`)
+    })
+  })
+</script>
