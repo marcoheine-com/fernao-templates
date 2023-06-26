@@ -1,244 +1,315 @@
 ---
 import PrimaryButtonIcon from './PrimaryButton.astro'
-import ArrowRightIcon from './ArrowRightIcon.html'
-import ArrowLeftIcon from './ArrowLeftIcon.html'
-import ClosedMenuIcon from './ClosedMenuIcon.html'
-import OpenMenuIcon from './OpenMenuIcon.html'
-import NavItemMobile from './NavItemMobile.astro'
-import NavItemBacklinkMobile from './NavItemBacklinkMobile.astro'
-import NavItemLinkMobile from './NavItemLinkMobile.astro'
-import BreadCrumbMobile from './BreadCrumbMobile.astro'
-import SubmenuMobile from './SubmenuMobile.astro'
-import SubmenuWrapperMobile from './SubmenuWrapperMobile.astro'
+
+import NavItem from './NavItem.astro'
+import NavItemBacklink from './NavItemBacklink.astro'
+import NavItemLink from './NavItemLink.astro'
+import BreadCrumb from './BreadCrumb.astro'
+import LanguageSubmenu from './LanguageSubmenu.astro'
+import SubmenuWrapper from './SubmenuWrapper.astro'
+import SecondLevelMenu from './SecondLevelMenu.astro'
+import ThirdLevelMenu from './ThirdLevelMenu.astro'
+import FourthLevelMenu from './FourthLevelMenu.astro'
+import SecondLevelMenuWrapper from './SecondLevelMenuWrapper.astro'
+import PrimaryButtonOnlyIcon from './PrimaryButtonOnlyIcon.astro'
+import FirstLevelNavItem from './FirstLevelNavItem.astro'
+import SecondLevelNavItem from './SecondLevelNavItem.astro'
 ---
 
-<nav>
-  <button
-    type='button'
-    aria-expanded='true'
-    aria-controls='firstlevel-menu'
-    id='menu-button'
-  >
-    <ClosedMenuIcon />
-    <OpenMenuIcon />
-  </button>
-
+<nav class='border-fernaoGreen 1440:w-full' id='nav'>
   {/* First Level */}
   <ul
-    class='absolute left-0 top-14 h-screen w-full border-t-2 border-t-fernaoGreen bg-fernaoBGWhite px-9 pt-8 hidden'
+    class='h-screen w-full z-[1] hidden bg-fernaoBGWhite px-9 pt-8 1440:p-0 max-w-[394px] mx-auto 1440:flex 1440:mx-0 1440:top-0 relative 1440:h-auto 1440:items-center 1440:max-w-none'
     id='firstlevel-menu'
   >
-    <NavItemMobile
+    <FirstLevelNavItem
       ariaControls='secondlevel-solutions'
       id='firstlevel-button'
       title='Solutions'
     >
-      {/* Second Level */}
-      <SubmenuMobile id='secondlevel-solutions'>
-        <NavItemBacklinkMobile
-          ariaControls='secondlevel-solutions'
-          title='Solutions'
-        />
-        <SubmenuWrapperMobile>
-          <NavItemMobile
-            ariaControls='thirdlevel-it-security'
+      <!-- Own component -->
+      <section
+        class='1440:grid 1440:grid-cols-[auto_1fr] 1440:fixed 1440:left-0 1440:top-20 1440:w-full'
+      >
+        {/* Second Level Solutions */}
+        <SecondLevelMenu id='secondlevel-solutions'>
+          <NavItemBacklink
+            ariaControls='secondlevel-solutions'
+            title='Solutions'
             id='secondlevel-button'
-            title='IT-Security'
-            bold={false}
-          >
-            {/* Third Level */}
-            <SubmenuMobile id='thirdlevel-it-security'>
-              <BreadCrumbMobile title='Solutions >' />
-              <NavItemBacklinkMobile
-                ariaControls='thirdlevel-it-security'
-                title='IT-Security'
-              />
-              <SubmenuWrapperMobile>
-                <NavItemLinkMobile
-                  href='/solutions/it-security/next-gen-security-platforms'
-                  title='Next Gen Security Platforms'
-                />
-                <NavItemLinkMobile
-                  href='/solutions/it-security/next-gen-endpoint-security'
-                  title='Next Gen Endpoint Security'
-                />
-                <NavItemMobile
-                  ariaControls='fourthlevel-configuration-audits'
-                  id='thirdlevel-button'
-                  title='Configuration Audits'
-                  bold={false}
-                >
-                  {/* Fourth Level */}
-                  <SubmenuMobile id='fourthlevel-configuration-audits'>
-                    <BreadCrumbMobile title='Solutions > IT-Security >' />
-                    <NavItemBacklinkMobile
-                      ariaControls='fourthlevel-configuration-audits'
-                      title='Configuration Audits'
-                    />
-
-                    <SubmenuWrapperMobile>
-                      <NavItemLinkMobile
-                        href='/solutions/it-security/next-gen-security-platforms'
-                        title='Betriebssysteme'
-                      />
-                      <NavItemLinkMobile
-                        href='/solutions/it-security/next-gen-security-platforms'
-                        title='Webkomponenten'
-                      />
-                      {/* Nav Item mobile link */}
-                      <li>
-                        <a
-                          href='/solutions/it-security/configuration-audtis'
-                          class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
-                        >
-                          Configuration Audits Overview
-                        </a>
-                      </li>
-                    </SubmenuWrapperMobile>
-                  </SubmenuMobile>
-                </NavItemMobile>
-                <!-- Needs to be in own component -->
-                <li>
-                  <a
-                    href='/it-security'
-                    class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
-                  >
-                    IT-Security Overview
-                  </a>
-                </li>
-              </SubmenuWrapperMobile>
-            </SubmenuMobile>
-            <NavItemMobile
+          />
+          <SecondLevelMenuWrapper>
+            <SecondLevelNavItem
+              ariaControls='thirdlevel-it-security'
+              id='secondlevel-button'
+              title='IT-Security'
+              bold={false}
+            />
+            <SecondLevelNavItem
               ariaControls='thirdlevel-data-analytics'
               id='secondlevel-button'
               title='Data Analytics'
               bold={false}
             />
-          </NavItemMobile>
-        </SubmenuWrapperMobile>
-      </SubmenuMobile>
+          </SecondLevelMenuWrapper>
+        </SecondLevelMenu>
 
-      <NavItemMobile
-        title='Consulting'
-        ariaControls='secondlevel-consulting'
-        id='secondlevel-button'
-      />
-      <NavItemMobile
-        title='Service'
-        ariaControls='secondlevel-service'
-        id='secondlevel-button'
-      />
-      <NavItemMobile
-        title='Cloud'
-        ariaControls='secondlevel-cloud'
-        id='secondlevel-button'
-      />
-      <NavItemMobile
-        ariaControls='secondlevel-branchen'
-        id='secondlevel-button'
-        title='Branchen'
-      />
-      <li class='mt-14'>
-        <PrimaryButtonIcon>Termin buchen</PrimaryButtonIcon>
-      </li>
+        {/* Third Level SOlutions */}
+        <ThirdLevelMenu id='thirdlevel-it-security'>
+          <BreadCrumb title='Solutions >' />
+          <NavItemBacklink
+            ariaControls='thirdlevel-it-security'
+            title='IT-Security'
+            id='secondlevel-button'
+          />
+          <SubmenuWrapper>
+            <NavItemLink
+              href='/solutions/it-security/next-gen-security-platforms'
+              title='Next Gen Security Platforms'
+            />
+            <NavItemLink
+              href='/solutions/it-security/next-gen-endpoint-security'
+              title='Next Gen Endpoint Security'
+            />
+            <NavItem
+              ariaControls='fourthlevel-configuration-audits'
+              id='thirdlevel-button'
+              title='Configuration Audits'
+              bold={false}
+            >
+              {/* Fourth Level */}
+              <FourthLevelMenu id='fourthlevel-configuration-audits'>
+                <BreadCrumb title='Solutions > IT-Security >' />
+                <NavItemBacklink
+                  ariaControls='fourthlevel-configuration-audits'
+                  title='Configuration Audits'
+                  id='thirdlevel-button'
+                />
 
-      <li>
-        <ul class='mt-4'>
-          <li class='mb-4 px-4 py-2'>
-            <button
-              class='flex w-full justify-between gap-2'
-              id='secondlevel-button'
-              aria-controls='secondlevel-sprache'
-            >
-              <span
-                class='text-underline text-underline-colored w-full text-start'
+                <SubmenuWrapper>
+                  <NavItemLink
+                    href='/solutions/it-security/next-gen-security-platforms'
+                    title='Betriebssysteme'
+                  />
+                  <NavItemLink
+                    href='/solutions/it-security/next-gen-security-platforms'
+                    title='Webkomponenten'
+                  />
+                  {/* Nav Item mobile link */}
+                  <li class='px-4'>
+                    <a
+                      href='/solutions/it-security/configuration-audtis'
+                      class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
+                    >
+                      Configuration Audits Overview
+                    </a>
+                  </li>
+                </SubmenuWrapper>
+              </FourthLevelMenu>
+            </NavItem>
+            <!-- Needs to be in own component -->
+            <li class='px-4'>
+              <a
+                href='/it-security'
+                class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
               >
-                Sprache
-              </span>
-              <ArrowRightIcon />
-            </button>
-          </li>
-          <li class='mb-4 px-4 py-2'>
-            <button
-              class='flex w-full justify-between gap-2'
+                IT-Security Overview
+              </a>
+            </li>
+          </SubmenuWrapper>
+        </ThirdLevelMenu>
+      </section>
+    </FirstLevelNavItem>
+
+    <FirstLevelNavItem
+      title='Consulting'
+      ariaControls='secondlevel-consulting'
+      id='firstlevel-button'
+    >
+      <!-- Own Component -->
+      <section
+        class='1440:grid 1440:grid-cols-[auto_1fr] 1440:fixed 1440:left-0 1440:top-20 1440:w-full'
+      >
+        <!-- Second Level Consulting -->
+        <SecondLevelMenu id='secondlevel-consulting'>
+          <NavItemBacklink
+            ariaControls='secondlevel-consulting'
+            title='Consulting'
+          />
+          <SecondLevelMenuWrapper>
+            <NavItemLink href='/consulting/überbegriff' title='Überbegriff' />
+            <NavItemLink
+              href='/consulting/business-resiliance'
+              title='Business Resilience'
+            />
+          </SecondLevelMenuWrapper>
+        </SecondLevelMenu>
+      </section>
+    </FirstLevelNavItem>
+    <FirstLevelNavItem
+      title='Service'
+      ariaControls='secondlevel-service'
+      id='firstlevel-button'
+    />
+    <FirstLevelNavItem
+      title='Cloud'
+      ariaControls='secondlevel-cloud'
+      id='firstlevel-button'
+    />
+    <FirstLevelNavItem
+      ariaControls='secondlevel-branchen'
+      id='firstlevel-button'
+      title='Branchen'
+    />
+    <li class='mt-14 1440:hidden'>
+      <PrimaryButtonIcon>Termin buchen</PrimaryButtonIcon>
+    </li>
+
+    <li class='1440:ml-auto'>
+      <ul class='mt-4 1440:flex 1440:mt-0 1440:w-full 1440:items-center'>
+        <NavItem
+          title='Sprache'
+          ariaControls='secondlevel-sprache'
+          id='firstlevel-button'
+          bold={false}
+        >
+          <LanguageSubmenu id='secondlevel-sprache'>
+            <NavItemBacklink
+              ariaControls='secondlevel-sprache'
+              title='Sprache'
               id='secondlevel-button'
-              aria-controls='secondlevel-uber-uns'
-            >
-              <span
-                class='text-underline text-underline-colored w-full text-start'
-              >
-                Über Uns
-              </span>
-              <ArrowRightIcon />
-            </button>
-          </li>
-          <li class='mb-4 px-4 py-2'>
-            <a
-              class='text-underline text-underline-colored flex w-full justify-between'
-              href='/jobs'
-            >
-              Jobs
-            </a>
-          </li>
-          <li class='mb-4 px-4 py-2 text-black50'>
-            <a
-              class='text-underline text-underline-colored flex w-full justify-between'
-              href='/datenschutz'
-            >
-              Datenschutz
-            </a>
-          </li>
-          <li class='mb-4 px-4 py-2 text-black50'>
-            <a
-              class='text-underline text-underline-colored flex w-full justify-between'
-              href='/impressum'
-            >
-              Impressum
-            </a>
-          </li>
-          <li class='mb-4 px-4 py-2 text-black50'>
-            <a
-              class='text-underline text-underline-colored flex w-full justify-between'
+            />
+            <SubmenuWrapper>
+              <NavItemLink
+                href='/solutions/it-security/next-gen-security-platforms'
+                title='Deutsch'
+              />
+              <NavItemLink
+                href='/solutions/it-security/next-gen-security-platforms'
+                title='Englisch'
+              />
+            </SubmenuWrapper>
+          </LanguageSubmenu>
+        </NavItem>
+
+        <NavItem
+          title='Über Uns'
+          ariaControls='secondlevel-uber-uns'
+          id='secondlevel-button'
+          bold={false}
+        />
+        <li class='1440:hidden'>
+          <ul>
+            <NavItemLink title='Jobs' href='/jobs' />
+            <NavItemLink title='Datenschutz' href='/datenschutz' lightText />
+            <NavItemLink title='Impressum' href='/impressum' lightText />
+            <NavItemLink
+              title='Cookie Policy'
               href='/cookie-policy'
-            >
-              Cookie Policy
-            </a>
-          </li>
-        </ul>
-      </li>
-    </NavItemMobile>
-
-    <script>
-      const handleClick = (id) => {
-        document.querySelector(id).classList.toggle('hidden')
-
-        // if is main menu
-        if (id === '#firstlevel-menu') {
-          // toggle menun icon
-          document.querySelector('#menu-open-icon').classList.toggle('hidden')
-          document.querySelector('#menu-closed-icon').classList.toggle('hidden')
-
-          const menus = document.querySelectorAll(
-            'ul[id^="secondlevel-"], ul[id^="thirdlevel-"], ul[id^="fourthlevel-"]'
-          )
-          menus.forEach((menu) => {
-            // if open, close all open submenus to reset menu
-            if (!menu.classList.contains('hidden')) {
-              menu.classList.add('hidden')
-            }
-          })
-        }
-      }
-
-      const buttons = document.querySelectorAll(
-        '#menu-button, #firstlevel-button, #secondlevel-button, #thirdlevel-button, #fourthlevel-button'
-      )
-      buttons.forEach((button) => {
-        const id = button.getAttribute('aria-controls')
-        button.addEventListener('click', () => {
-          handleClick(`#${id}`)
-        })
-      })
-    </script>
+              lightText
+            />
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class='hidden 1440:block'>
+      <PrimaryButtonOnlyIcon />
+    </li>
   </ul>
 </nav>
+
+<script>
+  const handleMenuButtonClick = () => {
+    document.querySelector('#firstlevel-menu').classList.toggle('hidden')
+    document.querySelector('#nav').classList.toggle('border-t-2')
+    document.querySelector('#menu-open-icon').classList.toggle('hidden')
+    document.querySelector('#menu-closed-icon').classList.toggle('hidden')
+
+    // if open, close all open submenus to reset menu
+    resetMenus()
+  }
+
+  const handleFirstLevelClick = (id, button) => {
+    // If window width is greater than 1440px
+    if (window.innerWidth > 1440) {
+      document.querySelector(id).classList.toggle('hidden')
+      document.querySelector('#header').classList.toggle('fixed')
+      button.classList.toggle('active')
+
+      // first button with id of secondlevel-button TODO: fix
+      document
+        .querySelector(`${id} button#secondlevel-button`)
+        .classList.toggle('activeSecondLevelBtn')
+
+      // also toggle first item of thirdlevel menu
+      if (document.querySelector(id).nextElementSibling) {
+        document.querySelector(id).nextElementSibling.classList.toggle('hidden')
+      }
+
+      // Close all other open menus
+      const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
+      menus.forEach((menu) => {
+        if (`#${menu.id}` !== id) {
+          menu.classList.add('hidden')
+          if (menu.nextElementSibling) {
+            menu.nextElementSibling.classList.add('hidden')
+          }
+        }
+      })
+    } else {
+      // On mobile only toggen menu with given id
+      document.querySelector(id).classList.toggle('hidden')
+    }
+  }
+
+  const handleSecondLevelClick = (id) => {
+    if (window.innerWidth > 1440) {
+      if (document.querySelector(id).classList.contains('hidden')) {
+        document.querySelector(id).classList.add('block')
+      }
+    } else {
+      document.querySelector(id).classList.toggle('hidden')
+    }
+  }
+
+  const handleClick = (id) => {
+    document.querySelector(id).classList.toggle('hidden')
+  }
+
+  const resetMenus = () => {
+    const menus = document.querySelectorAll(
+      'ul[id^="secondlevel-"], ul[id^="thirdlevel-"], ul[id^="fourthlevel-"]'
+    )
+    menus.forEach((menu) => {
+      menu.classList.add('hidden')
+    })
+  }
+
+  const menuButton = document.querySelector('#menu-button')
+  menuButton.addEventListener('click', handleMenuButtonClick)
+
+  const secondLevelButtons = document.querySelectorAll('#secondlevel-button')
+  secondLevelButtons.forEach((button) => {
+    const id = button.getAttribute('aria-controls')
+    button.addEventListener('click', () => {
+      handleSecondLevelClick(`#${id}`)
+    })
+  })
+  const firstlevelButtons = document.querySelectorAll('#firstlevel-button')
+  firstlevelButtons.forEach((button) => {
+    const id = button.getAttribute('aria-controls')
+    button.addEventListener('click', () => {
+      handleFirstLevelClick(`#${id}`, button)
+    })
+  })
+
+  const buttons = document.querySelectorAll(
+    '#thirdlevel-button, #fourthlevel-button'
+  )
+  buttons.forEach((button) => {
+    const id = button.getAttribute('aria-controls')
+    button.addEventListener('click', () => {
+      handleClick(`#${id}`)
+    })
+  })
+</script>

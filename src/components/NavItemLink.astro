@@ -1,8 +1,8 @@
 ---
-const { href, title } = Astro.props
+const { href, title, lightText = false } = Astro.props
 ---
 
-<li class='mb-4 px-4 py-2 font-normal'>
+<li class={`mb-4 px-4 py-2 font-normal ${lightText ? 'text-black50' : ''}`}>
   <a
     class='text-underline text-underline-colored flex w-full justify-between'
     href={href}

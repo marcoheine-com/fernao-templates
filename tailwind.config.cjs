@@ -3,10 +3,10 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     screens: {
-      mobile: '390px',
-      tablet: '1024px',
-      desktopSmall: '1440px',
-      desktop: '1920px',
+      390: '390px',
+      1024: '1024px',
+      1440: '1440px',
+      1920: '1920px',
     },
     extend: {
       backgroundImage: {

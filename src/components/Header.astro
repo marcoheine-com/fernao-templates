@@ -1,10 +1,27 @@
 ---
 import LogoBase from './LogoBase.astro'
 import Navigation from './Navigation.astro'
+import ClosedMenuIcon from './ClosedMenuIcon.html'
+import OpenMenuIcon from './OpenMenuIcon.html'
 ---
 
-<header class='py-4 px-5 flex justify-between relative'>
-  <LogoBase />
+<header
+  class='flex flex-col w-full 1440:flex-row 1440:py-4 1440:px-5 bg-fernaoBGWhite 1440:items-center'
+  id='header'
+>
+  <div class='py-4 px-5 flex justify-between 1440:p-0 1440:block 1440:mr-9'>
+    <LogoBase />
+    <button
+      type='button'
+      aria-expanded='true'
+      aria-controls='firstlevel-menu'
+      id='menu-button'
+      class='1440:hidden'
+    >
+      <ClosedMenuIcon />
+      <OpenMenuIcon />
+    </button>
+  </div>
 
   <Navigation />
 </header>

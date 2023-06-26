@@ -10,7 +10,11 @@ interface Props {
 const { ariaControls, id, title, bold = true } = Astro.props
 ---
 
-<li class={`mb-4 px-4 py-2 ${bold ? 'font-bold' : 'font-normal'}`}>
+<li
+  class={`mb-4 last:mb-0 px-4 py-2 ${
+    bold ? 'font-bold' : 'font-normal'
+  } 1440:py-0 1440:mb-0`}
+>
   <button
     class='flex w-full justify-between gap-2'
     aria-controls={ariaControls}

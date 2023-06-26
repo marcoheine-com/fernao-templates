@@ -1,0 +1,10 @@
+---
+const { id } = Astro.props
+---
+
+<ul
+  id={id}
+  class='left-[50%] z-[3] translate-x-[-50%] top-0 absolute h-screen w-full max-w-[394px] mx-auto bg-fernaoBGWhite 1440:max-w-none px-9 pt-8 hidden 1440:col-start-2 1440:relative 1440:top-0 1440:border-t-2 1440:border-fernaoGreen'
+>
+  <slot />
+</ul>

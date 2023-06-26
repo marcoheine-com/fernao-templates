@@ -61,4 +61,12 @@
   .menu-icon:active > g > path {
     @apply fill-fernaoDarkGreen;
   }
+
+  .active > svg {
+    @apply rotate-90;
+  }
+
+  .activeSecondLevelBtn {
+    @apply border-b-[1px] border-b-fernaoGreen;
+  }
 }
