@@ -29,14 +29,14 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
     >
       <!-- Own component -->
       <section
-        class='1440:grid 1440:grid-cols-[auto_1fr] 1440:fixed 1440:left-0 1440:top-20 1440:w-full'
+        class='1440:grid 1440:grid-cols-[auto_1fr] 1440:grid-rows-[1fr_50px] 1440:h-[calc(100vh-84px)] 1440:fixed 1440:left-0 1440:top-20 1440:w-full'
       >
         {/* Second Level Solutions */}
         <SecondLevelMenu id='secondlevel-solutions'>
           <NavItemBacklink
             ariaControls='secondlevel-solutions'
             title='Solutions'
-            id='secondlevel-button'
+            id='secondlevel-button-back'
           />
           <SecondLevelMenuWrapper>
             <SecondLevelNavItem
@@ -60,7 +60,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
           <NavItemBacklink
             ariaControls='thirdlevel-it-security'
             title='IT-Security'
-            id='secondlevel-button'
+            id='secondlevel-button-back'
           />
           <SubmenuWrapper>
             <NavItemLink
@@ -83,7 +83,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
                 <NavItemBacklink
                   ariaControls='fourthlevel-configuration-audits'
                   title='Configuration Audits'
-                  id='thirdlevel-button'
+                  id='thirdlevel-button-back'
                 />
 
                 <SubmenuWrapper>
@@ -118,6 +118,11 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
             </li>
           </SubmenuWrapper>
         </ThirdLevelMenu>
+        <div
+          class='bg-fernaoBGGrey hidden 1440:col-start-1 1440:col-span-2 1440:row-start-2'
+          id='secondlevel-solutions-footer'
+        >
+        </div>
       </section>
     </FirstLevelNavItem>
 
@@ -135,6 +140,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
           <NavItemBacklink
             ariaControls='secondlevel-consulting'
             title='Consulting'
+            id='secondlevel-button-back'
           />
           <SecondLevelMenuWrapper>
             <NavItemLink href='/consulting/überbegriff' title='Überbegriff' />
@@ -177,7 +183,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
             <NavItemBacklink
               ariaControls='secondlevel-sprache'
               title='Sprache'
-              id='secondlevel-button'
+              id='secondlevel-button-back'
             />
             <SubmenuWrapper>
               <NavItemLink
@@ -230,22 +236,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
   }
 
   const handleFirstLevelClick = (id, button) => {
-    // If window width is greater than 1440px
     if (window.innerWidth > 1440) {
-      document.querySelector(id).classList.toggle('hidden')
-      document.querySelector('#header').classList.toggle('fixed')
-      button.classList.toggle('active')
-
-      // first button with id of secondlevel-button TODO: fix
-      document
-        .querySelector(`${id} button#secondlevel-button`)
-        .classList.toggle('activeSecondLevelBtn')
-
-      // also toggle first item of thirdlevel menu
-      if (document.querySelector(id).nextElementSibling) {
-        document.querySelector(id).nextElementSibling.classList.toggle('hidden')
-      }
-
       // Close all other open menus
       const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
       menus.forEach((menu) => {
@@ -253,11 +244,26 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
           menu.classList.add('hidden')
           if (menu.nextElementSibling) {
             menu.nextElementSibling.classList.add('hidden')
+            // also close fourth level menu if open
           }
         }
       })
+
+      // Toggle menu and first item of thirdlevel menu
+      document.querySelector(id).classList.toggle('hidden')
+      if (document.querySelector(id).nextElementSibling) {
+        document.querySelector(id).nextElementSibling.classList.toggle('hidden')
+      }
+
+      // Side effects
+      document.querySelector('#header').classList.toggle('fixed')
+      button.classList.toggle('activeFirstLevelBtn')
+      document
+        .querySelector(`${id} button#secondlevel-button > span`)
+        .classList.add('activeSecondLevelBtn')
+      document.querySelector(`${id}-footer`).classList.toggle('hidden')
     } else {
-      // On mobile only toggen menu with given id
+      // On mobile only toggle menu with given id
       document.querySelector(id).classList.toggle('hidden')
     }
   }
@@ -288,7 +294,9 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
   const menuButton = document.querySelector('#menu-button')
   menuButton.addEventListener('click', handleMenuButtonClick)
 
-  const secondLevelButtons = document.querySelectorAll('#secondlevel-button')
+  const secondLevelButtons = document.querySelectorAll(
+    '#secondlevel-button, #secondlevel-button-back'
+  )
   secondLevelButtons.forEach((button) => {
     const id = button.getAttribute('aria-controls')
     button.addEventListener('click', () => {
@@ -304,7 +312,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
   })
 
   const buttons = document.querySelectorAll(
-    '#thirdlevel-button, #fourthlevel-button'
+    '#thirdlevel-button, #thirdlevel-button-back, #fourthlevel-button'
   )
   buttons.forEach((button) => {
     const id = button.getAttribute('aria-controls')
