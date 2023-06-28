@@ -14,12 +14,14 @@ import SecondLevelMenuWrapper from './SecondLevelMenuWrapper.astro'
 import PrimaryButtonOnlyIcon from './PrimaryButtonOnlyIcon.astro'
 import FirstLevelNavItem from './FirstLevelNavItem.astro'
 import SecondLevelNavItem from './SecondLevelNavItem.astro'
+import DesktopGrid from './DesktopGrid.astro'
+import navigationData from '../data/navigationData.json'
 ---
 
 <nav class='border-fernaoGreen 1440:w-full' id='nav'>
   {/* First Level */}
   <ul
-    class='h-screen w-full z-[1] hidden bg-fernaoBGWhite px-9 pt-8 1440:p-0 max-w-[394px] mx-auto 1440:flex 1440:mx-0 1440:top-0 relative 1440:h-auto 1440:items-center 1440:max-w-none'
+    class='z-[1] mx-auto hidden h-screen w-full max-w-[394px] bg-fernaoBGWhite px-9 pt-8 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:items-center 1440:p-0'
     id='firstlevel-menu'
   >
     <FirstLevelNavItem
@@ -27,34 +29,121 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
       id='firstlevel-button'
       title='Solutions'
     >
-      <!-- Own component -->
-      <section
-        class='1440:grid 1440:grid-cols-[auto_1fr] 1440:grid-rows-[1fr_50px] 1440:h-[calc(100vh-84px)] 1440:fixed 1440:left-0 1440:top-20 1440:w-full'
-      >
-        {/* Second Level Solutions */}
-        <SecondLevelMenu id='secondlevel-solutions'>
+      {/* Second Level Solutions */}
+      <SecondLevelMenu id='secondlevel-solutions'>
+        <NavItemBacklink
+          ariaControls='secondlevel-solutions'
+          title='Solutions'
+          id='secondlevel-button-back'
+        />
+        <SecondLevelMenuWrapper>
+          <SecondLevelNavItem
+            ariaControls='thirdlevel-it-security'
+            id='secondlevel-button'
+            title='IT-Security'
+            bold={false}
+          >
+            {/* Third Level SOlutions */}
+
+            <ThirdLevelMenu id='thirdlevel-it-security'>
+              <BreadCrumb title='Solutions >' />
+              <NavItemBacklink
+                ariaControls='thirdlevel-it-security'
+                title='IT-Security'
+                id='secondlevel-button-back'
+              />
+              <SubmenuWrapper>
+                <NavItemLink
+                  href='/solutions/it-security/next-gen-security-platforms'
+                  title='Next Gen Security Platforms'
+                />
+                <NavItemLink
+                  href='/solutions/it-security/next-gen-endpoint-security'
+                  title='Next Gen Endpoint Security'
+                />
+                <NavItem
+                  ariaControls='fourthlevel-configuration-audits'
+                  id='thirdlevel-button'
+                  title='Configuration Audits'
+                  bold={false}
+                >
+                  {/* Fourth Level Solutions */}
+                  <FourthLevelMenu id='fourthlevel-configuration-audits'>
+                    <BreadCrumb title='Solutions > IT-Security >' />
+                    <NavItemBacklink
+                      ariaControls='fourthlevel-configuration-audits'
+                      title='Configuration Audits'
+                      id='thirdlevel-button-back'
+                    />
+
+                    <SubmenuWrapper>
+                      <NavItemLink
+                        href='/solutions/it-security/next-gen-security-platforms'
+                        title='Betriebssysteme'
+                      />
+                      <NavItemLink
+                        href='/solutions/it-security/next-gen-security-platforms'
+                        title='Webkomponenten'
+                      />
+                      {/* Nav Item mobile link */}
+                      <li class='px-4'>
+                        <a
+                          href='/solutions/it-security/configuration-audtis'
+                          class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
+                        >
+                          Configuration Audits Overview
+                        </a>
+                      </li>
+                    </SubmenuWrapper>
+                  </FourthLevelMenu>
+                </NavItem>
+                <!-- Needs to be in own component -->
+                <li class='px-4 1440:col-start-3 1440:row-start-2'>
+                  <a
+                    href='/it-security'
+                    class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
+                  >
+                    IT-Security Overview
+                  </a>
+                </li>
+              </SubmenuWrapper>
+            </ThirdLevelMenu>
+          </SecondLevelNavItem>
+          <SecondLevelNavItem
+            ariaControls='thirdlevel-data-analytics'
+            id='secondlevel-button'
+            title='Data Analytics'
+            bold={false}
+          />
+        </SecondLevelMenuWrapper>
+      </SecondLevelMenu>
+    </FirstLevelNavItem>
+
+    <FirstLevelNavItem
+      title='Consulting'
+      ariaControls='secondlevel-consulting'
+      id='firstlevel-button'
+    >
+      <DesktopGrid id='secondlevel-consulting-section'>
+        <!-- Second Level Consulting -->
+        <SecondLevelMenu id='secondlevel-consulting'>
           <NavItemBacklink
-            ariaControls='secondlevel-solutions'
-            title='Solutions'
+            ariaControls='secondlevel-consulting'
+            title='Consulting'
             id='secondlevel-button-back'
           />
           <SecondLevelMenuWrapper>
             <SecondLevelNavItem
-              ariaControls='thirdlevel-it-security'
+              title='Überbegriff'
               id='secondlevel-button'
-              title='IT-Security'
-              bold={false}
+              ariaControls='thirdlevel-uberbegriff'
             />
-            <SecondLevelNavItem
-              ariaControls='thirdlevel-data-analytics'
-              id='secondlevel-button'
-              title='Data Analytics'
-              bold={false}
+            <NavItemLink
+              href='/consulting/business-resiliance'
+              title='Business Resilience'
             />
           </SecondLevelMenuWrapper>
         </SecondLevelMenu>
-
-        {/* Third Level SOlutions */}
         <ThirdLevelMenu id='thirdlevel-it-security'>
           <BreadCrumb title='Solutions >' />
           <NavItemBacklink
@@ -74,7 +163,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
             <NavItem
               ariaControls='fourthlevel-configuration-audits'
               id='thirdlevel-button'
-              title='Configuration Audits'
+              title='Configuration Auditsssssssssss'
               bold={false}
             >
               {/* Fourth Level */}
@@ -108,7 +197,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
               </FourthLevelMenu>
             </NavItem>
             <!-- Needs to be in own component -->
-            <li class='px-4'>
+            <li class='px-4 1440:col-start-3 1440:row-start-2'>
               <a
                 href='/it-security'
                 class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
@@ -118,39 +207,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
             </li>
           </SubmenuWrapper>
         </ThirdLevelMenu>
-        <div
-          class='bg-fernaoBGGrey hidden 1440:col-start-1 1440:col-span-2 1440:row-start-2'
-          id='secondlevel-solutions-footer'
-        >
-        </div>
-      </section>
-    </FirstLevelNavItem>
-
-    <FirstLevelNavItem
-      title='Consulting'
-      ariaControls='secondlevel-consulting'
-      id='firstlevel-button'
-    >
-      <!-- Own Component -->
-      <section
-        class='1440:grid 1440:grid-cols-[auto_1fr] 1440:fixed 1440:left-0 1440:top-20 1440:w-full'
-      >
-        <!-- Second Level Consulting -->
-        <SecondLevelMenu id='secondlevel-consulting'>
-          <NavItemBacklink
-            ariaControls='secondlevel-consulting'
-            title='Consulting'
-            id='secondlevel-button-back'
-          />
-          <SecondLevelMenuWrapper>
-            <NavItemLink href='/consulting/überbegriff' title='Überbegriff' />
-            <NavItemLink
-              href='/consulting/business-resiliance'
-              title='Business Resilience'
-            />
-          </SecondLevelMenuWrapper>
-        </SecondLevelMenu>
-      </section>
+      </DesktopGrid>
     </FirstLevelNavItem>
     <FirstLevelNavItem
       title='Service'
@@ -172,7 +229,7 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
     </li>
 
     <li class='1440:ml-auto'>
-      <ul class='mt-4 1440:flex 1440:mt-0 1440:w-full 1440:items-center'>
+      <ul class='mt-4 1440:mt-0 1440:flex 1440:w-full 1440:items-center'>
         <NavItem
           title='Sprache'
           ariaControls='secondlevel-sprache'
@@ -225,6 +282,9 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
 </nav>
 
 <script>
+  const NavigationItems = {
+    SOLUTIONS: 'solutions',
+  }
   const handleMenuButtonClick = () => {
     document.querySelector('#firstlevel-menu').classList.toggle('hidden')
     document.querySelector('#nav').classList.toggle('border-t-2')
@@ -235,10 +295,82 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
     resetMenus()
   }
 
+  // const handleFirstLevelClick = (id, button) => {
+  //   console.log(button)
+  //   if (window.innerWidth > 1440) {
+  //     if (button.classList.contains('activeFirstLevelBtn')) {
+  //       // move logic in here
+  //       console.log('clicked twice')
+  //     } else {
+  //       console.log('clicked once')
+  //     }
+  //     // Reset all open elements
+  //     const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
+  //     menus.forEach((menu) => {
+  //       if (`#${menu.id}` !== id) {
+  //         menu.classList.add('hidden')
+  //         if (menu.nextElementSibling) {
+  //           menu.nextElementSibling.classList.add('hidden')
+  //           // also close fourth level menu if open
+  //         }
+  //       }
+  //     })
+
+  //     // Reset active states
+  //     const buttons = document.querySelectorAll('button[id^="firstlevel-"]')
+  //     buttons.forEach((button) => {
+  //       if (`#${button.id}` !== id) {
+  //         button.classList.remove('activeFirstLevelBtn')
+  //       }
+  //     })
+  //     // select all sections with the id ending with -section
+  //     const sections = document.querySelectorAll('section[id$="-section"]')
+  //     sections.forEach((section) => {
+  //       if (`#${section.id}` !== `${id}-section`) {
+  //         section.classList.remove('grid')
+  //         section.classList.remove('h-[calc(100vh-84px)]')
+  //       }
+  //     })
+
+  //     // Toggle section
+  //     document.querySelector(`${id}-section`).classList.toggle('grid')
+  //     document
+  //       .querySelector(`${id}-section`)
+  //       .classList.toggle('h-[calc(100vh-84px)]')
+  //     // Toggle menu and first item of thirdlevel menu
+  //     document.querySelector(id).classList.toggle('hidden')
+  //     if (document.querySelector(id).nextElementSibling) {
+  //       document.querySelector(id).nextElementSibling.classList.toggle('hidden')
+  //     }
+
+  //     // Side effects
+  //     document.querySelector('#header').classList.toggle('fixed')
+  //     button.classList.toggle('activeFirstLevelBtn')
+  //     document
+  //       .querySelector(`${id} button#secondlevel-button > span`)
+  //       .classList.add('activeSecondLevelBtn')
+  //     document.querySelector(`${id}-footer`).classList.toggle('hidden')
+  //   } else {
+  //     // On mobile only toggle menu with given id
+  //     document.querySelector(id).classList.toggle('hidden')
+  //   }
+  // }
+
   const handleFirstLevelClick = (id, button) => {
-    if (window.innerWidth > 1440) {
-      // Close all other open menus
+    const isDesktop = window.innerWidth > 1440
+
+    if (isDesktop) {
+      const isActiveFirstLevelBtnActive = button.classList.contains(
+        'activeFirstLevelBtn'
+      )
+      const isActiveSecondLevelBtnActive = document
+        .querySelector(`${id} button#secondlevel-button > span`)
+        .classList.contains('activeSecondLevelBtn')
       const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
+      const buttons = document.querySelectorAll('button[id^="firstlevel-"]')
+      const header = document.querySelector('#header')
+
+      // Reset other open menus
       menus.forEach((menu) => {
         if (`#${menu.id}` !== id) {
           menu.classList.add('hidden')
@@ -249,22 +381,48 @@ import SecondLevelNavItem from './SecondLevelNavItem.astro'
         }
       })
 
-      // Toggle menu and first item of thirdlevel menu
-      document.querySelector(id).classList.toggle('hidden')
-      if (document.querySelector(id).nextElementSibling) {
-        document.querySelector(id).nextElementSibling.classList.toggle('hidden')
+      // Reset other active states
+      buttons.forEach((btn) => {
+        if (`#${btn.id}` !== id) {
+          btn.classList.remove('activeFirstLevelBtn')
+        }
+      })
+
+      // Toggle second-level menu and first item of third-level menu
+      // const targetMenu = document.querySelector(id)
+      // targetMenu.classList.toggle('hidden')
+      // if (targetMenu.nextElementSibling) {
+      //   targetMenu.nextElementSibling.classList.toggle('hidden')
+      // }
+
+      // Toggle active class on button
+      button.classList.toggle('activeFirstLevelBtn')
+
+      // Toggle active class on second-level button
+      // const targetSecondLevelBtn = document.querySelector(
+      //   `${id} button#secondlevel-button > span`
+      // )
+      // targetSecondLevelBtn.classList.toggle('activeSecondLevelBtn')
+
+      // Toggle hidden class on grid footer
+      const targetFooter = document.querySelector(`${id}-footer`)
+      targetFooter.classList.toggle('hidden')
+
+      // Toggle fixed class on header
+      header.classList.toggle('fixed')
+
+      // Side effects for clicked twice
+      if (isActiveFirstLevelBtnActive) {
+        button.classList.remove('activeFirstLevelBtn')
       }
 
-      // Side effects
-      document.querySelector('#header').classList.toggle('fixed')
-      button.classList.toggle('activeFirstLevelBtn')
-      document
-        .querySelector(`${id} button#secondlevel-button > span`)
-        .classList.add('activeSecondLevelBtn')
-      document.querySelector(`${id}-footer`).classList.toggle('hidden')
+      // if (isActiveSecondLevelBtnActive) {
+      //   targetSecondLevelBtn.classList.remove('activeSecondLevelBtn')
+      // }
     } else {
-      // On mobile only toggle menu with given id
-      document.querySelector(id).classList.toggle('hidden')
+      // On mobile, toggle menu with given id
+      const targetMenu = document.querySelector(id)
+      targetMenu.classList.toggle('hidden')
     }
   }
 

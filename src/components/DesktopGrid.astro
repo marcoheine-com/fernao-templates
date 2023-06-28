@@ -1,0 +1,15 @@
+---
+const { id } = Astro.props
+---
+
+<section
+  class='1440:fixed 1440:left-0 1440:top-20 1440:w-full 1440:grid-cols-[auto_1fr] 1440:grid-rows-[1fr_50px]'
+  id={id}
+>
+  <slot />
+  <div
+    class='hidden bg-fernaoBGGrey 1440:absolute 1440:block'
+    id='secondlevel-solutions-footer'
+  >
+  </div>
+</section>

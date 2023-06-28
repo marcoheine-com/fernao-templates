@@ -66,6 +66,21 @@
     @apply border-b-[1px] border-b-fernaoGreen;
   }
 
+  .activeFirstLevelBtn + ul[id^='secondlevel-'],
+  .activeFirstLevelBtn + ul[id^='secondlevel-'] > * ul[id^='thirdlevel-'],
+  .activeFirstLevelBtn + ul[id^='secondlevel-'] > * div[id^='-menufooter-'] {
+    @apply block;
+  }
+
+  .activeFirstLevelBtn
+    + ul[id^='secondlevel-']
+    > li:nth-child(1)
+    > *
+    button#secondlevel-button
+    > span {
+    @apply border-b-[1px] border-b-fernaoGreen;
+  }
+
   .activeFirstLevelBtn:hover > span,
   .activeSecondLevelBtn:hover > span {
     background-size: 0;

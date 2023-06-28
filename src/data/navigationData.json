@@ -1,0 +1,153 @@
+{
+  "items": [
+    {
+      "title": "Solutions",
+      "id": "solutions",
+      "ariaControls": "secondlevel-solutions",
+      "items": [
+        {
+          "title": "IT Security",
+          "ariaControls": "thirdlevel-it-security",
+          "items": [
+            {
+              "title": "Next Gen Security Platforms",
+              "text": "This is an example teaser text for Next Gen Security Platforms - This paragraph shows an example of how a very long text would look if there were no character limits or similar restrictions on the maintenance of the teaser text for the respective navigation point and a very long section was then output in the flyout. Currently, approx. 524 characters are displayed, but this part can grow outside the defined content column so that the flyout must also be rung on this breakpoint in order to reach other navigation points."
+            },
+            {
+              "title": "Next Gen Endpdoint Security",
+              "text": "This is an example teaser text for Next Gen Endpoint Security"
+            },
+            {
+              "title": "Web Application FireWalls (WAF) & DDOS",
+              "text": "This is an example teaser text for Web Application FireWalls (WAF) & DDOS"
+            },
+            {
+              "parent": "it-security",
+              "title": "Configuration Audtissssss",
+              "ariaControls": "fourthlevel-configuration-audits",
+              "text": "This is an example teaser text for Configuration Audits",
+              "items": [
+                {
+                  "title": "Betriebssysteme",
+                  "id": "betriebssysteme",
+                  "text": "This is an example teaser text for Betriebssysteme"
+                },
+                {
+                  "title": "Webkomponenten",
+                  "id": "webkomponenten",
+                  "text": "This is an example teaser text for Webkomponenten"
+                },
+                {
+                  "title": "NetzwerkKomponenten",
+                  "id": "netzwerkkomponenten",
+                  "text": "This is an example teaser text for NetzwerkKomponenten"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Data Analytics",
+          "id": "data-analytics",
+          "items": [
+            {
+              "title": "Business Analytics",
+              "id": "business-analytics",
+              "text": "This is an example teaser text for Business Analytics"
+            },
+            {
+              "title": "Operational Intelligence",
+              "id": "operational-intelligence",
+              "text": "This is an example teaser text for Operational Intelligence"
+            },
+            {
+              "title": "DevOps & Mobile Apps",
+              "id": "devops-mobile-apps",
+              "text": "This is an example teaser text for DevOps & Mobile Apps"
+            }
+          ]
+        },
+        {
+          "title": "Gebäudesicherheit",
+          "id": "gebaeudesicherheit",
+          "items": [
+            {
+              "title": "Videoüberwachungssysteme",
+              "id": "videoueberwachungssysteme",
+              "text": "This is an example teaser text for Videoüberwachungssysteme"
+            },
+            {
+              "title": "Zutrittskontrollsysteme",
+              "id": "zutrittskontrollsysteme",
+              "text": "This is an example teaser text for Zutrittskontrollsysteme"
+            },
+            {
+              "title": "Einbruchmeldeanlagen",
+              "id": "einbruchmeldeanlagen",
+              "text": "This is an example teaser text for Einbruchmeldeanlagen"
+            },
+            {
+              "title": "Drohnenabwehr",
+              "id": "drohnenabwehr",
+              "text": "This is an example teaser text for Drohnenabwehr"
+            },
+            {
+              "title": "Brandmeldeanlagen",
+              "id": "brandmeldeanlagen",
+              "text": "This is an example teaser text for Brandmeldeanlagen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Consulting",
+      "id": "consulting",
+      "ariaControls": "secondlevel-consulting",
+      "items": [
+        {
+          "title": "Überbegriff",
+          "id": "ueberbegriff",
+          "ariaControls": "thirdlevel-ueberbegriff",
+          "items": [
+            {
+              "title": "Information Security Management",
+              "id": "information-security-management",
+              "text": "This is an example teaser text for Information Security Management"
+            },
+            {
+              "title": "Data Protection Managemenet",
+              "id": "data-protection-management",
+              "text": "This is an example teaser text for Data Protection Managemenet"
+            },
+            {
+              "title": "Interne Audits & GAP-Analysen",
+              "id": "interne-audits-gap-analysen",
+              "text": "This is an example teaser text for Interne Audits & GAP-Analysen"
+            },
+            {
+              "title": "Themenbezogene Workshops",
+              "id": "themenbezogene-workshops",
+              "text": "This is an example teaser text for Themenbezogene Workshops"
+            }
+          ]
+        },
+        {
+          "title": "Business Resilience",
+          "id": "business-resilience",
+          "items": [
+            {
+              "title": "Business Continuity Management",
+              "id": "business-continuity-management",
+              "text": "This is an example teaser text for Business Continuity Management"
+            }
+          ]
+        },
+        {
+          "title": "SAP Consulting",
+          "id": "sap-consulting"
+        }
+      ]
+    }
+  ]
+}
