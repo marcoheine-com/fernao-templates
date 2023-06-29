@@ -7,39 +7,48 @@
       "items": [
         {
           "title": "IT Security",
-          "ariaControls": "thirdlevel-it-security",
+          "id": "it-security",
+          "href": "/solutions/it-security",
+          "parentTitle": "Solutions",
           "items": [
             {
               "title": "Next Gen Security Platforms",
-              "text": "This is an example teaser text for Next Gen Security Platforms - This paragraph shows an example of how a very long text would look if there were no character limits or similar restrictions on the maintenance of the teaser text for the respective navigation point and a very long section was then output in the flyout. Currently, approx. 524 characters are displayed, but this part can grow outside the defined content column so that the flyout must also be rung on this breakpoint in order to reach other navigation points."
+              "text": "This is an example teaser text for Next Gen Security Platforms - This paragraph shows an example of how a very long text would look if there were no character limits or similar restrictions on the maintenance of the teaser text for the respective navigation point and a very long section was then output in the flyout. Currently, approx. 524 characters are displayed, but this part can grow outside the defined content column so that the flyout must also be rung on this breakpoint in order to reach other navigation points.",
+              "href": "/solutions/it-security/next-gen-security-platforms"
             },
             {
               "title": "Next Gen Endpdoint Security",
-              "text": "This is an example teaser text for Next Gen Endpoint Security"
+              "text": "This is an example teaser text for Next Gen Endpoint Security",
+              "href": "/solutions/it-security/next-gen-endpoint-security"
             },
             {
               "title": "Web Application FireWalls (WAF) & DDOS",
-              "text": "This is an example teaser text for Web Application FireWalls (WAF) & DDOS"
+              "text": "This is an example teaser text for Web Application FireWalls (WAF) & DDOS",
+              "href": "/solutions/it-security/web-application-firewalls-waf-ddos"
             },
             {
-              "parent": "it-security",
-              "title": "Configuration Audtissssss",
-              "ariaControls": "fourthlevel-configuration-audits",
+              "title": "Configuration Audits",
+              "id": "configuration-audits",
+              "href": "/solutions/it-security/configuration-audits",
               "text": "This is an example teaser text for Configuration Audits",
+              "parentTitle": "IT Security",
               "items": [
                 {
                   "title": "Betriebssysteme",
                   "id": "betriebssysteme",
+                  "href": "/solutions/it-security/configuration-audits/betriebssysteme",
                   "text": "This is an example teaser text for Betriebssysteme"
                 },
                 {
                   "title": "Webkomponenten",
                   "id": "webkomponenten",
+                  "href": "/solutions/it-security/configuration-audits/webkomponenten",
                   "text": "This is an example teaser text for Webkomponenten"
                 },
                 {
                   "title": "NetzwerkKomponenten",
                   "id": "netzwerkkomponenten",
+                  "href": "/solutions/it-security/configuration-audits/netzwerkkomponenten",
                   "text": "This is an example teaser text for NetzwerkKomponenten"
                 }
               ]
@@ -108,7 +117,6 @@
         {
           "title": "Überbegriff",
           "id": "ueberbegriff",
-          "ariaControls": "thirdlevel-ueberbegriff",
           "items": [
             {
               "title": "Information Security Management",

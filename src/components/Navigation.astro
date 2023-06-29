@@ -9,13 +9,17 @@ import LanguageSubmenu from './LanguageSubmenu.astro'
 import SubmenuWrapper from './SubmenuWrapper.astro'
 import SecondLevelMenu from './SecondLevelMenu.astro'
 import ThirdLevelMenu from './ThirdLevelMenu.astro'
+import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
 import FourthLevelMenu from './FourthLevelMenu.astro'
 import SecondLevelMenuWrapper from './SecondLevelMenuWrapper.astro'
 import PrimaryButtonOnlyIcon from './PrimaryButtonOnlyIcon.astro'
 import FirstLevelNavItem from './FirstLevelNavItem.astro'
 import SecondLevelNavItem from './SecondLevelNavItem.astro'
 import DesktopGrid from './DesktopGrid.astro'
+// @ts-ignore
 import navigationData from '../data/navigationData.json'
+import PageLink from './PageLink.astro'
+import FourthLevelBackButton from './FourthLevelBackButton.astro'
 ---
 
 <nav class='border-fernaoGreen 1440:w-full' id='nav'>
@@ -24,6 +28,99 @@ import navigationData from '../data/navigationData.json'
     class='z-[1] mx-auto hidden h-screen w-full max-w-[394px] bg-fernaoBGWhite px-9 pt-8 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:items-center 1440:p-0'
     id='firstlevel-menu'
   >
+    {
+      navigationData.items.map((item) => {
+        return (
+          <FirstLevelNavItem
+            ariaControls={item.ariaControls}
+            id='firstlevel-button'
+            title={item.title}
+          >
+            {/*### Second Level */}
+            <SecondLevelMenu id={`secondlevel-${item.id}`}>
+              <NavItemBacklink
+                ariaControls={item.ariaControls}
+                title={item.title}
+                id='firstlevel-button'
+              />
+              <SecondLevelMenuWrapper>
+                {item.items.map((item) => {
+                  return (
+                    <SecondLevelNavItem
+                      ariaControls={`thirdlevel-${item.id}`}
+                      id='secondlevel-button'
+                      title={item.title}
+                      bold={item.bold}
+                    >
+                      {/* Third Level */}
+                      <ThirdLevelMenu id={`thirdlevel-${item.id}`}>
+                        <BreadCrumb title={`${item.parentTitle} > `} />
+                        <NavItemBacklink
+                          ariaControls={`thirdlevel-${item.id}`}
+                          title={item.title}
+                          id='secondlevel-button'
+                        />
+                        <SubmenuWrapper>
+                          {item.items?.map((item) => {
+                            const hasFourthLevel = item.items?.length > 0
+                            return hasFourthLevel ? (
+                              <ThirdLevelNavItem
+                                ariaControls={`fourthlevel-${item.id}`}
+                                id='thirdlevel-button'
+                                title={item.title}
+                                bold={false}
+                                text={item.text}
+                              >
+                                {/* Fourth Level */}
+                                <FourthLevelMenu id={`fourthlevel-${item.id}`}>
+                                  <BreadCrumb
+                                    title={`${item.parentTitle} > `}
+                                  />
+                                  <FourthLevelBackButton
+                                    ariaControls={`fourthlevel-${item.id}`}
+                                    title={item.title}
+                                    id='thirdlevel-button'
+                                    parentTitle={item.parentTitle}
+                                  />
+                                  <SubmenuWrapper>
+                                    {item.items?.map((item) => {
+                                      return (
+                                        <NavItemLink
+                                          href={item.href}
+                                          title={item.title}
+                                        />
+                                      )
+                                    })}
+
+                                    <PageLink href={item.href}>
+                                      {item.title}
+                                    </PageLink>
+                                  </SubmenuWrapper>
+                                </FourthLevelMenu>
+                              </ThirdLevelNavItem>
+                            ) : (
+                              <NavItemLink
+                                href={item.href}
+                                title={item.title}
+                              />
+                            )
+                          })}
+
+                          <PageLink href={item.href}>{item.title}</PageLink>
+                        </SubmenuWrapper>
+                      </ThirdLevelMenu>
+                    </SecondLevelNavItem>
+                  )
+                })}
+              </SecondLevelMenuWrapper>
+            </SecondLevelMenu>
+          </FirstLevelNavItem>
+        )
+      })
+    }
+
+    <!-- TODO: can be removed, is replaced by above -->
+
     <FirstLevelNavItem
       ariaControls='secondlevel-solutions'
       id='firstlevel-button'
@@ -295,67 +392,6 @@ import navigationData from '../data/navigationData.json'
     resetMenus()
   }
 
-  // const handleFirstLevelClick = (id, button) => {
-  //   console.log(button)
-  //   if (window.innerWidth > 1440) {
-  //     if (button.classList.contains('activeFirstLevelBtn')) {
-  //       // move logic in here
-  //       console.log('clicked twice')
-  //     } else {
-  //       console.log('clicked once')
-  //     }
-  //     // Reset all open elements
-  //     const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
-  //     menus.forEach((menu) => {
-  //       if (`#${menu.id}` !== id) {
-  //         menu.classList.add('hidden')
-  //         if (menu.nextElementSibling) {
-  //           menu.nextElementSibling.classList.add('hidden')
-  //           // also close fourth level menu if open
-  //         }
-  //       }
-  //     })
-
-  //     // Reset active states
-  //     const buttons = document.querySelectorAll('button[id^="firstlevel-"]')
-  //     buttons.forEach((button) => {
-  //       if (`#${button.id}` !== id) {
-  //         button.classList.remove('activeFirstLevelBtn')
-  //       }
-  //     })
-  //     // select all sections with the id ending with -section
-  //     const sections = document.querySelectorAll('section[id$="-section"]')
-  //     sections.forEach((section) => {
-  //       if (`#${section.id}` !== `${id}-section`) {
-  //         section.classList.remove('grid')
-  //         section.classList.remove('h-[calc(100vh-84px)]')
-  //       }
-  //     })
-
-  //     // Toggle section
-  //     document.querySelector(`${id}-section`).classList.toggle('grid')
-  //     document
-  //       .querySelector(`${id}-section`)
-  //       .classList.toggle('h-[calc(100vh-84px)]')
-  //     // Toggle menu and first item of thirdlevel menu
-  //     document.querySelector(id).classList.toggle('hidden')
-  //     if (document.querySelector(id).nextElementSibling) {
-  //       document.querySelector(id).nextElementSibling.classList.toggle('hidden')
-  //     }
-
-  //     // Side effects
-  //     document.querySelector('#header').classList.toggle('fixed')
-  //     button.classList.toggle('activeFirstLevelBtn')
-  //     document
-  //       .querySelector(`${id} button#secondlevel-button > span`)
-  //       .classList.add('activeSecondLevelBtn')
-  //     document.querySelector(`${id}-footer`).classList.toggle('hidden')
-  //   } else {
-  //     // On mobile only toggle menu with given id
-  //     document.querySelector(id).classList.toggle('hidden')
-  //   }
-  // }
-
   const handleFirstLevelClick = (id, button) => {
     const isDesktop = window.innerWidth > 1440
 
@@ -363,12 +399,12 @@ import navigationData from '../data/navigationData.json'
       const isActiveFirstLevelBtnActive = button.classList.contains(
         'activeFirstLevelBtn'
       )
-      const isActiveSecondLevelBtnActive = document
-        .querySelector(`${id} button#secondlevel-button > span`)
-        .classList.contains('activeSecondLevelBtn')
       const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
       const buttons = document.querySelectorAll('button[id^="firstlevel-"]')
-      const header = document.querySelector('#header')
+      const secondLevelButtons = document.querySelectorAll(
+        'button[id^="secondlevel-"]'
+      )
+      const firstSecondLevelButton = secondLevelButtons[0]
 
       // Reset other open menus
       menus.forEach((menu) => {
@@ -376,7 +412,6 @@ import navigationData from '../data/navigationData.json'
           menu.classList.add('hidden')
           if (menu.nextElementSibling) {
             menu.nextElementSibling.classList.add('hidden')
-            // also close fourth level menu if open
           }
         }
       })
@@ -388,37 +423,38 @@ import navigationData from '../data/navigationData.json'
         }
       })
 
-      // Toggle second-level menu and first item of third-level menu
-      // const targetMenu = document.querySelector(id)
-      // targetMenu.classList.toggle('hidden')
-      // if (targetMenu.nextElementSibling) {
-      //   targetMenu.nextElementSibling.classList.toggle('hidden')
-      // }
-
       // Toggle active class on button
       button.classList.toggle('activeFirstLevelBtn')
-
-      // Toggle active class on second-level button
-      // const targetSecondLevelBtn = document.querySelector(
-      //   `${id} button#secondlevel-button > span`
-      // )
-      // targetSecondLevelBtn.classList.toggle('activeSecondLevelBtn')
-
-      // Toggle hidden class on grid footer
-      const targetFooter = document.querySelector(`${id}-footer`)
-      targetFooter.classList.toggle('hidden')
+      // Toggle active class on first second level button
+      firstSecondLevelButton.classList.toggle('activeSecondLevelBtn')
 
       // Toggle fixed class on header
-      header.classList.toggle('fixed')
+      document.querySelector('#header').classList.toggle('fixed')
 
       // Side effects for clicked twice
       if (isActiveFirstLevelBtnActive) {
         button.classList.remove('activeFirstLevelBtn')
-      }
 
-      // if (isActiveSecondLevelBtnActive) {
-      //   targetSecondLevelBtn.classList.remove('activeSecondLevelBtn')
-      // }
+        // Reset other open menus and active states
+        const thirdLevelMenu = document.querySelectorAll(
+          'ul[id^="thirdlevel-"]'
+        )
+        const fourthLevelMenu = document.querySelectorAll(
+          'ul[id^="fourthlevel-"]'
+        )
+        const activeSecondLevelBtn = document.querySelector(
+          'button[id^="secondlevel-"].activeSecondLevelBtn'
+        )
+        thirdLevelMenu.forEach((menu) => {
+          menu.classList.add('hidden')
+        })
+        fourthLevelMenu.forEach((menu) => {
+          menu.classList.add('hidden')
+        })
+        if (activeSecondLevelBtn) {
+          activeSecondLevelBtn.classList.remove('activeSecondLevelBtn')
+        }
+      }
     } else {
       // On mobile, toggle menu with given id
       const targetMenu = document.querySelector(id)
@@ -426,11 +462,30 @@ import navigationData from '../data/navigationData.json'
     }
   }
 
-  const handleSecondLevelClick = (id) => {
+  const handleSecondLevelClick = (id, button) => {
     if (window.innerWidth > 1440) {
-      if (document.querySelector(id).classList.contains('hidden')) {
-        document.querySelector(id).classList.add('block')
-      }
+      // Reset other open menus and active states
+      const menus = document.querySelectorAll('ul[id^="thirdlevel-"]')
+      const buttons = document.querySelectorAll('.activeSecondLevelBtn')
+      menus.forEach((menu) => {
+        if (`#${menu.id}` !== id) {
+          menu.classList.add('hidden')
+          if (menu.nextElementSibling) {
+            menu.nextElementSibling.classList.add('hidden')
+          }
+        }
+      })
+
+      // Reset other active states
+      buttons.forEach((btn) => {
+        if (`#${btn.id}` !== id) {
+          btn.classList.remove('activeSecondLevelBtn')
+        }
+      })
+
+      button.classList.toggle('activeSecondLevelBtn')
+      // Toggle menu
+      document.querySelector(id).classList.toggle('hidden')
     } else {
       document.querySelector(id).classList.toggle('hidden')
     }
@@ -458,7 +513,7 @@ import navigationData from '../data/navigationData.json'
   secondLevelButtons.forEach((button) => {
     const id = button.getAttribute('aria-controls')
     button.addEventListener('click', () => {
-      handleSecondLevelClick(`#${id}`)
+      handleSecondLevelClick(`#${id}`, button)
     })
   })
   const firstlevelButtons = document.querySelectorAll('#firstlevel-button')

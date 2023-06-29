@@ -17,20 +17,6 @@
 }
 
 @layer utilities {
-  .firstlevel-menu {
-    @apply absolute left-0 top-14 h-screen w-full border-t-2 border-t-fernaoGreen bg-fernaoBGWhite px-9 pt-8;
-  }
-
-  .secondlevel-menu,
-  .thirdlevel-menu,
-  .fourthlevel-menu {
-    @apply absolute left-0 top-0 h-screen w-full bg-fernaoBGWhite px-9 pt-8;
-  }
-  .thirdlevel-menu,
-  .fourthlevel-menu {
-    @apply pt-2;
-  }
-
   /* Text Underline styles */
   .text-underline {
     border-bottom-width: 0;
@@ -62,23 +48,20 @@
     @apply fill-fernaoDarkGreen;
   }
 
+  /* Desktop Menu active styles */
   .activeFirstLevelBtn > span {
     @apply border-b-[1px] border-b-fernaoGreen;
   }
 
   .activeFirstLevelBtn + ul[id^='secondlevel-'],
-  .activeFirstLevelBtn + ul[id^='secondlevel-'] > * ul[id^='thirdlevel-'],
-  .activeFirstLevelBtn + ul[id^='secondlevel-'] > * div[id^='-menufooter-'] {
-    @apply block;
-  }
-
   .activeFirstLevelBtn
     + ul[id^='secondlevel-']
-    > li:nth-child(1)
     > *
-    button#secondlevel-button
-    > span {
-    @apply border-b-[1px] border-b-fernaoGreen;
+    ul
+    > li:first-child
+    > ul[id^='thirdlevel-'],
+  .activeFirstLevelBtn + ul[id^='secondlevel-'] > div[id$='-menufooter'] {
+    @apply block;
   }
 
   .activeFirstLevelBtn:hover > span,
@@ -90,7 +73,7 @@
     @apply rotate-90;
   }
 
-  .activeSecondLevelBtn {
+  .activeSecondLevelBtn > span {
     @apply border-b-[1px] border-b-fernaoGreen;
   }
 }

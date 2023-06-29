@@ -1,0 +1,39 @@
+---
+import ArrowRightIcon from './ArrowRightIcon.astro'
+
+interface Props {
+  ariaControls: string
+  id: string
+  title: string
+  bold?: boolean
+  text: string
+}
+const { ariaControls, id, title, bold = true, text } = Astro.props
+---
+
+<li
+  class={`mb-4 last:mb-0 px-4 py-2 ${
+    bold ? 'font-bold' : 'font-normal'
+  } 1440:hover:bg-fernaoGreenA20`}
+>
+  <button
+    class='flex w-full justify-between gap-2 1440:grid 1440:grid-cols-[auto_auto] 1440:grid-rows-[auto_auto]'
+    aria-controls={ariaControls}
+    id={id}
+  >
+    <span
+      class='text-underline text-underline-colored w-full text-start 1440:col-start-1 1440:row-start-1 1440:flex 1440:flex-col 1440:bg-none 1440:font-bold'
+    >
+      {title}
+    </span>
+    <p
+      class='hidden 1440:col-start-1 1440:row-start-2 1440:block 1440:text-start'
+    >
+      {text}
+    </p>
+    <ArrowRightIcon
+      className={'1440:col-start-2 1440:row-span-2 1440:self-center'}
+    />
+  </button>
+  <slot />
+</li>
