@@ -2,24 +2,71 @@
 
 ## Navigation
 
-The [Navigation](./src/components/Navigation.astro) is build to function on mobile and desktop simultaneously.
+The [Navigation](./src/components/Navigation.astro) is build to function on mobile and desktop simultaneously. It is currently generated based on a [dummy CMS response](./src/data/navigationData.json).
+
+It consists of the Main Navigation, sub navigation items and a language switcher, CTA.
+
+### Main Navigation
 
 It has four levels of navigation. Every level consists of:
 
 - the menu itself
   - [SecondLevelMenu](./src/components/SecondLevelMenu.astro), [ThirdLevelMenu](./src/components/ThirdLevelMenu.astro), [FourthLevelMenu](./src/components/FourthLevelMenu.astro)
-- backlinks (on mobile)
-- a wrapper around the nav items
+- a breadcrumb item (only level three and four)
+  - [BreadCrumb](./src/components/BreadCrumb.astro)
+- backlinks
+  - [NavItemBankLink](./src/components/NavItemBankLink.astro)
+  - [FourthLevelBackButton](./src/components/FourthLevelBackButton.astro)
+- a wrapper around the nav items for additional styling and positioning
+  - [SecondLevelMenuWrapper](./src/components/SecondLevelMenuWrapper.astro)
+  - [SubmenuWrapper](./src/components/SubmenuWrapper.astro)
 - the nav items
-  - [FirstLevelNavItem](./src/components/FirstLevelNavItem.astro), [SecondLevelNavItem](./src/components/SecondLevelNavItem.astro), [ThirdLevelNavItem](./src/components/ThirdLevelNavItem.astro), [FourthLevelNavItem](./src/components/FourthLevelNavItem.astro)
-- a breadcrumb item (only three and four)
-
-The [first](./src/components/FirstLevelNavItem.astro) and the [second](./src/components/SecondLevelNavItem.astro) Level are wrapped lists, while the third and fourth level are siblings of the second.
+  - [FirstLevelNavItem](./src/components/FirstLevelNavItem.astro)
+  - [SecondLevelNavItem](./src/components/SecondLevelNavItem.astro)
+  - [ThirdLevelNavItem](./src/components/ThirdLevelNavItem.astro)
+  - [NavItemLink](./src/components/NavItemLink.astro) // TODO: possible not needed
+- a link component for the overview page
+  - [PageLink](./src/components/PageLink.astro)
 
 The functionality is enabled by toggling CSS classes with JavaScript. See the `script` section in [Navigation](./src/components/Navigation.astro) for details.
-
-Every nav item has an `aria-controls` attribute that points to the id of the corresponding list. The JavaScript then toggles the class `hidden` on the list and the nav item.
-
+Every nav item has an `aria-controls` attribute that points to the id of the corresponding, underlying list. This is used to toggle the visibility of the list.
 On desktop, clicking a firstlevel nav item will open the second and the third level at once and also trigger a lot of side effects to add active styles.
 
-TODO:
+### Sub Navigation
+
+## Content Elements
+
+TODO
+
+## Page Templates
+
+TODO
+
+- StandardPage
+- LandingPage
+
+## General Stuff
+
+TODO
+
+### Colors
+
+Defined in the [tailwind.config.js](./tailwind.config.cjs)
+
+### Icons
+
+- Fonts
+
+### General components
+
+- Buttons
+  - [PrimaryButton](./src/components/PrimaryButton.astro)
+  - [PrimaryButtonIcon](./src/components/PrimaryButtonIcon.astro)
+  - [PrimaryButtonIconOnly](./src/components/PrimaryButtonIconOnly.astro)
+  - [SecondaryButton](./src/components/SecondaryButton.astro)
+  - [SecondaryButtonIcon](./src/components/SecondaryButtonIcon.astro)
+  - [SecondaryButtonIconOnly](./src/components/SecondaryButtonIconOnly.astro)
+
+### General styles
+
+- every link has an animated underline, which is applied by using the `text-underline` and `.text-underline-colored` classes, defined under `utilities` in [global.css](./src/styles/global.css)
