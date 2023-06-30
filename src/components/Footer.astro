@@ -1,1 +1,45 @@
-<footer>Footer</footer>
+---
+import footerData from '../data/footerData.json'
+import ArrowRightIcon from './ArrowRightIcon.astro'
+---
+
+<footer class='w-full max-w-[1920px]'>
+  <section
+    class='flex w-full flex-col justify-between gap-2 bg-fernaoBlack px-8 py-24 text-fernaoFontWhite 1024:flex-row'
+  >
+    {
+      footerData.legalItems.map((item) => {
+        return (
+          <section>
+            <h3>{item.headline}</h3>
+            <ul>
+              {item.items?.map((item) => {
+                return (
+                  <a class='flex' href={item.url}>
+                    <ArrowRightIcon fill='white' />
+                    {item.title}
+                  </a>
+                )
+              })}
+            </ul>
+          </section>
+        )
+      })
+    }
+    {
+      footerData.footerItems.map((item) => {
+        return (
+          <section>
+            <h3>{item.headline}</h3>
+            <ul>
+              {item.items?.map((item) => {
+                return <a href={item.url}>{item.title}</a>
+              })}
+            </ul>
+          </section>
+        )
+      })
+    }
+  </section>
+  <section class='flex justify-center bg-fernaoGreen py-6'>Meta</section>
+</footer>

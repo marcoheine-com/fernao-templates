@@ -63,7 +63,7 @@
               ]
             },
             {
-              "title:": "Security & Fraud",
+              "title": "Security & Fraud",
               "text": "This is an example teaser text for Security & Fraud",
               "href": "/solutions/it-security/security-fraud"
             },
@@ -123,6 +123,7 @@
         {
           "title": "Gebäudesicherheit",
           "id": "gebaeudesicherheit",
+          "parentTitle": "Solutions",
           "items": [
             {
               "title": "Videoüberwachungssysteme",

@@ -47,13 +47,15 @@ The functionality is enabled by toggling CSS classes with JavaScript. See the `s
 Every nav item has an `aria-controls` attribute that points to the id of the corresponding, underlying list. This is used to toggle the visibility of the list.
 On desktop, clicking a firstlevel nav item will open the second and the third level at once and also trigger a lot of side effects to add active styles.
 
-### Other Navigation
+### Service Navigation
 
 - [LanguageSubmenu](./src/components/LanguageSubmenu.astro)
 - [LanugageSubmenuWrapper](./src/components/LanguageSubmenuWrapper.astro)
 - [LanguageItem](./src/components/LanguageItem.astro)
 
-- Legal TODO
+### Legal Navigation
+
+TODO
 
 ## Content Elements
 

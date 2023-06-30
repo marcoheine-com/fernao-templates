@@ -1,0 +1,75 @@
+{
+  "legalItems": [
+    {
+      "headline": "Rechtliches",
+      "items": [
+        {
+          "title": "Impressum",
+          "url": "/impressum"
+        },
+        {
+          "title": "Datenschutz",
+          "url": "/datenschutz"
+        },
+        {
+          "title": "Geschäftsbedingungen",
+          "url": "/geschaeftsbedingungen"
+        }
+      ]
+    }
+  ],
+  "footerItems": [
+    {
+      "headline": "Steckbriefe",
+      "items": [
+        {
+          "title": "magellan",
+          "url": "/magellan"
+        },
+        {
+          "title": "BVKontent",
+          "url": "/bvkontent"
+        },
+        {
+          "title": "cosmotel",
+          "url": "/cosmotel"
+        }
+      ]
+    },
+    {
+      "headline": "fernao family",
+      "items": [
+        {
+          "title": "fernao Kanada",
+          "url": "/fernao-kanada"
+        },
+        {
+          "title": "fernao Schweiz",
+          "url": "/fernao-schweiz"
+        },
+        {
+          "title": "fernao China",
+          "url": "/fernao-china"
+        }
+      ]
+    },
+    {
+      "headline": "Together",
+      "items": [
+        {
+          "title": "News-Abo",
+          "url": "/news-abo"
+        },
+        {
+          "title": "Events",
+          "url": "/events"
+        },
+        {
+          "title": "Unsere Partner",
+          "url": "/unsere-partner"
+        }
+      ]
+    }
+  ],
+  "metaItems": [{}]
+}
