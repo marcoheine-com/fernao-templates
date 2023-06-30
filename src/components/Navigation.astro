@@ -15,11 +15,13 @@ import SecondLevelMenuWrapper from './SecondLevelMenuWrapper.astro'
 import PrimaryButtonOnlyIcon from './PrimaryButtonOnlyIcon.astro'
 import FirstLevelNavItem from './FirstLevelNavItem.astro'
 import SecondLevelNavItem from './SecondLevelNavItem.astro'
-import DesktopGrid from './DesktopGrid.astro'
 // @ts-ignore
 import navigationData from '../data/navigationData.json'
-import PageLink from './PageLink.astro'
+import OverviewLink from './OverviewLink.astro'
 import FourthLevelBackButton from './FourthLevelBackButton.astro'
+import SecondLevelNavItemLink from './SecondLevelNavItemLink.astro'
+import LanguageSubmenuWrapper from './LanguageSubmenuWrapper.astro'
+import LanguageItem from './LanguageItem.astro'
 ---
 
 <nav class='border-fernaoGreen 1440:w-full' id='nav'>
@@ -32,25 +34,27 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
       navigationData.items.map((item) => {
         return (
           <FirstLevelNavItem
-            ariaControls={item.ariaControls}
+            ariaControls={`secondlevel-${item.id}`}
             id='firstlevel-button'
             title={item.title}
           >
             {/*### Second Level */}
             <SecondLevelMenu id={`secondlevel-${item.id}`}>
               <NavItemBacklink
-                ariaControls={item.ariaControls}
+                ariaControls={`secondlevel-${item.id}`}
                 title={item.title}
                 id='firstlevel-button'
               />
               <SecondLevelMenuWrapper>
-                {item.items.map((item) => {
-                  return (
+                {item.items?.map((item) => {
+                  const hasThirdLevel = item.items?.length > 0
+
+                  return hasThirdLevel ? (
                     <SecondLevelNavItem
                       ariaControls={`thirdlevel-${item.id}`}
                       id='secondlevel-button'
                       title={item.title}
-                      bold={item.bold}
+                      bold={false}
                     >
                       {/* Third Level */}
                       <ThirdLevelMenu id={`thirdlevel-${item.id}`}>
@@ -63,6 +67,7 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
                         <SubmenuWrapper>
                           {item.items?.map((item) => {
                             const hasFourthLevel = item.items?.length > 0
+
                             return hasFourthLevel ? (
                               <ThirdLevelNavItem
                                 ariaControls={`fourthlevel-${item.id}`}
@@ -88,13 +93,14 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
                                         <NavItemLink
                                           href={item.href}
                                           title={item.title}
+                                          text={item.text}
                                         />
                                       )
                                     })}
 
-                                    <PageLink href={item.href}>
+                                    <OverviewLink href={item.href}>
                                       {item.title}
-                                    </PageLink>
+                                    </OverviewLink>
                                   </SubmenuWrapper>
                                 </FourthLevelMenu>
                               </ThirdLevelNavItem>
@@ -102,14 +108,37 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
                               <NavItemLink
                                 href={item.href}
                                 title={item.title}
+                                text={item.text}
                               />
                             )
                           })}
 
-                          <PageLink href={item.href}>{item.title}</PageLink>
+                          <OverviewLink href={item.href}>
+                            {item.title}
+                          </OverviewLink>
                         </SubmenuWrapper>
                       </ThirdLevelMenu>
                     </SecondLevelNavItem>
+                  ) : (
+                    <SecondLevelNavItemLink href={item.href} title={item.title}>
+                      <ThirdLevelMenu id={`thirdlevel-${item.id}`}>
+                        <BreadCrumb title={`${item.parentTitle} > `} />
+                        <NavItemBacklink
+                          ariaControls={`thirdlevel-${item.id}`}
+                          title={item.title}
+                          id='secondlevel-button'
+                        />
+                        <SubmenuWrapper>
+                          <OverviewLink
+                            href={item.href}
+                            title={item.title}
+                            text={item.text}
+                          >
+                            {item.title}
+                          </OverviewLink>
+                        </SubmenuWrapper>
+                      </ThirdLevelMenu>
+                    </SecondLevelNavItemLink>
                   )
                 })}
               </SecondLevelMenuWrapper>
@@ -118,209 +147,8 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
         )
       })
     }
+    <!-- TODO: add other nav items  -->
 
-    <!-- TODO: can be removed, is replaced by above -->
-
-    <FirstLevelNavItem
-      ariaControls='secondlevel-solutions'
-      id='firstlevel-button'
-      title='Solutions'
-    >
-      {/* Second Level Solutions */}
-      <SecondLevelMenu id='secondlevel-solutions'>
-        <NavItemBacklink
-          ariaControls='secondlevel-solutions'
-          title='Solutions'
-          id='secondlevel-button-back'
-        />
-        <SecondLevelMenuWrapper>
-          <SecondLevelNavItem
-            ariaControls='thirdlevel-it-security'
-            id='secondlevel-button'
-            title='IT-Security'
-            bold={false}
-          >
-            {/* Third Level SOlutions */}
-
-            <ThirdLevelMenu id='thirdlevel-it-security'>
-              <BreadCrumb title='Solutions >' />
-              <NavItemBacklink
-                ariaControls='thirdlevel-it-security'
-                title='IT-Security'
-                id='secondlevel-button-back'
-              />
-              <SubmenuWrapper>
-                <NavItemLink
-                  href='/solutions/it-security/next-gen-security-platforms'
-                  title='Next Gen Security Platforms'
-                />
-                <NavItemLink
-                  href='/solutions/it-security/next-gen-endpoint-security'
-                  title='Next Gen Endpoint Security'
-                />
-                <NavItem
-                  ariaControls='fourthlevel-configuration-audits'
-                  id='thirdlevel-button'
-                  title='Configuration Audits'
-                  bold={false}
-                >
-                  {/* Fourth Level Solutions */}
-                  <FourthLevelMenu id='fourthlevel-configuration-audits'>
-                    <BreadCrumb title='Solutions > IT-Security >' />
-                    <NavItemBacklink
-                      ariaControls='fourthlevel-configuration-audits'
-                      title='Configuration Audits'
-                      id='thirdlevel-button-back'
-                    />
-
-                    <SubmenuWrapper>
-                      <NavItemLink
-                        href='/solutions/it-security/next-gen-security-platforms'
-                        title='Betriebssysteme'
-                      />
-                      <NavItemLink
-                        href='/solutions/it-security/next-gen-security-platforms'
-                        title='Webkomponenten'
-                      />
-                      {/* Nav Item mobile link */}
-                      <li class='px-4'>
-                        <a
-                          href='/solutions/it-security/configuration-audtis'
-                          class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
-                        >
-                          Configuration Audits Overview
-                        </a>
-                      </li>
-                    </SubmenuWrapper>
-                  </FourthLevelMenu>
-                </NavItem>
-                <!-- Needs to be in own component -->
-                <li class='px-4 1440:col-start-3 1440:row-start-2'>
-                  <a
-                    href='/it-security'
-                    class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
-                  >
-                    IT-Security Overview
-                  </a>
-                </li>
-              </SubmenuWrapper>
-            </ThirdLevelMenu>
-          </SecondLevelNavItem>
-          <SecondLevelNavItem
-            ariaControls='thirdlevel-data-analytics'
-            id='secondlevel-button'
-            title='Data Analytics'
-            bold={false}
-          />
-        </SecondLevelMenuWrapper>
-      </SecondLevelMenu>
-    </FirstLevelNavItem>
-
-    <FirstLevelNavItem
-      title='Consulting'
-      ariaControls='secondlevel-consulting'
-      id='firstlevel-button'
-    >
-      <DesktopGrid id='secondlevel-consulting-section'>
-        <!-- Second Level Consulting -->
-        <SecondLevelMenu id='secondlevel-consulting'>
-          <NavItemBacklink
-            ariaControls='secondlevel-consulting'
-            title='Consulting'
-            id='secondlevel-button-back'
-          />
-          <SecondLevelMenuWrapper>
-            <SecondLevelNavItem
-              title='Überbegriff'
-              id='secondlevel-button'
-              ariaControls='thirdlevel-uberbegriff'
-            />
-            <NavItemLink
-              href='/consulting/business-resiliance'
-              title='Business Resilience'
-            />
-          </SecondLevelMenuWrapper>
-        </SecondLevelMenu>
-        <ThirdLevelMenu id='thirdlevel-it-security'>
-          <BreadCrumb title='Solutions >' />
-          <NavItemBacklink
-            ariaControls='thirdlevel-it-security'
-            title='IT-Security'
-            id='secondlevel-button-back'
-          />
-          <SubmenuWrapper>
-            <NavItemLink
-              href='/solutions/it-security/next-gen-security-platforms'
-              title='Next Gen Security Platforms'
-            />
-            <NavItemLink
-              href='/solutions/it-security/next-gen-endpoint-security'
-              title='Next Gen Endpoint Security'
-            />
-            <NavItem
-              ariaControls='fourthlevel-configuration-audits'
-              id='thirdlevel-button'
-              title='Configuration Auditsssssssssss'
-              bold={false}
-            >
-              {/* Fourth Level */}
-              <FourthLevelMenu id='fourthlevel-configuration-audits'>
-                <BreadCrumb title='Solutions > IT-Security >' />
-                <NavItemBacklink
-                  ariaControls='fourthlevel-configuration-audits'
-                  title='Configuration Audits'
-                  id='thirdlevel-button-back'
-                />
-
-                <SubmenuWrapper>
-                  <NavItemLink
-                    href='/solutions/it-security/next-gen-security-platforms'
-                    title='Betriebssysteme'
-                  />
-                  <NavItemLink
-                    href='/solutions/it-security/next-gen-security-platforms'
-                    title='Webkomponenten'
-                  />
-                  {/* Nav Item mobile link */}
-                  <li class='px-4'>
-                    <a
-                      href='/solutions/it-security/configuration-audtis'
-                      class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
-                    >
-                      Configuration Audits Overview
-                    </a>
-                  </li>
-                </SubmenuWrapper>
-              </FourthLevelMenu>
-            </NavItem>
-            <!-- Needs to be in own component -->
-            <li class='px-4 1440:col-start-3 1440:row-start-2'>
-              <a
-                href='/it-security'
-                class='flex w-full justify-center gap-2 rounded-[5px] border-[1px] border-fernaoGreen py-3 font-bold hover:bg-fernaoGreenA20 hover:shadow-secondaryBtn active:bg-fernaoGreenA20 active:shadow-secondaryBtn'
-              >
-                IT-Security Overview
-              </a>
-            </li>
-          </SubmenuWrapper>
-        </ThirdLevelMenu>
-      </DesktopGrid>
-    </FirstLevelNavItem>
-    <FirstLevelNavItem
-      title='Service'
-      ariaControls='secondlevel-service'
-      id='firstlevel-button'
-    />
-    <FirstLevelNavItem
-      title='Cloud'
-      ariaControls='secondlevel-cloud'
-      id='firstlevel-button'
-    />
-    <FirstLevelNavItem
-      ariaControls='secondlevel-branchen'
-      id='firstlevel-button'
-      title='Branchen'
-    />
     <li class='mt-14 1440:hidden'>
       <PrimaryButtonIcon>Termin buchen</PrimaryButtonIcon>
     </li>
@@ -339,16 +167,16 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
               title='Sprache'
               id='secondlevel-button-back'
             />
-            <SubmenuWrapper>
-              <NavItemLink
+            <LanguageSubmenuWrapper>
+              <LanguageItem
                 href='/solutions/it-security/next-gen-security-platforms'
                 title='Deutsch'
               />
-              <NavItemLink
+              <LanguageItem
                 href='/solutions/it-security/next-gen-security-platforms'
                 title='Englisch'
               />
-            </SubmenuWrapper>
+            </LanguageSubmenuWrapper>
           </LanguageSubmenu>
         </NavItem>
 
@@ -379,9 +207,6 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
 </nav>
 
 <script>
-  const NavigationItems = {
-    SOLUTIONS: 'solutions',
-  }
   const handleMenuButtonClick = () => {
     document.querySelector('#firstlevel-menu').classList.toggle('hidden')
     document.querySelector('#nav').classList.toggle('border-t-2')
@@ -401,7 +226,7 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
       )
       const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
       const buttons = document.querySelectorAll('button[id^="firstlevel-"]')
-      const secondLevelButtons = document.querySelectorAll(
+      const secondLevelButtons = button.nextElementSibling.querySelectorAll(
         'button[id^="secondlevel-"]'
       )
       const firstSecondLevelButton = secondLevelButtons[0]
@@ -426,7 +251,9 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
       // Toggle active class on button
       button.classList.toggle('activeFirstLevelBtn')
       // Toggle active class on first second level button
-      firstSecondLevelButton.classList.toggle('activeSecondLevelBtn')
+      if (firstSecondLevelButton) {
+        firstSecondLevelButton.classList.toggle('activeSecondLevelBtn')
+      }
 
       // Toggle fixed class on header
       document.querySelector('#header').classList.toggle('fixed')
@@ -464,7 +291,7 @@ import FourthLevelBackButton from './FourthLevelBackButton.astro'
 
   const handleSecondLevelClick = (id, button) => {
     if (window.innerWidth > 1440) {
-      // Reset other open menus and active states
+      // Reset other open menus
       const menus = document.querySelectorAll('ul[id^="thirdlevel-"]')
       const buttons = document.querySelectorAll('.activeSecondLevelBtn')
       menus.forEach((menu) => {

@@ -50,7 +50,7 @@
 
   /* Desktop Menu active styles */
   .activeFirstLevelBtn > span {
-    @apply border-b-[1px] border-b-fernaoGreen;
+    @apply border-b-[1px] border-b-fernaoDarkGreen;
   }
 
   .activeFirstLevelBtn + ul[id^='secondlevel-'],
@@ -74,6 +74,6 @@
   }
 
   .activeSecondLevelBtn > span {
-    @apply border-b-[1px] border-b-fernaoGreen;
+    @apply border-b-[1px] border-b-fernaoDarkGreen;
   }
 }

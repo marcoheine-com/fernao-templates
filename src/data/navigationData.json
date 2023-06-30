@@ -3,7 +3,6 @@
     {
       "title": "Solutions",
       "id": "solutions",
-      "ariaControls": "secondlevel-solutions",
       "items": [
         {
           "title": "IT Security",
@@ -25,6 +24,16 @@
               "title": "Web Application FireWalls (WAF) & DDOS",
               "text": "This is an example teaser text for Web Application FireWalls (WAF) & DDOS",
               "href": "/solutions/it-security/web-application-firewalls-waf-ddos"
+            },
+            {
+              "title": "Vulnerability Scanner",
+              "text": "This is an example teaser text for Vulnerability Scanner",
+              "href": "/solutions/it-security/vulnerability-scanner"
+            },
+            {
+              "title": "Identity Access Control",
+              "text": "This is an example teaser text for Identity Access Control",
+              "href": "/solutions/it-security/identity-access-control"
             },
             {
               "title": "Configuration Audits",
@@ -52,12 +61,47 @@
                   "text": "This is an example teaser text for NetzwerkKomponenten"
                 }
               ]
+            },
+            {
+              "title:": "Security & Fraud",
+              "text": "This is an example teaser text for Security & Fraud",
+              "href": "/solutions/it-security/security-fraud"
+            },
+            {
+              "title": "SIEM",
+              "text": "This is an example teaser text for SIEM",
+              "href": "/solutions/it-security/siem"
+            },
+            {
+              "title": "Security Awareness - This headline is an example of what a very long text wuld look like if there were no character limits or similar restrictions on maintenance",
+              "text": "This is an example teaser text for Security Awareness",
+              "id": "security-awareness",
+              "parentTitle": "IT Security",
+              "href": "/solutions/it-security/security-awareness",
+              "items": [
+                {
+                  "title": "Security Awareness für Mitarbeiter und Manager",
+                  "text": "This is an example teaser text for Security Awareness für Mitarbeiter und Manager",
+                  "href": "/solutions/it-security/security-awareness-fuer-mitarbeiter-und-manager"
+                },
+                {
+                  "title": "Security Awareness für Entwickler",
+                  "text": "This is an example teaser text for Security Awareness für Entwickler",
+                  "href": "/solutions/it-security/security-awareness-fuer-entwickler"
+                },
+                {
+                  "title": "Sichere Entwicklung von Webanwendungen",
+                  "text": "This is an example teaser text for Sichere Entwicklung von Webanwendungen",
+                  "href": "/solutions/it-security/sichere-entwicklung-von-webanwendungen"
+                }
+              ]
             }
           ]
         },
         {
           "title": "Data Analytics",
           "id": "data-analytics",
+          "parentTitle": "Solutions",
           "items": [
             {
               "title": "Business Analytics",
@@ -112,11 +156,11 @@
     {
       "title": "Consulting",
       "id": "consulting",
-      "ariaControls": "secondlevel-consulting",
       "items": [
         {
           "title": "Überbegriff",
           "id": "ueberbegriff",
+          "parentTitle": "Consulting",
           "items": [
             {
               "title": "Information Security Management",
@@ -143,6 +187,7 @@
         {
           "title": "Business Resilience",
           "id": "business-resilience",
+          "parentTitle": "Consulting",
           "items": [
             {
               "title": "Business Continuity Management",
@@ -153,7 +198,80 @@
         },
         {
           "title": "SAP Consulting",
-          "id": "sap-consulting"
+          "id": "sap-consulting",
+          "href": "/consulting/sap-consulting"
+        }
+      ]
+    },
+    {
+      "title": "Service",
+      "id": "service",
+      "items": [
+        {
+          "title": "Managed Security Services",
+          "id": "managed-security-services",
+          "parentTitle": "Service",
+          "items": [
+            {
+              "title": "Information Security Management",
+              "id": "information-security-management",
+              "text": "This is an example teaser text for Information Security Management",
+              "href": "/service/managed-security-services/information-security-management"
+            },
+            {
+              "title": "Data Protection Management",
+              "id": "data-protection-management",
+              "text": "This is an example teaser text for Data Protection Managemenet",
+              "href": "/service/managed-security-services/data-protection-management"
+            },
+            {
+              "title": "Intere Audits & GAP-Analysen",
+              "id": "interne-audits-gap-analysen",
+              "text": "This is an example teaser text for Interne Audits & GAP-Analysen",
+              "href": "/service/managed-security-services/interne-audits-gap-analysen"
+            },
+            {
+              "title": "Themenbezogene Workshops",
+              "id": "themenbezogene-workshops",
+              "text": "This is an example teaser text for Themenbezogene Workshops",
+              "href": "/service/managed-security-services/themenbezogene-workshops"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Cloud",
+      "id": "cloud"
+    },
+    {
+      "title": "Branchen",
+      "id": "branchen",
+      "items": [
+        {
+          "title": "Öffentliche Verwaltung",
+          "id": "oeffentliche-verwaltung",
+          "href": "/branchen/oeffentliche-verwaltung"
+        },
+        {
+          "title": "Bildung",
+          "id": "bildung",
+          "href": "/branchen/bildung"
+        },
+        {
+          "title": "Gesundheit",
+          "id": "gesundheit",
+          "href": "/branchen/gesundheit"
+        },
+        {
+          "title": "Finanzen",
+          "id": "finanzen",
+          "href": "/branchen/finanzen"
+        },
+        {
+          "title": "Non-Profit",
+          "id": "non-profit",
+          "href": "/branchen/non-profit"
         }
       ]
     }

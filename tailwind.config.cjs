@@ -28,7 +28,7 @@ module.exports = {
         fernaoGreen20: '#A3D165',
         fernaoGreenA20: 'rgba(163, 209, 101, 0.2)',
         fernaoBGWhite20: 'rgba(255, 255, 255, 0.2)',
-        fernaoDarkGreen: '#709E32',
+        fernaoDarkGreen: '#709F32',
         btnActive: '#A0CF63',
         btnActiveBorder: '#80A64F',
         black50: 'rgba(0, 0, 0, 0.5)',

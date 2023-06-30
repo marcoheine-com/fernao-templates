@@ -1,0 +1,17 @@
+---
+const { href, title, lightText = false } = Astro.props
+---
+
+<li
+  class={`mb-4 px-4 py-2 font-normal ${
+    lightText ? 'text-black50' : ''
+  } 1440:mb-0 1440:mr-8`}
+>
+  <a
+    class='text-underline text-underline-colored flex w-full justify-between 1440:justify-end 1440:bg-none'
+    href={href}
+  >
+    <span class='1440:text-underline 1440:text-underline-colored'>{title}</span>
+  </a>
+  <slot />
+</li>

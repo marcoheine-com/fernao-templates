@@ -20,10 +20,14 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body>
-    <Header />
-    <main class='mx-24 flex min-h-screen flex-col items-center justify-between'>
-      <slot />
-    </main>
-    <Footer />
+    <div class='flex min-h-screen flex-col items-center'>
+      <Header />
+      <main
+        class='mx-24 flex max-w-[1920px] grow flex-col items-center justify-between'
+      >
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>

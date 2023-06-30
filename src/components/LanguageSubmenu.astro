@@ -4,7 +4,7 @@ const { id } = Astro.props
 
 <ul
   id={id}
-  class='absolute left-0 top-0 h-screen w-full bg-fernaoBGWhite px-9 pt-8 hidden'
+  class='absolute left-[50%] top-16 z-[2] mx-auto hidden h-screen w-full max-w-[394px] translate-x-[-50%] bg-fernaoBGWhite px-9 pt-8 1440:left-auto 1440:right-0 1440:top-12 1440:h-auto 1440:w-60 1440:translate-x-0 1440:border-t-2 1440:border-fernaoGreen 1440:bg-fernaoFontWhite 1440:px-4 1440:pb-8'
 >
   <slot />
 </ul>
