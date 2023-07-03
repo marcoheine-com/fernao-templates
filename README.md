@@ -27,7 +27,7 @@ It has four levels of navigation. Every level consists of:
 - the menu itself
   - [SecondLevelMenu](./src/components/SecondLevelMenu.astro), [ThirdLevelMenu](./src/components/ThirdLevelMenu.astro), [FourthLevelMenu](./src/components/FourthLevelMenu.astro)
 - a breadcrumb item (only level three and four)
-  - [BreadCrumb](./src/components/BreadCrumb.astro)
+  - [NavBreadCrumb](./src/components/NavBreadCrumb.astro)
 - backlinks
   - [NavItemBankLink](./src/components/NavItemBankLink.astro)
   - [FourthLevelBackButton](./src/components/FourthLevelBackButton.astro)
@@ -80,7 +80,17 @@ Defined in the [tailwind.config.js](./tailwind.config.cjs)
 
 - Fonts
 
+### Fonts
+
+The main font is Ubuntu. It is located in /public/fonts and is loaded in [global.css](./src/styles/global.css).
+
 ### General components
+
+- [Header](./src/components/Header.astro) for standard pages
+- [HeaderReaduced](./src/components/HeaderReduced.astro) for landing pages
+- [Footer](./src/components/Footer.astro) for standard pages
+- [FooterReduced](./src/components/FooterReduced.astro) for landing pages
+- [Breadcrumb](./src/components/Breadcrumb.astro)
 
 - Buttons
   - [PrimaryButton](./src/components/PrimaryButton.astro)
