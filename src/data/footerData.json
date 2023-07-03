@@ -71,5 +71,19 @@
       ]
     }
   ],
-  "metaItems": [{}]
+  "metaItems": [
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/company"
+    },
+    {
+      "title": "Xing",
+      "url": "https://www.xing.com"
+    },
+    {
+      "title": "Twitter",
+      "url": "https://twitter.com"
+    },
+    { "title": "YouTube", "url": "https://www.youtube.com" }
+  ]
 }

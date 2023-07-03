@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -32,6 +34,15 @@ module.exports = {
         btnActive: '#A0CF63',
         btnActiveBorder: '#80A64F',
         black50: 'rgba(0, 0, 0, 0.5)',
+      },
+
+      fontFamily: {
+        sans: [
+          'Ubuntu',
+          'Arial',
+          'sans-serif',
+          ...defaultTheme.fontFamily.sans,
+        ],
       },
     },
   },
