@@ -1,0 +1,54 @@
+---
+import footerData from '../data/footerData.json'
+import ArrowRightIcon from './ArrowRightIcon.astro'
+import LinkedInIcon from './LinkedInIcon.astro'
+import TwitterIcon from './TwitterIcon.astro'
+import XingIcon from './XingIcon.astro'
+import YoutubeIcon from './YoutubeIcon.astro'
+---
+
+<footer class='w-full max-w-[1920px]'>
+  <section
+    class='flex w-full flex-col justify-center gap-8 bg-fernaoBlack px-8 py-24 text-fernaoFontWhite 1024:flex-row 1024:gap-14 1920:justify-between 1920:px-[140px]'
+  >
+    {
+      footerData.legalItems.map((item) => {
+        return (
+          <section class='max-w-xs'>
+            <h3 class='mb-6'>{item.headline}</h3>
+            <ul class='pl-2'>
+              {item.items?.map((item) => {
+                return (
+                  <li>
+                    <a class='flex' href={item.url}>
+                      <ArrowRightIcon fill='white' />
+                      {item.title}
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+        )
+      })
+    }
+  </section>
+  <section class='flex justify-center gap-5 bg-fernaoGreen py-6'>
+    {
+      footerData.metaItems.map((item) => {
+        switch (item.title) {
+          case 'LinkedIn':
+            return <LinkedInIcon />
+          case 'Xing':
+            return <XingIcon />
+          case 'Twitter':
+            return <TwitterIcon />
+          case 'YouTube':
+            return <YoutubeIcon />
+          default:
+            ;<LinkedInIcon />
+        }
+      })
+    }
+  </section>
+</footer>
