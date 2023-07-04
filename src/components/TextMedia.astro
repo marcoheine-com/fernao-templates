@@ -1,0 +1,94 @@
+---
+interface Props {
+  media: {
+    src: string
+    alt: string
+    type: 'image' | 'video'
+  }
+  mediaPosition?: 'left' | 'right'
+  coloredAccent?: boolean
+  textVariant?: 'left-aligned' | 'centered' | 'two-col'
+}
+
+const {
+  coloredAccent = true,
+  media,
+  mediaPosition = 'left',
+  textVariant = 'left-aligned',
+} = Astro.props
+
+function getVariantStyling(variant) {
+  switch (variant) {
+    case 'left-aligned':
+      return 'text-left'
+    case 'centered':
+      return 'text-center'
+    case 'two-col':
+      return 'grid 1024:grid-cols-2 gap-8 mt-8'
+  }
+}
+const TEXT_WRAPPER_STYLES = getVariantStyling(textVariant)
+---
+
+<section
+  class={`content-padding mt-12 self-start w-full grid 1024:grid-cols-2 1024:gap-5 1024:grid-rows-1 1440:gap-[120px]`}
+>
+  <section
+    class=`${mediaPosition === 'right' ? '1024:col-start-1' : '1024:col-start-2'} 1920:max-w-[940px]`
+  >
+    {
+      coloredAccent && (
+        <div class='mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent' />
+      )
+    }
+    <h3>
+      Linksbündige Überschrift mit einer Subheadline für weiteren Content in
+      einem umfangreichen Textblock.
+    </h3>
+    <h4>
+      Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und
+      Konsonantien leben die Blindtexte.
+    </h4>
+
+    <section class={`${TEXT_WRAPPER_STYLES}`}>
+      <p class=`${textVariant === 'two-col' ? 'mt-0' : 'mt-8'}`>
+        Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+        Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+        Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
+        kleines <a href='/'>Bächlein</a> namens Duden fließt durch ihren Ort und
+        versorgt sie mit den nötigen Regelialien. Es ist ein paradiesmatisches Land,
+        in dem einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der
+        allmächtigen Interpunktion werden die Blindtexte beherrscht – ein geradezu
+        unorthographisches Leben.
+      </p>
+      <p class=`${textVariant === 'two-col' ? 'mt-0' : 'mt-8'}`>
+        Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+        Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+        Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
+        kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie
+        mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem
+        einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der
+        allmächtigen Interpunktion werden die Blindtexte beherrscht – ein
+        geradezu unorthographisches Leben.
+      </p>
+    </section>
+  </section>
+  <section
+    class=`mt-8 ${mediaPosition === 'right' ? '1024:col-start-2' : '1024:col-start-1'}`
+  >
+    {
+      media.type === 'video' ? (
+        <video src={media.src} />
+      ) : (
+        <picture>
+          <source
+            srcset={media.src}
+            type='image/webp'
+            media='(min-width: 768px)'
+          />
+          <img src={media.src} alt={media.alt} class='rounded-[5px]' />
+        </picture>
+      )
+    }
+  </section>
+</section>

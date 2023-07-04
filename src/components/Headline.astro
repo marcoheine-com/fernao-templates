@@ -1,0 +1,55 @@
+---
+interface Props {
+  headlinecontent: string
+  headlineVariant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  sublinecontent?: string
+  sublineVariant?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  coloredAccent?: boolean
+}
+const {
+  headlinecontent,
+  headlineVariant = 'h1',
+  sublinecontent,
+  sublineVariant = 'h2',
+  coloredAccent = true,
+} = Astro.props
+
+const SUBLINE_STYLES = 'mt-6'
+---
+
+<section class='content-padding mt-24 w-full self-start'>
+  {
+    coloredAccent && (
+      <div class='mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent' />
+    )
+  }
+  {
+    headlineVariant === 'h1' ? (
+      <h1>{headlinecontent} </h1>
+    ) : headlineVariant === 'h2' ? (
+      <h2>{headlinecontent} </h2>
+    ) : headlineVariant === 'h3' ? (
+      <h3>{headlinecontent} </h3>
+    ) : headlineVariant === 'h4' ? (
+      <h4>{headlinecontent} </h4>
+    ) : headlineVariant === 'h5' ? (
+      <h5>{headlinecontent} </h5>
+    ) : headlineVariant === 'h6' ? (
+      <h6>{headlinecontent} </h6>
+    ) : null
+  }
+
+  {
+    sublinecontent && sublineVariant === 'h2' ? (
+      <h2 class={SUBLINE_STYLES}>{sublinecontent} </h2>
+    ) : sublinecontent && sublineVariant === 'h3' ? (
+      <h3 class={SUBLINE_STYLES}>{sublinecontent} </h3>
+    ) : sublinecontent && sublineVariant === 'h4' ? (
+      <h4 class={SUBLINE_STYLES}>{sublinecontent} </h4>
+    ) : sublinecontent && sublineVariant === 'h5' ? (
+      <h5 class={SUBLINE_STYLES}>{sublinecontent} </h5>
+    ) : sublinecontent && sublineVariant === 'h6' ? (
+      <h6 class={SUBLINE_STYLES}>{sublinecontent} </h6>
+    ) : null
+  }
+</section>

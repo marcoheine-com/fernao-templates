@@ -1,0 +1,63 @@
+---
+interface Props {
+  coloredAccent?: boolean
+  variant?: 'left-aligned' | 'centered' | 'two-col'
+}
+
+const { coloredAccent = true, variant = 'left-aligned' } = Astro.props
+
+function getVariantStyling(variant) {
+  switch (variant) {
+    case 'left-aligned':
+      return 'text-left'
+    case 'centered':
+      return 'text-center'
+    case 'two-col':
+      return 'grid 1024:grid-cols-2 gap-8 mt-8'
+  }
+}
+const TEXT_WRAPPER_STYLES = getVariantStyling(variant)
+---
+
+<section
+  class={`content-padding mt-12 ${
+    variant === 'centered' ? 'self-center' : 'self-start'
+  }`}
+>
+  {
+    coloredAccent && (
+      <div class='mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent' />
+    )
+  }
+  <h3>
+    Linksbündige Überschrift mit einer Subheadline für weiteren Content in einem
+    umfangreichen Textblock.
+  </h3>
+  <h4 class='mt-6'>
+    Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und
+    Konsonantien leben die Blindtexte.
+  </h4>
+
+  <section class={`${TEXT_WRAPPER_STYLES}`}>
+    <p class=`${variant === 'two-col' ? 'mt-0' : 'mt-8'}`>
+      Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+      Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+      Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
+      kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit
+      den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem
+      gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen
+      Interpunktion werden die Blindtexte beherrscht – ein geradezu
+      unorthographisches Leben.
+    </p>
+    <p class=`${variant === 'two-col' ? 'mt-0' : 'mt-8'}`>
+      Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+      Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+      Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
+      kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit
+      den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem
+      gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen
+      Interpunktion werden die Blindtexte beherrscht – ein geradezu
+      unorthographisches Leben.
+    </p>
+  </section>
+</section>

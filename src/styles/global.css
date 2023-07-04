@@ -50,12 +50,31 @@
     @apply text-xl;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply max-w-5xl;
+  }
+
   p {
-    @apply text-base;
+    @apply max-w-6xl text-base;
+  }
+
+  a {
+    @apply border-b-[1px] border-b-fernaoBlack;
   }
 }
 
 @layer utilities {
+  .content-padding {
+    @apply px-8 1024:px-14 1440:px-[140px];
+  }
+  .content-margin-top {
+    @apply mt-24;
+  }
   /* Text Underline styles */
   .text-underline {
     border-bottom-width: 0;

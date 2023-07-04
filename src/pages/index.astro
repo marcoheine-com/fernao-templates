@@ -1,7 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Text from '../components/Text.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
+import Headline from '../components/Headline.astro'
+import TextMedia from '../components/TextMedia.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
-  <h1>Standard Page</h1>
+  <Headline
+    headlineVariant='h3'
+    headlinecontent='Linksbündige Überschrift mit einer Subheadline für weiteren Content in einem umfangreichen Textblock.'
+    sublinecontent='Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.'
+    sublineVariant='h4'
+  />
+  <Text variant='centered' />
+  <TextMedia
+    media={{
+      src: 'https://picsum.photos/seed/picsum/800/600',
+      alt: 'Placeholder',
+      type: 'image',
+    }}
+    mediaPosition='right'
+  />
+  <Breadcrumb />
 </Layout>

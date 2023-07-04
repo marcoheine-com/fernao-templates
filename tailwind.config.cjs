@@ -14,6 +14,7 @@ module.exports = {
       backgroundImage: {
         textUnderline:
           'linear-gradient(transparent, transparent), linear-gradient(#8CC63F, #8CC63F);',
+        coloredAccent: 'linear-gradient(90deg, #8CC63F 0%, #8CC63F 51%, #F0972D 67%, #2F69EA 83%, #E027E0 100%)',
       },
       boxShadow: {
         secondaryBtn: '0 0 0 2px #8CC63F',

@@ -55,11 +55,19 @@ On desktop, clicking a firstlevel nav item will open the second and the third le
 
 ### Legal Navigation
 
-TODO
+- legal navigation is part of the [Footer](./src/components/Footer.astro) , currently the data comes from [footerData.json](./src/data/footerData.json) see `legalItems`
+
+### Meta Navigation
+
+- also part of the [Footer](./src/components/Footer.astro) , currently the data comes from [footerData.json](./src/data/footerData.json), see `metaItems`
 
 ## Content Elements
 
-TODO
+- [Header](./src/components/Header.astro)
+- [Text](./src/components/Text.astro)
+- [Text-Media](./src/components/TextMedia.astro) TODO
+- Media TODO
+- Feature List / Icon List TODO
 
 ## Page Templates
 
@@ -68,17 +76,21 @@ TODO
 - StandardPage
 - LandingPage
 
-## General Stuff
+## General
 
 TODO
 
 ### Colors
 
-Defined in the [tailwind.config.js](./tailwind.config.cjs)
+- Defined in the [tailwind.config.js](./tailwind.config.cjs)
 
 ### Icons
 
-- Fonts
+- [ArrowRIghtIcon](./src/components/ArrowRightIcon.astro)
+- [ArrowLeftIcon](./src/components/ArrowLeftIcon.astro)
+- [AppointmentIcon](./src/components/AppointmentIcon.astro)
+- [ClosedMenuIcon](./src/components/ClosedMenuIcon.astro)
+- [OpcenMenuIcon](./src/components/OpenMenuIcon.astro)
 
 ### Fonts
 
