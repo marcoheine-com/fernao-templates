@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Text from '../components/Text.astro'
-import Breadcrumb from '../components/Breadcrumb.astro'
+import PageBreadcrumb from '../components/PageBreadcrumb.astro'
 import Headline from '../components/Headline.astro'
 import TextMedia from '../components/TextMedia.astro'
+import FeatureList from '../components/FeatureList.astro'
+import StepByStep from '../components/StepByStep.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -22,5 +24,8 @@ import TextMedia from '../components/TextMedia.astro'
     }}
     mediaPosition='right'
   />
-  <Breadcrumb />
+  <FeatureList items={8} />
+  <StepByStep />
+  <StepByStep variant='vertical' />
+  <PageBreadcrumb />
 </Layout>

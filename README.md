@@ -18,7 +18,7 @@ npm run dev
 
 The [Navigation](./src/components/Navigation.astro) is build to function on mobile and desktop simultaneously. It is currently generated based on a [dummy CMS response](./src/data/navigationData.json).
 
-It consists of the Main Navigation, sub navigation items and a language switcher, CTA.
+It consists of the Main Navigation, service navigation, legav navigation, a language switcher and a CTA.
 
 ### Main Navigation
 
@@ -67,9 +67,9 @@ On desktop, clicking a firstlevel nav item will open the second and the third le
 - [Text](./src/components/Text.astro)
 - [Text-Media](./src/components/TextMedia.astro) TODO
 - Media TODO
-- Feature List / Icon List TODO
+- [Feature List / Icon List](./src/components/FeatureList.astro)
 - Header TODO
-- Step by Step TODO
+- [Step by Step](./src/components/StepByStep.astro)
 - Formularer TODO
 
 ## Page Templates
@@ -80,8 +80,6 @@ TODO
 - LandingPage
 
 ## General
-
-TODO
 
 ### Colors
 
@@ -106,6 +104,7 @@ The main font is Ubuntu. It is located in /public/fonts and is loaded in [global
 - [Footer](./src/components/Footer.astro) for standard pages
 - [FooterReduced](./src/components/FooterReduced.astro) for landing pages
 - [Breadcrumb](./src/components/Breadcrumb.astro)
+- TOC TODO
 
 - Buttons
   - [PrimaryButton](./src/components/PrimaryButton.astro)

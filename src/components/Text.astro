@@ -20,13 +20,17 @@ const TEXT_WRAPPER_STYLES = getVariantStyling(variant)
 ---
 
 <section
-  class={`content-padding mt-12 ${
-    variant === 'centered' ? 'self-center' : 'self-start'
+  class={`content-padding mt-12 flex flex-col ${
+    variant === 'centered' ? 'justify-center text-center' : 'justify-start'
   }`}
 >
   {
     coloredAccent && (
-      <div class='mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent' />
+      <div
+        class={`mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent ${
+          variant === 'centered' && 'self-center'
+        }`}
+      />
     )
   }
   <h3>

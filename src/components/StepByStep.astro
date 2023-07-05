@@ -1,0 +1,189 @@
+---
+interface Props {
+  variant?: 'horizontal' | 'vertical'
+  coloredAccent?: boolean
+}
+const { variant = 'horizontal', coloredAccent = true } = Astro.props
+---
+
+{
+  variant === 'horizontal' ? (
+    <section class='content-padding content-margin-top flex flex-col items-center text-center'>
+      {coloredAccent && (
+        <div class='mb-6 h-[6px] w-[227px] self-center rounded-[5px] bg-coloredAccent' />
+      )}
+      <h3>
+        Linksbündige Überschrift mit einer Subheadline für weiteren Content in
+        einem umfangreichen Textblock.
+      </h3>
+      <h4 class='mt-6'>
+        Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und
+        Konsonantien leben die Blindtexte.
+      </h4>
+
+      <section class='mt-9 flex flex-col gap-7 1024:flex-row'>
+        <article class='relative flex flex-col items-center'>
+          <div class='z-10 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-fernaoBlack text-4xl text-fernaoFontWhite'>
+            1
+          </div>
+          <div
+            class='absolute left-1/2 top-11 z-0 hidden h-[3px] w-full bg-fernaoBGGrey 1024:block'
+            aria-hidden='true'
+          />
+          <h2 class='mt-12'>Schritt #1</h2>
+          <p class='mt-6'>
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+            Konsonantien leben die Blindtexte.
+          </p>
+        </article>
+        <article class='relative flex flex-col items-center'>
+          <div class='z-10 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-fernaoBlack text-4xl text-fernaoFontWhite'>
+            2
+          </div>
+
+          <div
+            class='absolute left-1/2 top-11 z-0 hidden h-[3px] w-full bg-fernaoBGGrey 1024:block'
+            aria-hidden='true'
+          />
+          <h2 class='mt-12'>Schritt #2</h2>
+          <p class='mt-6'>
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+            Konsonantien leben die Blindtexte.
+          </p>
+        </article>
+        <article class='flex flex-col items-center'>
+          <div class='z-10 flex h-[88px] w-[88px] items-center justify-center rounded-full bg-fernaoBlack text-4xl text-fernaoFontWhite'>
+            3
+          </div>
+          <h2 class='mt-12'>Schritt #3</h2>
+          <p class='mt-6'>
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+            Konsonantien leben die Blindtexte.
+          </p>
+        </article>
+      </section>
+    </section>
+  ) : (
+    <section class='content-padding content-margin-top flex flex-col items-center gap-11 1440:gap-x-28'>
+      <article class='flex flex-col items-center gap-8 1024:grid 1024:grid-cols-[auto_1fr] 1024:gap-14'>
+        <div class='relative inline-flex h-full'>
+          <img
+            src='https://picsum.photos/seed/picsum/800/600'
+            alt='Placeholder'
+            class='mb-6 h-[207px] w-[207px] rounded-full border-4 border-fernaoBlack 1024:mb-0'
+          />
+          <div
+            class='font-fernaaoBlack absolute left-36 top-0 mb-6 flex h-[64px] w-[64px] items-center justify-center rounded-full bg-fernaoGreen text-4xl 1024:relative 1024:left-0 1024:top-0 1024:mb-0 1024:ml-14 1024:mt-16 1024:border-[5px] 1024:border-white'
+            aria-hidden='true'
+          >
+            1
+          </div>
+          <div
+            class='absolute right-7 top-32 z-0 hidden h-full w-[8px] bg-fernaoBGGrey 1024:block'
+            aria-hidden='true'
+          />
+        </div>
+        <div class='h-full'>
+          <h4 class='text-center 1024:text-start'>Schritt #1</h4>
+          <p class='mt-8'>
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+            Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+            Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.
+            Ein kleines Bächlein namens Duden fließt durch ihren Ort und
+            versorgt sie mit den nötigen Regelialien. Weit hinten, hinter den
+            Wortbergen, fern der Länder Vokalien und Konsonantien leben die
+            Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste
+            des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens
+            Duden fließt durch ihren Ort und versorgt sie mit den nötigen
+            Regelialien.Weit hinten, hinter den Wortbergen, fern der Länder
+            Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen
+            sie in Buchstabhausen an der Küste des Semantik, eines großen
+            Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren
+            Ort und versorgt sie mit den nötigen Regelialien.Weit hinten, hinter
+            den Wortbergen, fern der Länder Vokalien und Konsonantien leben die
+            Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste
+            des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens
+            Duden fließt durch ihren Ort und versorgt sie mit den nötigen
+            Regelialien.Weit hinten, hinter den Wortbergen, fern der Länder
+            Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen
+            sie in Buchstabhausen an der Küste des Semantik, eines großen
+            Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren
+            Ort und versorgt sie mit den nötigen Regelialien.
+          </p>
+        </div>
+      </article>
+      <article class='flex flex-col items-center gap-8 1024:grid 1024:grid-cols-[auto_1fr] 1024:gap-14'>
+        <div class='relative inline-flex h-full'>
+          <img
+            src='https://picsum.photos/seed/picsum/800/600'
+            alt='Placeholder'
+            class='mb-6 h-[207px] w-[207px] rounded-full border-4 border-fernaoBlack 1024:mb-0'
+          />
+          <div
+            class='font-fernaaoBlack absolute left-36 top-0 mb-6 flex h-[64px] w-[64px] items-center justify-center rounded-full bg-fernaoGreen text-4xl 1024:relative 1024:left-0 1024:top-0 1024:mb-0 1024:ml-14 1024:mt-16 1024:border-[5px] 1024:border-white'
+            aria-hidden='true'
+          >
+            2
+          </div>
+          <div
+            class='absolute right-7 top-32 z-0 hidden h-full w-[8px] bg-fernaoBGGrey 1024:block'
+            aria-hidden='true'
+          />
+        </div>
+        <div class='h-full'>
+          <h4 class='text-center 1024:text-start'>Schritt #2</h4>
+          <p class='mt-8'>
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+            Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+            Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.
+            Ein kleines Bächlein namens Duden fließt durch ihren Ort und
+            versorgt sie mit den nötigen Regelialien.
+          </p>
+        </div>
+      </article>
+      <article class='flex flex-col items-center gap-8 1024:grid 1024:grid-cols-[auto_1fr] 1024:gap-14'>
+        <div class='relative inline-flex h-full'>
+          <img
+            src='https://picsum.photos/seed/picsum/800/600'
+            alt='Placeholder'
+            class='mb-6 h-[207px] w-[207px] rounded-full border-4 border-fernaoBlack 1024:mb-0'
+          />
+          <div
+            class='font-fernaaoBlack absolute left-36 top-0 mb-6 flex h-[68px] w-[68px] items-center justify-center rounded-full bg-fernaoGreen text-4xl 1024:relative 1024:left-0 1024:top-0 1024:mb-0 1024:ml-14 1024:mt-16 1024:border-[5px] 1024:border-white'
+            aria-hidden='true'
+          >
+            3
+          </div>
+        </div>
+        <div>
+          <h4 class='text-center 1024:text-start'>Schritt #3</h4>
+          <p class='mt-8'>
+            Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+            Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+            Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.
+            Ein kleines Bächlein namens Duden fließt durch ihren Ort und
+            versorgt sie mit den nötigen Regelialien. Weit hinten, hinter den
+            Wortbergen, fern der Länder Vokalien und Konsonantien leben die
+            Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste
+            des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens
+            Duden fließt durch ihren Ort und versorgt sie mit den nötigen
+            Regelialien.Weit hinten, hinter den Wortbergen, fern der Länder
+            Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen
+            sie in Buchstabhausen an der Küste des Semantik, eines großen
+            Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren
+            Ort und versorgt sie mit den nötigen Regelialien.Weit hinten, hinter
+            den Wortbergen, fern der Länder Vokalien und Konsonantien leben die
+            Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste
+            des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens
+            Duden fließt durch ihren Ort und versorgt sie mit den nötigen
+            Regelialien.Weit hinten, hinter den Wortbergen, fern der Länder
+            Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen
+            sie in Buchstabhausen an der Küste des Semantik, eines großen
+            Sprachozeans. Ein kleines Bächlein namens Duden fließt durch ihren
+            Ort und versorgt sie mit den nötigen Regelialien.
+          </p>
+        </div>
+      </article>
+    </section>
+  )
+}
