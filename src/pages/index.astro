@@ -13,11 +13,33 @@ import Banner from '../components/Banner.astro'
 <Layout title='Welcome to Astro.'>
   <Headline
     headlineVariant='h3'
-    headlinecontent='Linksbündige Überschrift mit einer Subheadline für weiteren Content in einem umfangreichen Textblock.'
+    headlinecontent='Headline Content Element, mit einer Subheadline für weiteren Content in einem umfangreichen Textblock.'
     sublinecontent='Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.'
     sublineVariant='h4'
   />
-  <Text variant='centered' />
+  <Text
+    headlineContent='Text Content Element linksbündig Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
+  />
+  <Text
+    headlineContent='Text Content Element zentriert mit Headline und  Subheadline für weiteren Content in einem umfangreichen Textblock.'
+    variant='centered'
+  />
+  <Text
+    headlineContent='Text Content Element two-col mit Headline und  Subheadline für weiteren Content in einem umfangreichen Textblock.'
+    variant='two-col'
+  />
+  <Text
+    headlineContent='Text Content Element mit Hintergrund Grau Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
+    backgroundColor='gray'
+  />
+  <Text
+    headlineContent='Text Content Element mit Hintergrund Grün Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
+    backgroundColor='green'
+  />
+  <Text
+    headlineContent='Text Content Element mit Hintergrund Schwarz Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
+    backgroundColor='black'
+  />
   <TextMedia
     media={{
       src: 'https://source.unsplash.com/random/800x600',
@@ -26,6 +48,46 @@ import Banner from '../components/Banner.astro'
     }}
     mediaPosition='right'
   />
+  <TextMedia
+    media={{
+      src: 'https://source.unsplash.com/random/800x600',
+      alt: 'Placeholder',
+      type: 'image',
+    }}
+    mediaPosition='left'
+    aspectRatio='1:1'
+  />
+  <TextMedia
+    media={{
+      src: 'https://source.unsplash.com/random/800x600',
+      alt: 'Placeholder',
+      type: 'image',
+    }}
+    mediaPosition='left'
+    aspectRatio='4:3'
+    backgroundColor='green'
+  />
+  <TextMedia
+    media={{
+      src: 'https://source.unsplash.com/random/800x600',
+      alt: 'Placeholder',
+      type: 'image',
+    }}
+    mediaPosition='right'
+    aspectRatio='4:3'
+    backgroundColor='gray'
+  />
+
+  <TextMedia
+    media={{
+      src: 'https://source.unsplash.com/random/800x600',
+      alt: 'Placeholder',
+      type: 'image',
+    }}
+    mediaPosition='left'
+    backgroundColor='black'
+  />
+
   <FeatureList items={8} />
   <StepByStep />
   <StepByStep variant='vertical' />

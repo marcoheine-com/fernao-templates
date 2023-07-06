@@ -1,10 +1,17 @@
 ---
 interface Props {
+  backgroundColor?: 'white' | 'gray' | 'green' | 'black'
   coloredAccent?: boolean
   variant?: 'left-aligned' | 'centered' | 'two-col'
+  headlineContent: string
 }
 
-const { coloredAccent = true, variant = 'left-aligned' } = Astro.props
+const {
+  backgroundColor = 'white',
+  coloredAccent = true,
+  variant = 'left-aligned',
+  headlineContent,
+} = Astro.props
 
 function getVariantStyling(variant) {
   switch (variant) {
@@ -16,52 +23,70 @@ function getVariantStyling(variant) {
       return 'grid 1024:grid-cols-2 gap-8 mt-8'
   }
 }
+
+const getBackgroundColorStyles = (backgroundColor: string) => {
+  switch (backgroundColor) {
+    case 'white':
+      return 'bg-white'
+    case 'gray':
+      return 'bg-fernaoBGGrey'
+    case 'green':
+      return 'bg-fernaoGreen'
+    case 'black':
+      return 'bg-fernaoBlack text-white'
+    default:
+      return 'bg-white'
+  }
+}
+
 const TEXT_WRAPPER_STYLES = getVariantStyling(variant)
+const BG_COLOR_STYLES = getBackgroundColorStyles(backgroundColor)
 ---
 
 <section
-  class={`content-padding mt-12 flex flex-col ${
-    variant === 'centered' ? 'justify-center text-center' : 'justify-start'
+  class={`content-margin-top flex flex-col w-full ${BG_COLOR_STYLES} ${
+    variant === 'centered' ? 'items-center text-center' : 'items-start'
   }`}
 >
-  {
-    coloredAccent && (
-      <div
-        class={`mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent ${
-          variant === 'centered' && 'self-center'
-        }`}
-      />
-    )
-  }
-  <h3>
-    Linksbündige Überschrift mit einer Subheadline für weiteren Content in einem
-    umfangreichen Textblock.
-  </h3>
-  <h4 class='mt-6'>
-    Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und
-    Konsonantien leben die Blindtexte.
-  </h4>
+  <section class={`content-padding ${backgroundColor !== 'white' && 'py-24'}`}>
+    {
+      coloredAccent && (
+        <div
+          class={`mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent ${
+            variant === 'centered' && 'self-center'
+          }`}
+        />
+      )
+    }
+    <h3>
+      {headlineContent}
+    </h3>
+    <h4 class='mt-6'>
+      Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und
+      Konsonantien leben die Blindtexte.
+    </h4>
 
-  <section class={`${TEXT_WRAPPER_STYLES}`}>
-    <p class=`${variant === 'two-col' ? 'mt-0' : 'mt-8'}`>
-      Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
-      Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
-      Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
-      kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit
-      den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem
-      gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen
-      Interpunktion werden die Blindtexte beherrscht – ein geradezu
-      unorthographisches Leben.
-    </p>
-    <p class=`${variant === 'two-col' ? 'mt-0' : 'mt-8'}`>
-      Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
-      Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
-      Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
-      kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie mit
-      den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem einem
-      gebratene Satzteile in den Mund fliegen. Nicht einmal von der allmächtigen
-      Interpunktion werden die Blindtexte beherrscht – ein geradezu
-      unorthographisches Leben.
-    </p>
+    <section class={`${TEXT_WRAPPER_STYLES}`}>
+      <p class=`${variant === 'two-col' ? 'mt-0' : 'mt-8'}`>
+        Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+        Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+        Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
+        kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie
+        mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem
+        einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der
+        allmächtigen Interpunktion werden die Blindtexte beherrscht – ein
+        geradezu unorthographisches Leben.
+      </p>
+      <p class=`${variant === 'two-col' ? 'mt-0' : 'mt-8'}`>
+        Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und
+        Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in
+        Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein
+        kleines Bächlein namens Duden fließt durch ihren Ort und versorgt sie
+        mit den nötigen Regelialien. Es ist ein paradiesmatisches Land, in dem
+        einem gebratene Satzteile in den Mund fliegen. Nicht einmal von der
+        allmächtigen Interpunktion werden die Blindtexte beherrscht – ein
+        geradezu unorthographisches Leben.
+      </p>
+    </section>
   </section>
 </section>
