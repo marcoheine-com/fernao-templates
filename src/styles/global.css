@@ -66,6 +66,18 @@
   a {
     @apply border-b-[1px] border-b-fernaoBlack;
   }
+
+  /* input validation */
+  input:invalid,
+  input:required:invalid,
+  select:invalid,
+  select:required:invalid {
+    @apply border-inputInvalid text-inputInvalid;
+  }
+
+  select {
+    @apply bg-fernaoBGWhite;
+  }
 }
 
 @layer utilities {

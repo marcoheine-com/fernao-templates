@@ -1,5 +1,13 @@
+---
+interface Props {
+  className?: string
+}
+
+const { className = '' } = Astro.props
+---
+
 <button
-  class='flex w-full justify-center gap-2 rounded-[5px] border-2 border-transparent bg-fernaoGreen py-3 font-bold hover:bg-fernaoGreen20 active:border-btnActiveBorder active:bg-btnActive'
+  class={`flex justify-center gap-2 rounded-[5px] border-2 border-transparent bg-fernaoGreen px-12 py-3 font-bold hover:bg-fernaoGreen20 active:border-btnActiveBorder active:bg-btnActive ${className}`}
 >
   <slot />
 </button>
