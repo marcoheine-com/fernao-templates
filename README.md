@@ -68,7 +68,7 @@ On desktop, clicking a firstlevel nav item will open the second and the third le
 - [Text-Media](./src/components/TextMedia.astro) TODO
 - Media TODO
 - [Feature List / Icon List](./src/components/FeatureList.astro)
-- Header TODO
+- [Banner/Header](./src/components/Banner.astro)
 - [Step by Step](./src/components/StepByStep.astro)
 - Formularer TODO
 

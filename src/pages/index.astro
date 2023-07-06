@@ -7,6 +7,7 @@ import TextMedia from '../components/TextMedia.astro'
 import FeatureList from '../components/FeatureList.astro'
 import StepByStep from '../components/StepByStep.astro'
 import Form from '../components/Form.astro'
+import Banner from '../components/Banner.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -19,7 +20,7 @@ import Form from '../components/Form.astro'
   <Text variant='centered' />
   <TextMedia
     media={{
-      src: 'https://picsum.photos/seed/picsum/800/600',
+      src: 'https://source.unsplash.com/random/800x600',
       alt: 'Placeholder',
       type: 'image',
     }}
@@ -29,5 +30,6 @@ import Form from '../components/Form.astro'
   <StepByStep />
   <StepByStep variant='vertical' />
   <Form />
+  <Banner />
   <PageBreadcrumb />
 </Layout>
