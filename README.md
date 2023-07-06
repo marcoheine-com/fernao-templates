@@ -87,11 +87,17 @@ TODO
 
 ### Icons
 
-- [ArrowRIghtIcon](./src/components/ArrowRightIcon.astro)
-- [ArrowLeftIcon](./src/components/ArrowLeftIcon.astro)
+- [ArrowRightIcon](./src/components/ArrowRightIcon.astro)
+- [ArrowLeftIcon](./src/components/ArrowLeftIcon.html)
+- [ArrowTopIcon](./src/components/ArrowTopIcon.astro)
+- [ArrowBottomIcon](./src/components/ArrowBottomIcon.astro)
 - [AppointmentIcon](./src/components/AppointmentIcon.astro)
+- [CheckmarkIcon](./src/components/CheckmarkIcon.astro)
 - [ClosedMenuIcon](./src/components/ClosedMenuIcon.astro)
+- [LinkIcon](./src/components/LinkIcon.astro)
+- [NewsIcon](./src/components/NewsIcon.astro)
 - [OpcenMenuIcon](./src/components/OpenMenuIcon.astro)
+- [WorldIcon](./src/components/WorldIcon.astro)
 
 ### Fonts
 
