@@ -145,4 +145,9 @@
   .activeSecondLevelBtn > span {
     @apply border-b-[1px] border-b-fernaoDarkGreen;
   }
+
+  /* TOC active */
+  .active-toc {
+    @apply text-fernaoGreen;
+  }
 }

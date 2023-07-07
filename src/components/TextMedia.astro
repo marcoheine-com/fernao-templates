@@ -1,20 +1,22 @@
 ---
 interface Props {
+  aspectRatio?: '16:9' | '4:3' | '3:2' | '1:1'
+  backgroundColor?: 'white' | 'gray' | 'green' | 'black'
+  coloredAccent?: boolean
+  headlineId: string
   media: {
     src: string
     alt: string
     type: 'image' | 'video'
   }
   mediaPosition?: 'left' | 'right'
-  aspectRatio?: '16:9' | '4:3' | '3:2' | '1:1'
-  backgroundColor?: 'white' | 'gray' | 'green' | 'black'
-  coloredAccent?: boolean
 }
 
 const {
   aspectRatio = '16:9',
   backgroundColor = 'white',
   coloredAccent = true,
+  headlineId,
   media,
   mediaPosition = 'left',
 } = Astro.props
@@ -67,7 +69,7 @@ const BG_COLOR_STYLES = getBackgroundColorStyles(backgroundColor)
           <div class='mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent' />
         )
       }
-      <h3>
+      <h3 id={headlineId}>
         TextMedia Content Element mit Headline und Subheadline für weiteren
         Content in einem umfangreichen Textblock.
       </h3>

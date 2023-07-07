@@ -1,0 +1,63 @@
+---
+---
+
+<aside
+  class='content-padding content-margin-top sticky top-24 self-start'
+  id='toc'
+>
+  <ul>
+    <li>
+      <a href='#headline-content-element'>Headline Content Element</a>
+    </li>
+    <li>
+      <a href='#text-content-element-linksbündig'>
+        Text Content Element linksbündig
+      </a>
+    </li>
+    <li>
+      <a href='#text-content-element-zentriert'>
+        Text Content Element zentriert
+      </a>
+    </li>
+    <li>
+      <a href='#text-media-content-element-image-right-gray'>Headline</a>
+    </li>
+    <li>
+      <a href='#text-media-content-element-image-left-black'>Headline</a>
+    </li>
+  </ul>
+</aside>
+
+<script>
+  const observerOptions = {
+    threshold: 1,
+    rootMargin: '0px 0px -80% 0px',
+  }
+
+  const setCurrentHeading: IntersectionObserverCallback = (entries) => {
+    // loop to each entries (headings) in the page
+    for (let entry of entries) {
+      // equivalent to the slug returned from pageHeadings
+      const { id } = entry.target
+      // get the TOC link's element for the current entry
+      const tocLinkEl = document.querySelector(`#toc a[href='#${id}']`)
+      if (!tocLinkEl) return
+      // check if the entry is intersecting
+      if (entry.isIntersecting) {
+        console.log('intersecting')
+        // remove active class from all links
+        document
+          .querySelectorAll('#toc a')
+          .forEach((e) => e.classList.remove('active-toc'))
+        // add active class to the currently active entry
+        tocLinkEl.classList.add('active-toc')
+      }
+    }
+  }
+
+  const observer = new IntersectionObserver(setCurrentHeading, observerOptions)
+  // select all headings to observe
+  const elToObserve = document.querySelectorAll('section :is(h1,h2,h3)')
+  // finally, observe the elements
+  elToObserve.forEach((el) => observer.observe(el))
+</script>

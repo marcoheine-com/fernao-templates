@@ -4,6 +4,7 @@ interface Props {
   coloredAccent?: boolean
   variant?: 'left-aligned' | 'centered' | 'two-col'
   headlineContent: string
+  headlineId: string
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   coloredAccent = true,
   variant = 'left-aligned',
   headlineContent,
+  headlineId,
 } = Astro.props
 
 function getVariantStyling(variant) {
@@ -58,7 +60,7 @@ const BG_COLOR_STYLES = getBackgroundColorStyles(backgroundColor)
         />
       )
     }
-    <h3>
+    <h3 id={headlineId}>
       {headlineContent}
     </h3>
     <h4 class='mt-6'>

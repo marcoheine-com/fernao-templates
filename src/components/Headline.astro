@@ -5,6 +5,7 @@ interface Props {
   sublinecontent?: string
   sublineVariant?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
   coloredAccent?: boolean
+  id: string
 }
 const {
   headlinecontent,
@@ -12,6 +13,7 @@ const {
   sublinecontent,
   sublineVariant = 'h2',
   coloredAccent = true,
+  id,
 } = Astro.props
 
 const SUBLINE_STYLES = 'mt-6'
@@ -25,17 +27,17 @@ const SUBLINE_STYLES = 'mt-6'
   }
   {
     headlineVariant === 'h1' ? (
-      <h1>{headlinecontent} </h1>
+      <h1 id={id}>{headlinecontent} </h1>
     ) : headlineVariant === 'h2' ? (
-      <h2>{headlinecontent} </h2>
+      <h2 id={id}>{headlinecontent} </h2>
     ) : headlineVariant === 'h3' ? (
-      <h3>{headlinecontent} </h3>
+      <h3 id={id}>{headlinecontent} </h3>
     ) : headlineVariant === 'h4' ? (
-      <h4>{headlinecontent} </h4>
+      <h4 id={id}>{headlinecontent} </h4>
     ) : headlineVariant === 'h5' ? (
-      <h5>{headlinecontent} </h5>
+      <h5 id={id}>{headlinecontent} </h5>
     ) : headlineVariant === 'h6' ? (
-      <h6>{headlinecontent} </h6>
+      <h6 id={id}>{headlinecontent} </h6>
     ) : null
   }
 

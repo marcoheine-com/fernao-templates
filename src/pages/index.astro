@@ -8,90 +8,108 @@ import FeatureList from '../components/FeatureList.astro'
 import StepByStep from '../components/StepByStep.astro'
 import Form from '../components/Form.astro'
 import Banner from '../components/Banner.astro'
+import TOC from '../components/TOC.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
-  <Headline
-    headlineVariant='h3'
-    headlinecontent='Headline Content Element, mit einer Subheadline für weiteren Content in einem umfangreichen Textblock.'
-    sublinecontent='Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.'
-    sublineVariant='h4'
-  />
-  <Text
-    headlineContent='Text Content Element linksbündig Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
-  />
-  <Text
-    headlineContent='Text Content Element zentriert mit Headline und  Subheadline für weiteren Content in einem umfangreichen Textblock.'
-    variant='centered'
-  />
-  <Text
-    headlineContent='Text Content Element two-col mit Headline und  Subheadline für weiteren Content in einem umfangreichen Textblock.'
-    variant='two-col'
-  />
-  <Text
-    headlineContent='Text Content Element mit Hintergrund Grau Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
-    backgroundColor='gray'
-  />
-  <Text
-    headlineContent='Text Content Element mit Hintergrund Grün Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
-    backgroundColor='green'
-  />
-  <Text
-    headlineContent='Text Content Element mit Hintergrund Schwarz Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
-    backgroundColor='black'
-  />
-  <TextMedia
-    media={{
-      src: 'https://source.unsplash.com/random/800x600',
-      alt: 'Placeholder',
-      type: 'image',
-    }}
-    mediaPosition='right'
-  />
-  <TextMedia
-    media={{
-      src: 'https://source.unsplash.com/random/800x600',
-      alt: 'Placeholder',
-      type: 'image',
-    }}
-    mediaPosition='left'
-    aspectRatio='1:1'
-  />
-  <TextMedia
-    media={{
-      src: 'https://source.unsplash.com/random/800x600',
-      alt: 'Placeholder',
-      type: 'image',
-    }}
-    mediaPosition='left'
-    aspectRatio='4:3'
-    backgroundColor='green'
-  />
-  <TextMedia
-    media={{
-      src: 'https://source.unsplash.com/random/800x600',
-      alt: 'Placeholder',
-      type: 'image',
-    }}
-    mediaPosition='right'
-    aspectRatio='4:3'
-    backgroundColor='gray'
-  />
-
-  <TextMedia
-    media={{
-      src: 'https://source.unsplash.com/random/800x600',
-      alt: 'Placeholder',
-      type: 'image',
-    }}
-    mediaPosition='left'
-    backgroundColor='black'
-  />
-
-  <FeatureList items={8} />
-  <StepByStep />
-  <StepByStep variant='vertical' />
-  <Form />
   <Banner />
-  <PageBreadcrumb />
+  <section class='grid grid-cols-3'>
+    <section class='col-span-2'>
+      <Headline
+        id='headline-content-element'
+        headlineVariant='h3'
+        headlinecontent='Headline Content Element, mit einer Subheadline für weiteren Content in einem umfangreichen Textblock.'
+        sublinecontent='Weit hinten, hinter den Wort-bergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.'
+        sublineVariant='h4'
+      />
+      <Text
+        headlineId='text-content-element-linksbündig'
+        headlineContent='Text Content Element linksbündig Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
+      />
+      <Text
+        headlineId='text-content-element-zentriert'
+        headlineContent='Text Content Element zentriert mit Headline und  Subheadline für weiteren Content in einem umfangreichen Textblock.'
+        variant='centered'
+      />
+      <Text
+        headlineId='Text Content Element zwei-spaltig'
+        headlineContent='Text Content Element two-col mit Headline und  Subheadline für weiteren Content in einem umfangreichen Textblock.'
+        variant='two-col'
+      />
+      <Text
+        headlineId='Text Content Element mit Hintergrund Grau'
+        headlineContent='Text Content Element mit Hintergrund Grau Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
+        backgroundColor='gray'
+      />
+      <Text
+        headlineId='Text Content Element mit Hintergrund Grün'
+        headlineContent='Text Content Element mit Hintergrund Grün Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
+        backgroundColor='green'
+      />
+      <Text
+        headlineId='Text Content Element mit Hintergrund Schwarz'
+        headlineContent='Text Content Element mit Hintergrund Schwarz Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
+        backgroundColor='black'
+      />
+      <TextMedia
+        headlineId='Text Media Content Element image right'
+        media={{
+          src: 'https://source.unsplash.com/random/800x600',
+          alt: 'Placeholder',
+          type: 'image',
+        }}
+        mediaPosition='right'
+      />
+      <TextMedia
+        headlineId='Text Media Content Element image left'
+        media={{
+          src: 'https://source.unsplash.com/random/800x600',
+          alt: 'Placeholder',
+          type: 'image',
+        }}
+        mediaPosition='left'
+        aspectRatio='1:1'
+      />
+      <TextMedia
+        headlineId='Text Media Content Element image left green'
+        media={{
+          src: 'https://source.unsplash.com/random/800x600',
+          alt: 'Placeholder',
+          type: 'image',
+        }}
+        mediaPosition='left'
+        aspectRatio='4:3'
+        backgroundColor='green'
+      />
+      <TextMedia
+        headlineId='text-media-content-element-image-right-gray'
+        media={{
+          src: 'https://source.unsplash.com/random/800x600',
+          alt: 'Placeholder',
+          type: 'image',
+        }}
+        mediaPosition='right'
+        aspectRatio='4:3'
+        backgroundColor='gray'
+      />
+
+      <TextMedia
+        headlineId='text-media-content-element-image-left-black'
+        media={{
+          src: 'https://source.unsplash.com/random/800x600',
+          alt: 'Placeholder',
+          type: 'image',
+        }}
+        mediaPosition='left'
+        backgroundColor='black'
+      />
+
+      <FeatureList items={8} />
+      <StepByStep />
+      <StepByStep variant='vertical' />
+      <Form />
+      <PageBreadcrumb />
+    </section>
+    <TOC />
+  </section>
 </Layout>
