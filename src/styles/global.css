@@ -153,4 +153,8 @@
   .active-toc {
     @apply text-fernaoGreen;
   }
+
+  .no-link-styling {
+    @apply border-b-0;
+  }
 }

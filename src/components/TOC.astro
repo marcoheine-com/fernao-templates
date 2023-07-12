@@ -1,29 +1,77 @@
----
----
-
 <aside
-  class='content-padding content-margin-top sticky top-24 self-start'
+  class='content-padding content-margin-top sticky top-24 hidden self-start 1920:block'
   id='toc'
 >
-  <ul>
+  <p class='font-bold'>Auf dieser Seite</p>
+  <ul class='mt-6 flex flex-col gap-2'>
     <li>
-      <a href='#headline-content-element'>Headline Content Element</a>
+      <a href='#headline-content-element' class='no-link-styling'
+        >Headline Content Element</a
+      >
     </li>
     <li>
-      <a href='#text-content-element-linksbündig'>
+      <a href='#text-content-element-linksbündig' class='no-link-styling'>
         Text Content Element linksbündig
       </a>
     </li>
     <li>
-      <a href='#text-content-element-zentriert'>
+      <a href='#text-content-element-zentriert' class='no-link-styling'>
         Text Content Element zentriert
       </a>
     </li>
     <li>
-      <a href='#text-media-content-element-image-right-gray'>Headline</a>
+      <a href='#text-content-element-zweispaltig' class='no-link-styling'>
+        Text Content Element zweispaltig
+      </a>
     </li>
     <li>
-      <a href='#text-media-content-element-image-left-black'>Headline</a>
+      <a href='#text-content-element-background-gray' class='no-link-styling'>
+        Text Content Element mit grauem Hintergrund
+      </a>
+    </li>
+    <li>
+      <a href='#text-content-element-background-green' class='no-link-styling'>
+        Text Content Element mit grünem Hintergrund
+      </a>
+    </li>
+    <li>
+      <a href='text-content-element-background-black' class='no-link-styling'>
+        Text Content Element mit schwarzem Hintergrund
+      </a>
+    </li>
+    <li>
+      <a href='#text-media-content-element-image-right' class='no-link-styling'>
+        Text Media Content Element mit Bild rechts
+      </a>
+    </li>
+    <li>
+      <a href='#text-media-content-element-image-left' class='no-link-styling'>
+        Text Media Content Element mit Bild links
+      </a>
+    </li>
+    <li>
+      <a
+        href='#text-media-content-element-image-left-green'
+        class='no-link-styling'
+      >
+        Text Media Content Element mit Bild links und grünem Hintergrund
+      </a>
+    </li>
+    <li>
+      <a
+        href='#text-media-content-element-image-right-gray'
+        class='no-link-styling'
+      >
+        Text Media Content Element mit Bild rechts und grauem Hintergrund
+      </a>
+    </li>
+    <li>
+      <a
+        href='#text-media-content-element-image-left-black'
+        class='no-link-styling'
+      >
+        Text Media Content Element mit Bild links und schwarzem Hintergrund
+      </a>
     </li>
   </ul>
 </aside>
@@ -44,7 +92,6 @@
       if (!tocLinkEl) return
       // check if the entry is intersecting
       if (entry.isIntersecting) {
-        console.log('intersecting')
         // remove active class from all links
         document
           .querySelectorAll('#toc a')

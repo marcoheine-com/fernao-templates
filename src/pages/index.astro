@@ -13,8 +13,8 @@ import TOC from '../components/TOC.astro'
 
 <Layout title='Ferno Standard Seite'>
   <Banner />
-  <section class='grid grid-cols-3'>
-    <section class='col-span-2'>
+  <section class='1920:grid 1920:grid-cols-3'>
+    <section class='1920:col-span-2'>
       <Headline
         id='headline-content-element'
         headlineVariant='h3'
@@ -32,27 +32,27 @@ import TOC from '../components/TOC.astro'
         variant='centered'
       />
       <Text
-        headlineId='Text Content Element zwei-spaltig'
+        headlineId='text-content-element-zweispaltig'
         headlineContent='Text Content Element two-col mit Headline und  Subheadline für weiteren Content in einem umfangreichen Textblock.'
         variant='two-col'
       />
       <Text
-        headlineId='Text Content Element mit Hintergrund Grau'
+        headlineId='text-content-element-background-gray'
         headlineContent='Text Content Element mit Hintergrund Grau Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
         backgroundColor='gray'
       />
       <Text
-        headlineId='Text Content Element mit Hintergrund Grün'
+        headlineId='text-content-element-background-green'
         headlineContent='Text Content Element mit Hintergrund Grün Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
         backgroundColor='green'
       />
       <Text
-        headlineId='Text Content Element mit Hintergrund Schwarz'
+        headlineId='text-content-element-background-black'
         headlineContent='Text Content Element mit Hintergrund Schwarz Headline und Subheadline für weiteren Content in einem umfangreichen Textblock.'
         backgroundColor='black'
       />
       <TextMedia
-        headlineId='Text Media Content Element image right'
+        headlineId='text-media-content-element-image-right'
         media={{
           src: 'https://source.unsplash.com/random/800x600',
           alt: 'Placeholder',
@@ -61,7 +61,7 @@ import TOC from '../components/TOC.astro'
         mediaPosition='right'
       />
       <TextMedia
-        headlineId='Text Media Content Element image left'
+        headlineId='text-media-content-element-image-left'
         media={{
           src: 'https://source.unsplash.com/random/800x600',
           alt: 'Placeholder',
@@ -71,7 +71,7 @@ import TOC from '../components/TOC.astro'
         aspectRatio='1:1'
       />
       <TextMedia
-        headlineId='Text Media Content Element image left green'
+        headlineId='text-media-content-element-image-left-green'
         media={{
           src: 'https://source.unsplash.com/random/800x600',
           alt: 'Placeholder',
