@@ -1,5 +1,6 @@
 ---
-const { href, title, lightText = false, text } = Astro.props
+import CheckmarkIcon from './CheckmarkIcon.astro'
+const { title, lightText = false } = Astro.props
 ---
 
 <li
@@ -7,13 +8,10 @@ const { href, title, lightText = false, text } = Astro.props
     lightText ? 'text-black50' : ''
   } 1440:hover:bg-fernaoGreenA20 1440:mb-0`}
 >
-  <a
-    class='text-underline text-underline-colored flex w-full justify-between 1440:flex-col 1440:gap-2 1440:bg-none'
-    href={href}
+  <button
+    class='text-underline text-underline-colored flex w-full gap-2 1440:bg-none'
   >
-    <p class='1440:font-bold'>{title}</p>
-    <p class='hidden 1440:block'>
-      {text}
-    </p>
-  </a>
+    <CheckmarkIcon />
+    <p>{title}</p>
+  </button>
 </li>

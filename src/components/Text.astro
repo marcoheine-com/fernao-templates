@@ -45,9 +45,9 @@ const TEXT_WRAPPER_STYLES = getVariantStyling(variant)
 const BG_COLOR_STYLES = getBackgroundColorStyles(backgroundColor)
 ---
 
-<section class={`content-margin-top  `}>
+<section class={`content-margin-top w-full`}>
   <section
-    class={`content-padding flex flex-col w-full ${BG_COLOR_STYLES} ${
+    class={`content-padding flex flex-col ${BG_COLOR_STYLES} ${
       variant === 'centered' ? 'items-center text-center' : 'items-start'
     } ${backgroundColor !== 'white' ? 'py-24' : ''}`}
   >

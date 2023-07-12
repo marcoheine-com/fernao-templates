@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string
+  bold?: boolean
+  href: string
+}
+const { title, bold = true, href } = Astro.props
+---
+
+<li
+  class={`mb-4 last:mb-0 px-4 py-2 ${
+    bold ? 'font-bold' : 'font-normal'
+  } 1440:py-0 1440:mb-0`}
+>
+  <a class='flex w-full justify-between gap-1 border-b-0' href={href}>
+    <span class='text-underline text-underline-colored w-full text-start'>
+      {title}
+    </span>
+  </a>
+  <slot />
+</li>

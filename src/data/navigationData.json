@@ -40,6 +40,7 @@
               "id": "configuration-audits",
               "href": "/solutions/it-security/configuration-audits",
               "text": "This is an example teaser text for Configuration Audits",
+              "mainCategory": "Solutions",
               "parentTitle": "IT Security",
               "items": [
                 {
@@ -76,6 +77,7 @@
               "title": "Security Awareness - This headline is an example of what a very long text wuld look like if there were no character limits or similar restrictions on maintenance",
               "text": "This is an example teaser text for Security Awareness",
               "id": "security-awareness",
+              "mainCategory": "Solutions",
               "parentTitle": "IT Security",
               "href": "/solutions/it-security/security-awareness",
               "items": [
@@ -243,7 +245,8 @@
     },
     {
       "title": "Cloud",
-      "id": "cloud"
+      "id": "cloud",
+      "href": "/cloud"
     },
     {
       "title": "Branchen",

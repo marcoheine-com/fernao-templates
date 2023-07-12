@@ -19,6 +19,7 @@ module.exports = {
       },
       boxShadow: {
         secondaryBtn: '0 0 0 2px #8CC63F',
+        desktopMenu: '0px -4px 8px 0px rgba(1, 2, 0, 0.05)',
       },
       colors: {
         fernaoGreen: '#8CC63F',

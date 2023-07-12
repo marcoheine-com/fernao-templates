@@ -18,7 +18,7 @@ npm run dev
 
 The [Navigation](./src/components/Navigation.astro) is build to function on mobile and desktop simultaneously. It is currently generated based on a [dummy CMS response](./src/data/navigationData.json).
 
-It consists of the Main Navigation, service navigation, legav navigation, a language switcher and a CTA.
+It consists of the Main Navigation, service navigation, legal navigation, a language switcher and a CTA.
 
 ### Main Navigation
 
@@ -36,6 +36,7 @@ It has four levels of navigation. Every level consists of:
   - [SubmenuWrapper](./src/components/SubmenuWrapper.astro)
 - the nav items
   - [FirstLevelNavItem](./src/components/FirstLevelNavItem.astro)
+  - [FirstLevelNavItemLink](./src/components/FirstLevelNavItemLink.astro)
   - [SecondLevelNavItem](./src/components/SecondLevelNavItem.astro)
   - [SecondLevelNavItemLink](./src/components/SecondLevelNavItemLink.astro)
   - [ThirdLevelNavItem](./src/components/ThirdLevelNavItem.astro)
@@ -52,32 +53,33 @@ On desktop, clicking a firstlevel nav item will open the second and the third le
 - [LanguageSubmenu](./src/components/LanguageSubmenu.astro)
 - [LanugageSubmenuWrapper](./src/components/LanguageSubmenuWrapper.astro)
 - [LanguageItem](./src/components/LanguageItem.astro)
+- [LanguageNavItem](./src/components/LanguageNavItem.astro)
 
 ### Legal Navigation
 
-- legal navigation is part of the [Footer](./src/components/Footer.astro) , currently the data comes from [footerData.json](./src/data/footerData.json) see `legalItems`
+- legal navigation is part of the [Footer](./src/components/Footer.astro), currently the data comes from [footerData.json](./src/data/footerData.json) see `legalItems`
 
 ### Meta Navigation
 
-- also part of the [Footer](./src/components/Footer.astro) , currently the data comes from [footerData.json](./src/data/footerData.json), see `metaItems`
+- also part of the [Footer](./src/components/Footer.astro), currently the data comes from [footerData.json](./src/data/footerData.json), see `metaItems`
 
 ## Content Elements
 
 - [Header](./src/components/Header.astro)
 - [Text](./src/components/Text.astro)
-- [Text-Media](./src/components/TextMedia.astro) TODO
+- [Text-Media](./src/components/TextMedia.astro)
 - Media TODO
 - [Feature List / Icon List](./src/components/FeatureList.astro)
 - [Banner/Header](./src/components/Banner.astro)
 - [Step by Step](./src/components/StepByStep.astro)
-- Formularer TODO
+- [FORM](./src/components/Form.astro)
 
 ## Page Templates
 
-TODO
-
-- StandardPage
-- LandingPage
+- [StandardPage](./src/components/index.astro)
+  - has a three grid layout, where the content elements are inside the two columns on the left, and the TOC is on desktop on the right
+- [LandingPage](./src/components/landingPage.astro)
+  - has no TOC and no right column
 
 ## General
 
@@ -110,7 +112,7 @@ The main font is Ubuntu. It is located in /public/fonts and is loaded in [global
 - [Footer](./src/components/Footer.astro) for standard pages
 - [FooterReduced](./src/components/FooterReduced.astro) for landing pages
 - [Breadcrumb](./src/components/Breadcrumb.astro)
-- TOC TODO
+- [TOC](./src/components/TOC.astro)
 
 - Buttons
   - [PrimaryButton](./src/components/PrimaryButton.astro)

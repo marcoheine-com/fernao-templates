@@ -1,27 +1,27 @@
 ---
-import PrimaryButtonIcon from './PrimaryButtonIcon.astro'
-
+import FirstLevelNavItem from './FirstLevelNavItem.astro'
+import FirstLevelNavItemLink from './FirstLevelNavItemLink.astro'
+import FourthLevelBackButton from './FourthLevelBackButton.astro'
+import FourthLevelMenu from './FourthLevelMenu.astro'
+import LanguageItem from './LanguageItem.astro'
+import LanguageNavItem from './LanguageNavItem.astro'
+import LanguageSubmenu from './LanguageSubmenu.astro'
+import LanguageSubmenuWrapper from './LanguageSubmenuWrapper.astro'
+import NavBreadCrumb from './NavBreadCrumb.astro'
 import NavItem from './NavItem.astro'
 import NavItemBacklink from './NavItemBacklink.astro'
 import NavItemLink from './NavItemLink.astro'
-import NavBreadCrumb from './NavBreadCrumb.astro'
-import LanguageSubmenu from './LanguageSubmenu.astro'
-import SubmenuWrapper from './SubmenuWrapper.astro'
-import SecondLevelMenu from './SecondLevelMenu.astro'
-import ThirdLevelMenu from './ThirdLevelMenu.astro'
-import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
-import FourthLevelMenu from './FourthLevelMenu.astro'
-import SecondLevelMenuWrapper from './SecondLevelMenuWrapper.astro'
-import PrimaryButtonOnlyIcon from './PrimaryButtonOnlyIcon.astro'
-import FirstLevelNavItem from './FirstLevelNavItem.astro'
-import SecondLevelNavItem from './SecondLevelNavItem.astro'
-
 import navigationData from '../data/navigationData.json'
 import OverviewLink from './OverviewLink.astro'
-import FourthLevelBackButton from './FourthLevelBackButton.astro'
+import PrimaryButtonIcon from './PrimaryButtonIcon.astro'
+import PrimaryButtonOnlyIcon from './PrimaryButtonOnlyIcon.astro'
+import SecondLevelMenu from './SecondLevelMenu.astro'
+import SecondLevelMenuWrapper from './SecondLevelMenuWrapper.astro'
+import SecondLevelNavItem from './SecondLevelNavItem.astro'
 import SecondLevelNavItemLink from './SecondLevelNavItemLink.astro'
-import LanguageSubmenuWrapper from './LanguageSubmenuWrapper.astro'
-import LanguageItem from './LanguageItem.astro'
+import SubmenuWrapper from './SubmenuWrapper.astro'
+import ThirdLevelMenu from './ThirdLevelMenu.astro'
+import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
 ---
 
 <nav class='border-fernaoGreen 1440:w-full' id='nav'>
@@ -32,122 +32,132 @@ import LanguageItem from './LanguageItem.astro'
   >
     {
       navigationData.items.map((item) => {
-        return (
-          <FirstLevelNavItem
-            ariaControls={`secondlevel-${item.id}`}
-            id='firstlevel-button'
-            title={item.title}
-          >
-            {/*### Second Level */}
-            <SecondLevelMenu id={`secondlevel-${item.id}`}>
-              <NavItemBacklink
-                ariaControls={`secondlevel-${item.id}`}
-                title={item.title}
-                id='firstlevel-button'
-              />
-              <SecondLevelMenuWrapper>
-                {item.items?.map((item) => {
-                  const hasThirdLevel = item.items?.length > 0
+        const hasSecondLevel = item.items?.length > 0
 
-                  return hasThirdLevel ? (
-                    <SecondLevelNavItem
-                      ariaControls={`thirdlevel-${item.id}`}
-                      id='secondlevel-button'
-                      title={item.title}
-                      bold={false}
-                    >
-                      {/* Third Level */}
-                      <ThirdLevelMenu id={`thirdlevel-${item.id}`}>
-                        <NavBreadCrumb title={`${item.parentTitle} > `} />
-                        <NavItemBacklink
-                          ariaControls={`thirdlevel-${item.id}`}
-                          title={item.title}
-                          id='secondlevel-button'
-                        />
-                        <SubmenuWrapper>
-                          {item.items?.map((item) => {
-                            const hasFourthLevel = item.items?.length > 0
+        if (!hasSecondLevel) {
+          return <FirstLevelNavItemLink title={item.title} href={item.href} />
+        } else {
+          return (
+            <FirstLevelNavItem
+              ariaControls={`secondlevel-${item.id}`}
+              id='firstlevel-button'
+              title={item.title}
+            >
+              {/* Second Level */}
+              <SecondLevelMenu id={`secondlevel-${item.id}`}>
+                <NavItemBacklink
+                  ariaControls={`secondlevel-${item.id}`}
+                  title={item.title}
+                  id='firstlevel-button'
+                />
+                <SecondLevelMenuWrapper>
+                  {item.items?.map((item) => {
+                    const hasThirdLevel = item.items?.length > 0
 
-                            return hasFourthLevel ? (
-                              <ThirdLevelNavItem
-                                ariaControls={`fourthlevel-${item.id}`}
-                                id='thirdlevel-button'
-                                title={item.title}
-                                bold={false}
-                                text={item.text}
-                              >
-                                {/* Fourth Level */}
-                                <FourthLevelMenu id={`fourthlevel-${item.id}`}>
-                                  <NavBreadCrumb
-                                    title={`${item.parentTitle} > `}
-                                  />
-                                  <FourthLevelBackButton
-                                    ariaControls={`fourthlevel-${item.id}`}
-                                    title={item.title}
-                                    id='thirdlevel-button'
-                                    parentTitle={item.parentTitle}
-                                  />
-                                  <SubmenuWrapper>
-                                    {item.items?.map((item) => {
-                                      return (
-                                        <NavItemLink
-                                          href={item.href}
-                                          title={item.title}
-                                          text={item.text}
-                                        />
-                                      )
-                                    })}
-
-                                    <OverviewLink href={item.href}>
-                                      {item.title}
-                                    </OverviewLink>
-                                  </SubmenuWrapper>
-                                </FourthLevelMenu>
-                              </ThirdLevelNavItem>
-                            ) : (
-                              <NavItemLink
-                                href={item.href}
-                                title={item.title}
-                                text={item.text}
-                              />
-                            )
-                          })}
-
-                          <OverviewLink href={item.href}>
-                            {item.title}
-                          </OverviewLink>
-                        </SubmenuWrapper>
-                      </ThirdLevelMenu>
-                    </SecondLevelNavItem>
-                  ) : (
-                    <SecondLevelNavItemLink href={item.href} title={item.title}>
-                      <ThirdLevelMenu id={`thirdlevel-${item.id}`}>
-                        <NavBreadCrumb title={`${item.parentTitle} > `} />
-                        <NavItemBacklink
-                          ariaControls={`thirdlevel-${item.id}`}
-                          title={item.title}
-                          id='secondlevel-button'
-                        />
-                        <SubmenuWrapper>
-                          <OverviewLink
-                            href={item.href}
+                    return hasThirdLevel ? (
+                      <SecondLevelNavItem
+                        ariaControls={`thirdlevel-${item.id}`}
+                        id='secondlevel-button'
+                        title={item.title}
+                        bold={false}
+                      >
+                        {/* Third Level */}
+                        <ThirdLevelMenu id={`thirdlevel-${item.id}`}>
+                          <NavBreadCrumb title={`${item.parentTitle} > `} />
+                          <NavItemBacklink
+                            ariaControls={`thirdlevel-${item.id}`}
                             title={item.title}
-                            text={item.text}
-                          >
-                            {item.title}
-                          </OverviewLink>
-                        </SubmenuWrapper>
-                      </ThirdLevelMenu>
-                    </SecondLevelNavItemLink>
-                  )
-                })}
-              </SecondLevelMenuWrapper>
-            </SecondLevelMenu>
-          </FirstLevelNavItem>
-        )
+                            id='secondlevel-button'
+                          />
+                          <SubmenuWrapper>
+                            {item.items?.map((item) => {
+                              const hasFourthLevel = item.items?.length > 0
+
+                              return hasFourthLevel ? (
+                                <ThirdLevelNavItem
+                                  ariaControls={`fourthlevel-${item.id}`}
+                                  id='thirdlevel-button'
+                                  title={item.title}
+                                  bold={false}
+                                  text={item.text}
+                                >
+                                  {/* Fourth Level */}
+                                  <FourthLevelMenu
+                                    id={`fourthlevel-${item.id}`}
+                                  >
+                                    <NavBreadCrumb
+                                      title={`${item.mainCategory} > ${item.parentTitle} > `}
+                                    />
+                                    <FourthLevelBackButton
+                                      ariaControls={`fourthlevel-${item.id}`}
+                                      title={item.title}
+                                      id='thirdlevel-button'
+                                      parentTitle={item.parentTitle}
+                                    />
+                                    <SubmenuWrapper>
+                                      {item.items?.map((item) => {
+                                        return (
+                                          <NavItemLink
+                                            href={item.href}
+                                            title={item.title}
+                                            text={item.text}
+                                          />
+                                        )
+                                      })}
+
+                                      <OverviewLink href={item.href}>
+                                        {item.title}
+                                      </OverviewLink>
+                                    </SubmenuWrapper>
+                                  </FourthLevelMenu>
+                                </ThirdLevelNavItem>
+                              ) : (
+                                <NavItemLink
+                                  href={item.href}
+                                  title={item.title}
+                                  text={item.text}
+                                />
+                              )
+                            })}
+
+                            <OverviewLink href={item.href}>
+                              {item.title}
+                            </OverviewLink>
+                          </SubmenuWrapper>
+                        </ThirdLevelMenu>
+                      </SecondLevelNavItem>
+                    ) : (
+                      <SecondLevelNavItemLink
+                        href={item.href}
+                        title={item.title}
+                      >
+                        <ThirdLevelMenu id={`thirdlevel-${item.id}`}>
+                          <NavBreadCrumb title={`${item.parentTitle} > `} />
+                          <NavItemBacklink
+                            ariaControls={`thirdlevel-${item.id}`}
+                            title={item.title}
+                            id='secondlevel-button'
+                          />
+                          <SubmenuWrapper>
+                            <OverviewLink
+                              href={item.href}
+                              title={item.title}
+                              text={item.text}
+                            >
+                              {item.title}
+                            </OverviewLink>
+                          </SubmenuWrapper>
+                        </ThirdLevelMenu>
+                      </SecondLevelNavItemLink>
+                    )
+                  })}
+                </SecondLevelMenuWrapper>
+              </SecondLevelMenu>
+            </FirstLevelNavItem>
+          )
+        }
       })
     }
-    <!-- TODO: add other nav items  -->
 
     <li class='mt-14 1440:hidden'>
       <PrimaryButtonIcon>Termin buchen</PrimaryButtonIcon>
@@ -155,36 +165,31 @@ import LanguageItem from './LanguageItem.astro'
 
     <li class='1440:ml-auto'>
       <ul class='mt-4 1440:mt-0 1440:flex 1440:w-full 1440:items-center'>
-        <NavItem
+        <LanguageNavItem
           title='Sprache'
-          ariaControls='secondlevel-sprache'
-          id='firstlevel-button'
+          ariaControls='secondlevel-lang'
+          id='lang-button'
           bold={false}
         >
-          <LanguageSubmenu id='secondlevel-sprache'>
+          <LanguageSubmenu id='secondlevel-lang'>
             <NavItemBacklink
-              ariaControls='secondlevel-sprache'
+              ariaControls='secondlevel-lang'
               title='Sprache'
               id='secondlevel-button-back'
             />
             <LanguageSubmenuWrapper>
-              <LanguageItem
-                href='/solutions/it-security/next-gen-security-platforms'
-                title='Deutsch'
-              />
-              <LanguageItem
-                href='/solutions/it-security/next-gen-security-platforms'
-                title='Englisch'
-              />
+              <LanguageItem title='Deutsch' />
+              <LanguageItem title='Englisch' />
             </LanguageSubmenuWrapper>
           </LanguageSubmenu>
-        </NavItem>
+        </LanguageNavItem>
 
         <NavItem
           title='Über Uns'
           ariaControls='secondlevel-uber-uns'
           id='secondlevel-button'
           bold={false}
+          className='1440:hidden'
         />
         <li class='1440:hidden'>
           <ul>
@@ -200,7 +205,7 @@ import LanguageItem from './LanguageItem.astro'
         </li>
       </ul>
     </li>
-    <li class='hidden 1440:block'>
+    <li class='hidden 1440:ml-4 1440:block'>
       <PrimaryButtonOnlyIcon />
     </li>
   </ul>
@@ -212,6 +217,8 @@ import LanguageItem from './LanguageItem.astro'
     document.querySelector('#nav').classList.toggle('border-t-2')
     document.querySelector('#menu-open-icon').classList.toggle('hidden')
     document.querySelector('#menu-closed-icon').classList.toggle('hidden')
+    // prevent background scrolling
+    document.querySelector('body').classList.toggle('overflow-hidden')
 
     // if open, close all open submenus to reset menu
     resetMenus()
@@ -253,6 +260,9 @@ import LanguageItem from './LanguageItem.astro'
       if (firstSecondLevelButton) {
         firstSecondLevelButton.classList.add('activeSecondLevelBtn')
       }
+
+      // prevent background scrolling
+      document.querySelector('body').classList.toggle('overflow-hidden')
 
       // Toggle fixed class on header
       document.querySelector('#header').classList.add('fixed')
@@ -339,6 +349,11 @@ import LanguageItem from './LanguageItem.astro'
 
   const menuButton = document.querySelector('#menu-button')
   menuButton.addEventListener('click', handleMenuButtonClick)
+
+  const langButton = document.querySelector('#lang-button')
+  langButton.addEventListener('click', () => {
+    document.querySelector('#secondlevel-lang').classList.toggle('hidden')
+  })
 
   const secondLevelButtons = document.querySelectorAll(
     '#secondlevel-button, #secondlevel-button-back'

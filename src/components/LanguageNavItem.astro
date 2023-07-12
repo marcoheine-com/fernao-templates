@@ -1,5 +1,6 @@
 ---
 import ArrowRightIcon from './ArrowRightIcon.astro'
+import WorldIcon from './WorldIcon.astro'
 
 // TODO: Check if can be removed
 interface Props {
@@ -7,25 +8,28 @@ interface Props {
   id: string
   title: string
   bold?: boolean
-  className?: string
 }
-const { ariaControls, id, title, bold = true, className } = Astro.props
+const { ariaControls, id, title, bold = true } = Astro.props
 ---
 
 <li
   class={`mb-4 last:mb-0 px-4 py-2 ${
     bold ? 'font-bold' : 'font-normal'
-  } ${className} 1440:py-0 1440:mb-0 1440:relative`}
+  } 1440:py-0 1440:mb-0 1440:relative`}
 >
   <button
     class='flex w-full justify-between gap-2'
     aria-controls={ariaControls}
     id={id}
   >
-    <span class='text-underline text-underline-colored w-full text-start'>
+    <span
+      class='text-underline text-underline-colored w-full text-start 1440:hidden'
+    >
       {title}
     </span>
-    <ArrowRightIcon />
+    <ArrowRightIcon className='1440:hidden' />
+
+    <WorldIcon className={'hidden 1440:block world-icon'} />
   </button>
   <slot />
 </li>
