@@ -45,12 +45,12 @@ const TEXT_WRAPPER_STYLES = getVariantStyling(variant)
 const BG_COLOR_STYLES = getBackgroundColorStyles(backgroundColor)
 ---
 
-<section
-  class={`content-margin-top flex flex-col w-full ${BG_COLOR_STYLES} ${
-    variant === 'centered' ? 'items-center text-center' : 'items-start'
-  }`}
->
-  <section class={`content-padding ${backgroundColor !== 'white' && 'py-24'}`}>
+<section class={`content-margin-top  `}>
+  <section
+    class={`content-padding flex flex-col w-full ${BG_COLOR_STYLES} ${
+      variant === 'centered' ? 'items-center text-center' : 'items-start'
+    } ${backgroundColor !== 'white' ? 'py-24' : ''}`}
+  >
     {
       coloredAccent && (
         <div

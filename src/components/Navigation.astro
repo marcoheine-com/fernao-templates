@@ -15,7 +15,7 @@ import SecondLevelMenuWrapper from './SecondLevelMenuWrapper.astro'
 import PrimaryButtonOnlyIcon from './PrimaryButtonOnlyIcon.astro'
 import FirstLevelNavItem from './FirstLevelNavItem.astro'
 import SecondLevelNavItem from './SecondLevelNavItem.astro'
-// @ts-ignore
+
 import navigationData from '../data/navigationData.json'
 import OverviewLink from './OverviewLink.astro'
 import FourthLevelBackButton from './FourthLevelBackButton.astro'
@@ -216,10 +216,9 @@ import LanguageItem from './LanguageItem.astro'
     // if open, close all open submenus to reset menu
     resetMenus()
   }
+  const isDesktop = window.innerWidth > 1440
 
   const handleFirstLevelClick = (id, button) => {
-    const isDesktop = window.innerWidth > 1440
-
     if (isDesktop) {
       const isActiveFirstLevelBtnActive = button.classList.contains(
         'activeFirstLevelBtn'
@@ -249,14 +248,16 @@ import LanguageItem from './LanguageItem.astro'
       })
 
       // Toggle active class on button
-      button.classList.toggle('activeFirstLevelBtn')
+      button.classList.add('activeFirstLevelBtn')
       // Toggle active class on first second level button
       if (firstSecondLevelButton) {
-        firstSecondLevelButton.classList.toggle('activeSecondLevelBtn')
+        firstSecondLevelButton.classList.add('activeSecondLevelBtn')
       }
 
       // Toggle fixed class on header
-      document.querySelector('#header').classList.toggle('fixed')
+      document.querySelector('#header').classList.add('fixed')
+      document.querySelector('#header').classList.add('border-b-2')
+      document.querySelector('#header').classList.add('border-fernaoGreen')
 
       // Side effects for clicked twice
       if (isActiveFirstLevelBtnActive) {
@@ -269,7 +270,7 @@ import LanguageItem from './LanguageItem.astro'
         const fourthLevelMenu = document.querySelectorAll(
           'ul[id^="fourthlevel-"]'
         )
-        const activeSecondLevelBtn = document.querySelector(
+        const activeSecondLevelBtn = document.querySelectorAll(
           'button[id^="secondlevel-"].activeSecondLevelBtn'
         )
         thirdLevelMenu.forEach((menu) => {
@@ -278,8 +279,13 @@ import LanguageItem from './LanguageItem.astro'
         fourthLevelMenu.forEach((menu) => {
           menu.classList.add('hidden')
         })
+        document.querySelector('#header').classList.remove('fixed')
+        document.querySelector('#header').classList.remove('border-b-2')
+        document.querySelector('#header').classList.remove('border-fernaoGreen')
         if (activeSecondLevelBtn) {
-          activeSecondLevelBtn.classList.remove('activeSecondLevelBtn')
+          activeSecondLevelBtn.forEach((btn) => {
+            btn.classList.remove('activeSecondLevelBtn')
+          })
         }
       }
     } else {
@@ -290,7 +296,7 @@ import LanguageItem from './LanguageItem.astro'
   }
 
   const handleSecondLevelClick = (id, button) => {
-    if (window.innerWidth > 1440) {
+    if (isDesktop) {
       // Reset other open menus
       const menus = document.querySelectorAll('ul[id^="thirdlevel-"]')
       const buttons = document.querySelectorAll('.activeSecondLevelBtn')
