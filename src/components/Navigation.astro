@@ -262,7 +262,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
       }
 
       // prevent background scrolling
-      document.querySelector('body').classList.toggle('overflow-hidden')
+      document.querySelector('body').classList.add('overflow-hidden')
 
       // Toggle fixed class on header
       document.querySelector('#header').classList.add('fixed')
@@ -272,6 +272,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
       // Side effects for clicked twice
       if (isActiveFirstLevelBtnActive) {
         button.classList.remove('activeFirstLevelBtn')
+        document.querySelector('body').classList.remove('overflow-hidden')
 
         // Reset other open menus and active states
         const thirdLevelMenu = document.querySelectorAll(
