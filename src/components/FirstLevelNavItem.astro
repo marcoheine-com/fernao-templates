@@ -1,5 +1,5 @@
 ---
-import ArrowRightIcon from './ArrowRightIcon.astro'
+import ArrowBottomIcon from './ArrowBottomIcon.astro'
 
 interface Props {
   ariaControls: string
@@ -23,7 +23,7 @@ const { ariaControls, id, title, bold = true } = Astro.props
     <span class='text-underline text-underline-colored w-full text-start'>
       {title}
     </span>
-    <ArrowRightIcon className='1440:rotate-[-90deg]' />
+    <ArrowBottomIcon />
   </button>
   <slot />
 </li>

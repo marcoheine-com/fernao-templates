@@ -14,10 +14,10 @@ const { ariaControls, id, title, bold = true, text } = Astro.props
 <li
   class={`mb-4 last:mb-0 px-4 py-2 ${
     bold ? 'font-bold' : 'font-normal'
-  } 1440:hover:bg-fernaoGreenA20`}
+  } 1440:p-0`}
 >
   <button
-    class='flex w-full justify-between gap-2 1440:grid 1440:grid-cols-[auto_auto] 1440:grid-rows-[auto_auto]'
+    class='flex w-full justify-between gap-2 1440:grid 1440:grid-cols-[auto_auto] 1440:grid-rows-[auto_auto] 1440:rounded-[5px] 1440:px-4 1440:py-2 1440:hover:bg-fernaoGreenA20'
     aria-controls={ariaControls}
     id={id}
   >

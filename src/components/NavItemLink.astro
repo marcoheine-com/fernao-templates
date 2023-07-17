@@ -5,10 +5,10 @@ const { href, title, lightText = false, text } = Astro.props
 <li
   class={`mb-4 px-4 py-2 font-normal ${
     lightText ? 'text-black50' : ''
-  } 1440:hover:bg-fernaoGreenA20 1440:mb-0`}
+  }  1440:mb-0 1440:p-0`}
 >
   <a
-    class='text-underline text-underline-colored flex w-full justify-between 1440:h-full 1440:flex-col 1440:justify-start 1440:gap-2 1440:bg-none'
+    class='text-underline text-underline-colored flex w-full justify-between 1440:flex-col 1440:justify-start 1440:gap-2 1440:rounded-[5px] 1440:bg-none 1440:px-4 1440:py-2 1440:hover:bg-fernaoGreenA20'
     href={href}
   >
     <p class='1440:font-bold'>{title}</p>

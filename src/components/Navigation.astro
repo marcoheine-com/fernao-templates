@@ -24,10 +24,13 @@ import ThirdLevelMenu from './ThirdLevelMenu.astro'
 import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
 ---
 
-<nav class='border-fernaoGreen 1440:w-full' id='nav'>
+<nav
+  class='relative h-full overflow-auto border-fernaoGreen 1440:static 1440:w-full'
+  id='nav'
+>
   {/* First Level */}
   <ul
-    class='z-[1] mx-auto hidden h-screen w-full max-w-[394px] bg-fernaoBGWhite px-9 pt-8 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:items-center 1440:p-0'
+    class='z-[1] mx-auto hidden h-full w-full max-w-[394px] bg-fernaoBGWhite px-9 pt-8 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:items-center 1440:p-0'
     id='firstlevel-menu'
   >
     {
@@ -219,6 +222,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
     document.querySelector('#menu-closed-icon').classList.toggle('hidden')
     // prevent background scrolling
     document.querySelector('body').classList.toggle('overflow-hidden')
+    document.querySelector('#header').classList.toggle('fixed')
 
     // if open, close all open submenus to reset menu
     resetMenus()
