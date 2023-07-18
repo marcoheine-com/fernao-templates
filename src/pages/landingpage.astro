@@ -1,6 +1,5 @@
 ---
 import LandingLayout from '../layouts/Landing-Layout.astro'
-import Layout from '../layouts/Layout.astro'
 import Text from '../components/Text.astro'
 import PageBreadcrumb from '../components/PageBreadcrumb.astro'
 import Headline from '../components/Headline.astro'
@@ -11,6 +10,7 @@ import Form from '../components/Form.astro'
 import Banner from '../components/Banner.astro'
 import NewsTeaser from '../components/NewsTeaser.astro'
 import TextTeaser from '../components/TextTeaser.astro'
+import Media from '../components/Media.astro'
 ---
 
 <LandingLayout title='Fernao Landing Page'>
@@ -110,5 +110,8 @@ import TextTeaser from '../components/TextTeaser.astro'
   <Form />
   <NewsTeaser />
   <TextTeaser />
+  <Media type='single' />
+  <Media type='slider' />
+  <Media type='slider-gallery' />
   <PageBreadcrumb />
 </LandingLayout>

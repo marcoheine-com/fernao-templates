@@ -1,0 +1,22 @@
+---
+import Slider from './Slider.astro'
+import SliderGallery from './SliderGallery.astro'
+
+interface Props {
+  type: 'single' | 'slider' | 'slider-gallery'
+}
+
+const { type } = Astro.props
+---
+
+{
+  type === 'single' ? (
+    <section class='content-padding content-margin-top'>
+      <img src='https://source.unsplash.com/random/1900x1000' alt='' />
+    </section>
+  ) : type === 'slider' ? (
+    <Slider />
+  ) : (
+    <SliderGallery />
+  )
+}

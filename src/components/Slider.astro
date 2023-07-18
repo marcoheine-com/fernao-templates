@@ -1,0 +1,98 @@
+---
+import ArrowRightIcon from './ArrowRightIcon.astro'
+const images = [
+  {
+    src: 'https://source.unsplash.com/random/1000x800',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/1600x800',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/100x800',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/1000x800',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/1900x800',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/1000x80',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/500x800',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/300x300',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/300x300',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/300x300',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/300x300',
+    alt: 'A random image',
+  },
+  {
+    src: 'https://source.unsplash.com/random/300x300',
+    alt: 'A random image',
+  },
+]
+---
+
+<section class='content-margin-top'>
+  <section id='image-carousel' class='splide' aria-label='My Awesome Gallery'>
+    <div class='splide__arrows'>
+      <button class='splide__arrow splide__arrow--prev'>
+        <ArrowRightIcon /></button
+      >
+      <button class='splide__arrow splide__arrow--next'>
+        <ArrowRightIcon />
+      </button>
+    </div>
+    <div class='splide__track'>
+      <ul class='splide__list'>
+        {
+          images.map((image) => {
+            return (
+              <li class='splide__slide'>
+                <img src={image.src} alt={image.alt} />
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
+  </section>
+</section>
+
+<script>
+  import Splide from '@splidejs/splide'
+
+  const splide = new Splide('#image-carousel', {
+    pagination: false,
+    rewind: true,
+    heightRatio: 0.5,
+    perPage: 1,
+    gap: '1rem',
+    focus: 'center',
+    padding: {
+      right: '4rem',
+      left: '4rem',
+    },
+  })
+
+  splide.mount()
+</script>

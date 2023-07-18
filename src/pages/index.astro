@@ -11,6 +11,7 @@ import Banner from '../components/Banner.astro'
 import TOC from '../components/TOC.astro'
 import NewsTeaser from '../components/NewsTeaser.astro'
 import TextTeaser from '../components/TextTeaser.astro'
+import Media from '../components/Media.astro'
 ---
 
 <Layout title='Ferno Standard Seite'>
@@ -112,6 +113,9 @@ import TextTeaser from '../components/TextTeaser.astro'
       <Form />
       <NewsTeaser />
       <TextTeaser columns='four' />
+      <Media type='single' />
+      <Media type='slider' />
+      <Media type='slider-gallery' />
       <PageBreadcrumb />
     </section>
     <TOC />
