@@ -1,0 +1,96 @@
+---
+import ArrowRightIcon from './ArrowRightIcon.astro'
+
+interface Props {
+  columns?: 'two' | 'four'
+}
+
+const { columns = 'two' }: Props = Astro.props
+---
+
+<section
+  class={`content-padding content-margin-top auto-cols-1fr grid gap-8 ${
+    columns === 'two' ? '1024:grid-cols-2' : '1024:grid-cols-4'
+  }`}
+>
+  <article>
+    <section
+      class='relative flex flex-col rounded-[5px] bg-fernaoBGDarkGrey p-8 after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:rounded-[5px] after:bg-coloredAccent after:content-[""]'
+    >
+      <h3>SAP on Azure</h3>
+      <p class='mt-8'>
+        Als Cloud Solution Provider und SAP Hosting Spezialist stellen wir ihr
+        Unternehmen auf eine gute Grundlage.
+      </p>
+      <a href='/' class='mt-9 flex border-none font-bold text-fernaoGreen'
+        >Einfache Integration mit SAP-on-Azure- Lösungen <ArrowRightIcon
+          fill='#8CC63F'
+        /></a
+      >
+    </section>
+  </article>
+  <article>
+    <section
+      class='relative flex flex-col rounded-[5px] bg-fernaoBGDarkGrey p-8 after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:rounded-[5px] after:bg-coloredAccent after:content-[""]'
+    >
+      <h3>SAP on Azure</h3>
+      <p class='mt-8'>
+        Als Cloud Solution Provider und SAP Hosting Spezialist stellen wir ihr
+        Unternehmen auf eine gute Grundlage.
+      </p>
+      <a href='/' class='mt-9 flex border-none font-bold text-fernaoGreen'
+        >Einfache Integration mit SAP-on-Azure- Lösungen <ArrowRightIcon
+          fill='#8CC63F'
+        /></a
+      >
+    </section>
+  </article>
+  <article>
+    <section
+      class='relative flex flex-col rounded-[5px] bg-fernaoBGDarkGrey p-8 after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:rounded-[5px] after:bg-coloredAccent after:content-[""]'
+    >
+      <h3>SAP on Azure</h3>
+      <p class='mt-8'>
+        Als Cloud Solution Provider und SAP Hosting Spezialist stellen wir ihr
+        Unternehmen auf eine gute Grundlage.
+      </p>
+      <a href='/' class='mt-9 flex border-none font-bold text-fernaoGreen'
+        >Einfache Integration mit SAP-on-Azure- Lösungen <ArrowRightIcon
+          fill='#8CC63F'
+        /></a
+      >
+    </section>
+  </article>
+  <article>
+    <section
+      class='relative flex flex-col rounded-[5px] bg-fernaoBGDarkGrey p-8 after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:rounded-[5px] after:bg-coloredAccent after:content-[""]'
+    >
+      <h3>SAP on Azure</h3>
+      <p class='mt-8'>
+        Als Cloud Solution Provider und SAP Hosting Spezialist stellen wir ihr
+        Unternehmen auf eine gute Grundlage.
+      </p>
+      <a href='/' class='mt-9 flex border-none font-bold text-fernaoGreen'
+        >Einfache Integration mit SAP-on-Azure- Lösungen <ArrowRightIcon
+          fill='#8CC63F'
+        /></a
+      >
+    </section>
+  </article>
+  <article>
+    <section
+      class='relative flex flex-col rounded-[5px] bg-fernaoBGDarkGrey p-8 after:absolute after:bottom-0 after:left-0 after:h-[5px] after:w-full after:rounded-[5px] after:bg-coloredAccent after:content-[""]'
+    >
+      <h3>SAP on Azure</h3>
+      <p class='mt-8'>
+        Als Cloud Solution Provider und SAP Hosting Spezialist stellen wir ihr
+        Unternehmen auf eine gute Grundlage.
+      </p>
+      <a href='/' class='mt-9 flex border-none font-bold text-fernaoGreen'
+        >Einfache Integration mit SAP-on-Azure- Lösungen <ArrowRightIcon
+          fill='#8CC63F'
+        /></a
+      >
+    </section>
+  </article>
+</section>
