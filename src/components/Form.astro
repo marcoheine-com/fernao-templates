@@ -1,4 +1,5 @@
 ---
+import ArrowBottomIcon from './ArrowBottomIcon.astro'
 import PrimaryButton from './PrimaryButton.astro'
 ---
 
@@ -21,7 +22,7 @@ import PrimaryButton from './PrimaryButton.astro'
       />
     </label>
 
-    <label for='dropdown' class='col-start-2 flex flex-col'
+    <label for='dropdown' class='relative col-start-2 flex flex-col'
       >Select an option:
       <select
         id='dropdown'
@@ -35,14 +36,15 @@ import PrimaryButton from './PrimaryButton.astro'
         <option value='option2'>Option 2</option>
         <option value='option3'>Option 3</option>
       </select>
+      <ArrowBottomIcon className='absolute right-4 top-10 h-6 w-6' />
     </label>
 
     <label for='message' class='col-span-2 row-start-2 flex flex-col'
       >Message:
       <textarea
-        id='message'
         name='message'
         placeholder='Message'
+        id='auto-expanding-textarea'
         class='border-[1px] border-fernaoBlack px-5 py-4'></textarea>
     </label>
   </fieldset>
@@ -50,3 +52,16 @@ import PrimaryButton from './PrimaryButton.astro'
     Jetzt beraten lassen
   </PrimaryButton>
 </form>
+
+<script>
+  const textarea = document.getElementById('auto-expanding-textarea')
+
+  function adjustTextareaHeight() {
+    textarea.style.height = 'auto' // Reset the height to allow it to adjust
+    textarea.style.height = `${textarea.scrollHeight}px` // Set the new height based on the content
+  }
+
+  textarea.addEventListener('input', adjustTextareaHeight)
+
+  adjustTextareaHeight()
+</script>

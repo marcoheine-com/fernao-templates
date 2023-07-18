@@ -88,7 +88,10 @@
   }
 
   select {
-    @apply bg-fernaoBGWhite;
+    @apply relative h-full bg-fernaoBGWhite;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
   svg {
