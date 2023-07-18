@@ -24,10 +24,7 @@ import ThirdLevelMenu from './ThirdLevelMenu.astro'
 import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
 ---
 
-<nav
-  class='relative h-full overflow-auto border-fernaoGreen 1440:static 1440:w-full'
-  id='nav'
->
+<nav class='relative border-fernaoGreen 1440:static 1440:w-full' id='nav'>
   {/* First Level */}
   <ul
     class='z-[1] mx-auto hidden h-full w-full max-w-[394px] bg-fernaoBGWhite px-9 pt-8 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:items-center 1440:p-0'
@@ -224,7 +221,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
     document.querySelector('body').classList.toggle('overflow-hidden')
     document.querySelector('#header').classList.toggle('fixed')
 
-    // if open, close all open submenus to reset menu
+    // close all open submenus to reset menu
     resetMenus()
   }
   const isDesktop = window.innerWidth > 1440
@@ -357,6 +354,18 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
 
   const langButton = document.querySelector('#lang-button')
   langButton.addEventListener('click', () => {
+    if (isDesktop) {
+      // Reset active states
+      const firstLevelButton = document.querySelector('#firstlevel-button')
+      const secondLevelButton = document.querySelector('#secondlevel-button')
+      firstLevelButton.classList.remove('activeFirstLevelBtn')
+      secondLevelButton.classList.remove('activeSecondLevelBtn')
+
+      document.querySelector('body').classList.remove('overflow-hidden')
+      document.querySelector('#header').classList.remove('fixed')
+      document.querySelector('#header').classList.remove('border-b-2')
+      document.querySelector('#header').classList.remove('border-fernaoGreen')
+    }
     document.querySelector('#secondlevel-lang').classList.toggle('hidden')
   })
 
@@ -385,5 +394,13 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
     button.addEventListener('click', () => {
       handleClick(`#${id}`)
     })
+  })
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1440) {
+      // reset mobile active states
+    } else {
+      // reset desktop active states
+    }
   })
 </script>

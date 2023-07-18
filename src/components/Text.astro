@@ -54,8 +54,12 @@ const BG_COLOR_STYLES = getBackgroundColorStyles(backgroundColor)
     {
       coloredAccent && (
         <div
-          class={`mb-6 h-[6px] w-[227px] rounded-[5px] bg-coloredAccent ${
+          class={`mb-6 h-[6px] w-[227px] rounded-[5px] ${
             variant === 'centered' && 'self-center'
+          } ${
+            BG_COLOR_STYLES === 'bg-fernaoGreen'
+              ? 'bg-whiteColoredAccent'
+              : 'bg-coloredAccent'
           }`}
         />
       )

@@ -27,6 +27,14 @@
 
   @font-face {
     font-family: 'Ubuntu';
+    src: url('/fonts/Ubuntu-Light.ttf') format('trueType');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Ubuntu';
     src: url('/fonts/Ubuntu-Bold.ttf') format('trueType');
     font-weight: 700;
     font-style: normal;
@@ -56,11 +64,16 @@
   h4,
   h5,
   h6 {
-    @apply max-w-5xl;
+    @apply max-w-5xl font-light;
+  }
+
+  bold,
+  strong {
+    @apply font-bold;
   }
 
   p {
-    @apply max-w-6xl text-base;
+    @apply max-w-6xl text-base leading-[30px];
   }
 
   a {
@@ -76,6 +89,10 @@
 
   select {
     @apply bg-fernaoBGWhite;
+  }
+
+  svg {
+    @apply shrink-0;
   }
 }
 

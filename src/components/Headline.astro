@@ -31,7 +31,10 @@ const SUBLINE_STYLES = 'mt-6'
     ) : headlineVariant === 'h2' ? (
       <h2 id={id}>{headlinecontent} </h2>
     ) : headlineVariant === 'h3' ? (
-      <h3 id={id}>{headlinecontent} </h3>
+      <h3 id={id}>
+        Headline Content Element, mit <bold>einer Subheadline</bold> für
+        weiteren Content in einem umfangreichen Textblock.{' '}
+      </h3>
     ) : headlineVariant === 'h4' ? (
       <h4 id={id}>{headlinecontent} </h4>
     ) : headlineVariant === 'h5' ? (

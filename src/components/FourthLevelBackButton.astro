@@ -5,10 +5,10 @@ const { ariaControls, title, id, parentTitle } = Astro.props
 ---
 
 <li class='ml-6 font-normal 1440:mb-8 1440:ml-4'>
-  <button class='flex w-full gap-3' aria-controls={ariaControls} id={id}>
+  <button class='flex gap-3' aria-controls={ariaControls} id={id}>
     <ArrowLeftIcon />
     <span
-      class='w-full border-b-[1px] border-b-fernaoGreen text-start 1440:inline-flex 1440:gap-1 1440:border-b-0'
+      class='1440:text-underline 1440:text-underline-colored w-full border-b-[1px] border-b-fernaoGreen text-start 1440:inline-flex 1440:gap-1 1440:border-b-0'
     >
       <span class='hidden 1440:block 1440:whitespace-nowrap'
         >{parentTitle}:</span

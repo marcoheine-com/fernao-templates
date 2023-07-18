@@ -15,15 +15,11 @@ const { ariaControls, id, title, bold = true } = Astro.props
     bold ? 'font-bold' : 'font-normal'
   } 1440:py-0 1440:mb-0`}
 >
-  <button
-    class='flex w-full justify-between gap-1'
-    aria-controls={ariaControls}
-    id={id}
-  >
+  <button class='flex w-full gap-1' aria-controls={ariaControls} id={id}>
     <span class='text-underline text-underline-colored w-full text-start'>
       {title}
     </span>
-    <ArrowBottomIcon />
+    <ArrowBottomIcon className='rotate-[-90deg] 1440:rotate-0' />
   </button>
   <slot />
 </li>

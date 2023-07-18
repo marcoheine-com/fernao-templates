@@ -6,12 +6,10 @@ const { title, lightText = false } = Astro.props
 <li
   class={`mb-4 px-4 py-2 font-normal ${
     lightText ? 'text-black50' : ''
-  } 1440:hover:bg-fernaoGreenA20 1440:mb-0`}
+  } 1440:mb-0`}
 >
-  <button
-    class='text-underline text-underline-colored flex w-full gap-2 1440:bg-none'
-  >
+  <button class='flex gap-2'>
     <CheckmarkIcon />
-    <p>{title}</p>
+    <p class='text-underline text-underline-colored'>{title}</p>
   </button>
 </li>
