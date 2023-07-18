@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     screens: {
       390: '390px',
+      640: '640px',
       1024: '1024px',
       1440: '1440px',
       1920: '1920px',
@@ -28,6 +29,7 @@ module.exports = {
         fernaoBlack: '#010200',
         fernaoFontWhite: '#F1F3F1',
         fernaoBGGrey: '#E0E3E0',
+        fernaoBGDarkGrey: '#E0E5DA',
         fernaoBGWhite: '#FFF',
         fernaoBlack05: 'rgba(1, 2, 0, 0.5)',
         fernaoBlack10: 'rgba(1, 2, 0, 0.1)',

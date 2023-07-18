@@ -73,6 +73,8 @@ On desktop, clicking a firstlevel nav item will open the second and the third le
 - [Banner/Header](./src/components/Banner.astro)
 - [Step by Step](./src/components/StepByStep.astro)
 - [FORM](./src/components/Form.astro)
+- [NewsTeaser](./src/components/NewsTeaser.astro)
+- TextTeaser TODO
 
 ## Page Templates
 
