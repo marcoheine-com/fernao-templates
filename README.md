@@ -40,7 +40,7 @@ It has four levels of navigation. Every level consists of:
   - [SecondLevelNavItem](./src/components/SecondLevelNavItem.astro)
   - [SecondLevelNavItemLink](./src/components/SecondLevelNavItemLink.astro)
   - [ThirdLevelNavItem](./src/components/ThirdLevelNavItem.astro)
-  - [NavItemLink](./src/components/NavItemLink.astro) // TODO: rename to ThirdLevelNavItemLink
+  - [NavItemLink](./src/components/NavItemLink.astro)
 - a link component for the overview page
   - [OverviewLink](./src/components/OverviewLink.astro)
 
@@ -68,7 +68,9 @@ On desktop, clicking a firstlevel nav item will open the second and the third le
 - [Header](./src/components/Header.astro)
 - [Text](./src/components/Text.astro)
 - [Text-Media](./src/components/TextMedia.astro)
-- Media TODO
+- [Media](./src/components/Media.astro)
+  - [Slider](./src/components/Slider.astro)
+  - [SliderGallery](./src/components/SliderGallery.astro)
 - [Feature List / Icon List](./src/components/FeatureList.astro)
 - [Banner/Header](./src/components/Banner.astro)
 - [Step by Step](./src/components/StepByStep.astro)

@@ -4,55 +4,81 @@ const images = [
   {
     src: 'https://source.unsplash.com/random/1000x800',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/1600x800',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/100x800',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/1000x800',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/1900x800',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/1000x80',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/500x800',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
+    description:
+      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
 ]
 ---
 
-<section class='content-margin-top'>
+<section
+  class='content-margin-top w-full self-start 1024:px-14 1440:px-[140px]'
+>
   <section id='image-carousel' class='splide' aria-label='My Awesome Gallery'>
     <div class='splide__arrows'>
       <button class='splide__arrow splide__arrow--prev'>
@@ -68,7 +94,12 @@ const images = [
           images.map((image) => {
             return (
               <li class='splide__slide'>
-                <img src={image.src} alt={image.alt} />
+                <div class='splide__slide__container'>
+                  <img src={image.src} alt={image.alt} />
+                </div>
+                <p class='mx-auto mt-9 italic text-sliderCaption'>
+                  {image.description}
+                </p>
               </li>
             )
           })
@@ -86,11 +117,11 @@ const images = [
     rewind: true,
     heightRatio: 0.5,
     perPage: 1,
-    gap: '1rem',
     focus: 'center',
+    gap: '1rem',
     padding: {
-      right: '4rem',
-      left: '4rem',
+      right: '1rem',
+      left: '1rem',
     },
   })
 

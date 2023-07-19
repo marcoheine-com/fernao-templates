@@ -16,7 +16,7 @@ import Media from '../components/Media.astro'
 
 <Layout title='Ferno Standard Seite'>
   <Banner />
-  <section class='1440:grid 1440:grid-cols-3'>
+  <section class='w-full self-start 1440:grid 1440:grid-cols-3'>
     <section class='1440:col-span-2'>
       <Headline
         id='headline-content-element'
@@ -106,6 +106,17 @@ import Media from '../components/Media.astro'
         mediaPosition='left'
         backgroundColor='black'
       />
+      <TextMedia
+        headlineId='text-media-content-element-video'
+        media={{
+          poster: 'https://source.unsplash.com/random/800x600',
+          src: 'https://www.w3schools.com/html/mov_bbb.mp4',
+          alt: 'Placeholder',
+          type: 'video',
+        }}
+        mediaPosition='left'
+        backgroundColor='black'
+      />
 
       <FeatureList items={8} />
       <StepByStep />
@@ -114,6 +125,7 @@ import Media from '../components/Media.astro'
       <NewsTeaser />
       <TextTeaser columns='four' />
       <Media type='single' />
+      <Media type='single' mediaType='video' />
       <Media type='slider' />
       <Media type='slider-gallery' />
       <PageBreadcrumb />

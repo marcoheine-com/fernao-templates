@@ -52,7 +52,9 @@ const images = [
 ]
 ---
 
-<section class='content-margin-top content-padding'>
+<section
+  class='content-margin-top w-full self-start 1024:px-14 1440:px-[140px]'
+>
   <section id='main-carousel' class='splide' aria-label='My Awesome Gallery'>
     <div class='splide__arrows'>
       <button class='splide__arrow splide__arrow--prev'>
@@ -76,12 +78,19 @@ const images = [
       </ul>
     </div>
   </section>
-  <ul id='thumbnails' class='thumbnails'>
+  <ul
+    id='thumbnails'
+    class='mx-auto mb-0 flex flex-wrap justify-start gap-4 px-16 1024:gap-8'
+  >
     {
       images.map((image) => {
         return (
-          <li class='thumbnail'>
-            <img src={image.src} alt={image.alt} />
+          <li class='thumbnail h-[140px] w-[140px] cursor-pointer list-none overflow-hidden opacity-30 1024:h-[128px] 1024:w-[128px] 1920:h-[241px] 1920:w-[241px]'>
+            <img
+              src={image.src}
+              alt={image.alt}
+              class='h-full w-full rounded-[5px] object-cover'
+            />
           </li>
         )
       })
@@ -95,13 +104,14 @@ const images = [
   const splide = new Splide('#main-carousel', {
     pagination: false,
     rewind: true,
-    classes: {
-      arrow: 'splide__arrow slider--arrow',
-    },
     heightRatio: 0.5,
     perPage: 1,
-    gap: '1rem',
     focus: 'center',
+    gap: '1rem',
+    padding: {
+      right: '1rem',
+      left: '1rem',
+    },
   })
 
   const thumbnails = document.getElementsByClassName('thumbnail')

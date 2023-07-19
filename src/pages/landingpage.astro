@@ -104,6 +104,18 @@ import Media from '../components/Media.astro'
     backgroundColor='black'
   />
 
+  <TextMedia
+    headlineId='text-media-content-element-video'
+    media={{
+      poster: 'https://source.unsplash.com/random/800x600',
+      src: 'https://www.w3schools.com/html/mov_bbb.mp4',
+      alt: 'Placeholder',
+      type: 'video',
+    }}
+    mediaPosition='left'
+    backgroundColor='black'
+  />
+
   <FeatureList items={8} />
   <StepByStep />
   <StepByStep variant='vertical' />
@@ -111,6 +123,7 @@ import Media from '../components/Media.astro'
   <NewsTeaser />
   <TextTeaser />
   <Media type='single' />
+  <Media type='single' mediaType='video' />
   <Media type='slider' />
   <Media type='slider-gallery' />
   <PageBreadcrumb />

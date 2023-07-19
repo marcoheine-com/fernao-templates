@@ -4,15 +4,34 @@ import SliderGallery from './SliderGallery.astro'
 
 interface Props {
   type: 'single' | 'slider' | 'slider-gallery'
+  mediaType?: 'image' | 'video'
 }
 
-const { type } = Astro.props
+const { type, mediaType = 'image' } = Astro.props
 ---
 
 {
   type === 'single' ? (
-    <section class='content-padding content-margin-top'>
-      <img src='https://source.unsplash.com/random/1900x1000' alt='' />
+    <section class='content-padding content-margin-top flex-start w-full'>
+      {mediaType === 'image' ? (
+        <img
+          src='https://source.unsplash.com/random/1000x800'
+          alt='random image'
+          class='rounded-[5px]'
+        />
+      ) : (
+        <video
+          controls
+          poster='https://source.unsplash.com/random/1000x800'
+          class='w-full rounded-[5px]'
+        >
+          <source
+            src='https://www.w3schools.com/html/mov_bbb.mp4'
+            type='video/mp4'
+          />
+          Your browser does not support HTML video.
+        </video>
+      )}
     </section>
   ) : type === 'slider' ? (
     <Slider />

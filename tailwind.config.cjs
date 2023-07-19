@@ -42,6 +42,7 @@ module.exports = {
         btnActiveBorder: '#80A64F',
         black50: 'rgba(0, 0, 0, 0.5)',
         inputInvalid: '#A13D3D',
+        sliderCaption: '#81847F',
       },
 
       fontFamily: {

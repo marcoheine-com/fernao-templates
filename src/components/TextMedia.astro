@@ -8,6 +8,7 @@ interface Props {
     src: string
     alt: string
     type: 'image' | 'video'
+    poster?: string
   }
   mediaPosition?: 'left' | 'right'
 }
@@ -114,7 +115,9 @@ const BG_COLOR_STYLES = getBackgroundColorStyles(backgroundColor)
     >
       {
         media.type === 'video' ? (
-          <video src={media.src} />
+          <video controls poster={media.poster} class='w-full rounded-[5px]'>
+            <source src={media.src} type='video/mp4' />
+          </video>
         ) : (
           <div class={`relative ${ASPECT_RATIO}`}>
             <picture>
