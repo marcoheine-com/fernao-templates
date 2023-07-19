@@ -27,7 +27,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
 <nav class='relative border-fernaoGreen 1440:static 1440:w-full' id='nav'>
   {/* First Level */}
   <ul
-    class='z-[1] mx-auto hidden h-full w-full max-w-[394px] bg-fernaoBGWhite px-9 pt-8 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:items-center 1440:p-0'
+    class='absolute left-[50%] top-0 z-[1] mx-auto hidden w-full max-w-[394px] translate-x-[-50%] bg-fernaoBGWhite px-9 pt-8 1440:static 1440:left-0 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:translate-x-0 1440:items-center 1440:p-0'
     id='firstlevel-menu'
   >
     {
@@ -209,198 +209,202 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
       <PrimaryButtonOnlyIcon />
     </li>
   </ul>
-</nav>
 
-<script>
-  const handleMenuButtonClick = () => {
-    document.querySelector('#firstlevel-menu').classList.toggle('hidden')
-    document.querySelector('#nav').classList.toggle('border-t-2')
-    document.querySelector('#menu-open-icon').classList.toggle('hidden')
-    document.querySelector('#menu-closed-icon').classList.toggle('hidden')
-    // prevent background scrolling
-    document.querySelector('body').classList.toggle('overflow-hidden')
-    document.querySelector('#header').classList.toggle('fixed')
+  <script>
+    const handleMenuButtonClick = () => {
+      document.querySelector('#firstlevel-menu').classList.toggle('hidden')
+      document.querySelector('#topContainer').classList.toggle('border-b-2')
+      document.querySelector('#menu-open-icon').classList.toggle('hidden')
+      document.querySelector('#menu-closed-icon').classList.toggle('hidden')
+      // prevent background scrolling
+      document.querySelector('body').classList.toggle('overflow-hidden')
+      document.querySelector('#header').classList.toggle('fixed')
+      document.querySelector('#nav').classList.toggle('h-[calc(100vh-64px)]')
+      document.querySelector('#nav').classList.toggle('overflow-auto')
 
-    // close all open submenus to reset menu
-    resetMenus()
-  }
-  const isDesktop = window.innerWidth > 1440
+      // close all open submenus to reset menu
+      resetMenus()
+    }
+    const isDesktop = window.innerWidth > 1440
 
-  const handleFirstLevelClick = (id, button) => {
-    if (isDesktop) {
-      const isActiveFirstLevelBtnActive = button.classList.contains(
-        'activeFirstLevelBtn'
-      )
-      const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
-      const buttons = document.querySelectorAll('button[id^="firstlevel-"]')
-      const secondLevelButtons = button.nextElementSibling.querySelectorAll(
-        'button[id^="secondlevel-"]'
-      )
-      const firstSecondLevelButton = secondLevelButtons[0]
+    const handleFirstLevelClick = (id, button) => {
+      if (isDesktop) {
+        const isActiveFirstLevelBtnActive = button.classList.contains(
+          'activeFirstLevelBtn'
+        )
+        const menus = document.querySelectorAll('ul[id^="secondlevel-"]')
+        const buttons = document.querySelectorAll('button[id^="firstlevel-"]')
+        const secondLevelButtons = button.nextElementSibling.querySelectorAll(
+          'button[id^="secondlevel-"]'
+        )
+        const firstSecondLevelButton = secondLevelButtons[0]
 
-      // Reset other open menus
-      menus.forEach((menu) => {
-        if (`#${menu.id}` !== id) {
-          menu.classList.add('hidden')
-          if (menu.nextElementSibling) {
-            menu.nextElementSibling.classList.add('hidden')
+        // Reset other open menus
+        menus.forEach((menu) => {
+          if (`#${menu.id}` !== id) {
+            menu.classList.add('hidden')
+            if (menu.nextElementSibling) {
+              menu.nextElementSibling.classList.add('hidden')
+            }
+          }
+        })
+
+        // Reset other active states
+        buttons.forEach((btn) => {
+          if (`#${btn.id}` !== id) {
+            btn.classList.remove('activeFirstLevelBtn')
+          }
+        })
+
+        // Toggle active class on button
+        button.classList.add('activeFirstLevelBtn')
+        // Toggle active class on first second level button
+        if (firstSecondLevelButton) {
+          firstSecondLevelButton.classList.add('activeSecondLevelBtn')
+        }
+
+        // prevent background scrolling
+        document.querySelector('body').classList.add('overflow-hidden')
+
+        // Toggle fixed class on header
+        document.querySelector('#header').classList.add('fixed')
+        document.querySelector('#header').classList.add('border-b-2')
+        document.querySelector('#header').classList.add('border-fernaoGreen')
+
+        // Side effects for clicked twice
+        if (isActiveFirstLevelBtnActive) {
+          button.classList.remove('activeFirstLevelBtn')
+          document.querySelector('body').classList.remove('overflow-hidden')
+
+          // Reset other open menus and active states
+          const thirdLevelMenu = document.querySelectorAll(
+            'ul[id^="thirdlevel-"]'
+          )
+          const fourthLevelMenu = document.querySelectorAll(
+            'ul[id^="fourthlevel-"]'
+          )
+          const activeSecondLevelBtn = document.querySelectorAll(
+            'button[id^="secondlevel-"].activeSecondLevelBtn'
+          )
+          thirdLevelMenu.forEach((menu) => {
+            menu.classList.add('hidden')
+          })
+          fourthLevelMenu.forEach((menu) => {
+            menu.classList.add('hidden')
+          })
+          document.querySelector('#header').classList.remove('fixed')
+          document.querySelector('#header').classList.remove('border-b-2')
+          document
+            .querySelector('#header')
+            .classList.remove('border-fernaoGreen')
+          if (activeSecondLevelBtn) {
+            activeSecondLevelBtn.forEach((btn) => {
+              btn.classList.remove('activeSecondLevelBtn')
+            })
           }
         }
-      })
-
-      // Reset other active states
-      buttons.forEach((btn) => {
-        if (`#${btn.id}` !== id) {
-          btn.classList.remove('activeFirstLevelBtn')
-        }
-      })
-
-      // Toggle active class on button
-      button.classList.add('activeFirstLevelBtn')
-      // Toggle active class on first second level button
-      if (firstSecondLevelButton) {
-        firstSecondLevelButton.classList.add('activeSecondLevelBtn')
+      } else {
+        // On mobile, toggle menu with given id
+        const targetMenu = document.querySelector(id)
+        targetMenu.classList.toggle('hidden')
       }
+    }
 
-      // prevent background scrolling
-      document.querySelector('body').classList.add('overflow-hidden')
+    const handleSecondLevelClick = (id, button) => {
+      if (isDesktop) {
+        // Reset other open menus
+        const menus = document.querySelectorAll('ul[id^="thirdlevel-"]')
+        const buttons = document.querySelectorAll('.activeSecondLevelBtn')
+        menus.forEach((menu) => {
+          if (`#${menu.id}` !== id) {
+            menu.classList.add('hidden')
+            if (menu.nextElementSibling) {
+              menu.nextElementSibling.classList.add('hidden')
+            }
+          }
+        })
 
-      // Toggle fixed class on header
-      document.querySelector('#header').classList.add('fixed')
-      document.querySelector('#header').classList.add('border-b-2')
-      document.querySelector('#header').classList.add('border-fernaoGreen')
+        // Reset other active states
+        buttons.forEach((btn) => {
+          if (`#${btn.id}` !== id) {
+            btn.classList.remove('activeSecondLevelBtn')
+          }
+        })
 
-      // Side effects for clicked twice
-      if (isActiveFirstLevelBtnActive) {
-        button.classList.remove('activeFirstLevelBtn')
+        button.classList.toggle('activeSecondLevelBtn')
+        // Toggle menu
+        document.querySelector(id).classList.toggle('hidden')
+      } else {
+        document.querySelector(id).classList.toggle('hidden')
+      }
+    }
+
+    const handleClick = (id) => {
+      document.querySelector(id).classList.toggle('hidden')
+    }
+
+    const resetMenus = () => {
+      const menus = document.querySelectorAll(
+        'ul[id^="secondlevel-"], ul[id^="thirdlevel-"], ul[id^="fourthlevel-"]'
+      )
+      menus.forEach((menu) => {
+        menu.classList.add('hidden')
+      })
+    }
+
+    const menuButton = document.querySelector('#menu-button')
+    menuButton.addEventListener('click', handleMenuButtonClick)
+
+    const langButton = document.querySelector('#lang-button')
+    langButton.addEventListener('click', () => {
+      if (isDesktop) {
+        // Reset active states
+        const firstLevelButton = document.querySelector('#firstlevel-button')
+        const secondLevelButton = document.querySelector('#secondlevel-button')
+        firstLevelButton.classList.remove('activeFirstLevelBtn')
+        secondLevelButton.classList.remove('activeSecondLevelBtn')
+
         document.querySelector('body').classList.remove('overflow-hidden')
-
-        // Reset other open menus and active states
-        const thirdLevelMenu = document.querySelectorAll(
-          'ul[id^="thirdlevel-"]'
-        )
-        const fourthLevelMenu = document.querySelectorAll(
-          'ul[id^="fourthlevel-"]'
-        )
-        const activeSecondLevelBtn = document.querySelectorAll(
-          'button[id^="secondlevel-"].activeSecondLevelBtn'
-        )
-        thirdLevelMenu.forEach((menu) => {
-          menu.classList.add('hidden')
-        })
-        fourthLevelMenu.forEach((menu) => {
-          menu.classList.add('hidden')
-        })
         document.querySelector('#header').classList.remove('fixed')
         document.querySelector('#header').classList.remove('border-b-2')
         document.querySelector('#header').classList.remove('border-fernaoGreen')
-        if (activeSecondLevelBtn) {
-          activeSecondLevelBtn.forEach((btn) => {
-            btn.classList.remove('activeSecondLevelBtn')
-          })
-        }
       }
-    } else {
-      // On mobile, toggle menu with given id
-      const targetMenu = document.querySelector(id)
-      targetMenu.classList.toggle('hidden')
-    }
-  }
+      document.querySelector('#secondlevel-lang').classList.toggle('hidden')
+    })
 
-  const handleSecondLevelClick = (id, button) => {
-    if (isDesktop) {
-      // Reset other open menus
-      const menus = document.querySelectorAll('ul[id^="thirdlevel-"]')
-      const buttons = document.querySelectorAll('.activeSecondLevelBtn')
-      menus.forEach((menu) => {
-        if (`#${menu.id}` !== id) {
-          menu.classList.add('hidden')
-          if (menu.nextElementSibling) {
-            menu.nextElementSibling.classList.add('hidden')
-          }
-        }
-      })
-
-      // Reset other active states
-      buttons.forEach((btn) => {
-        if (`#${btn.id}` !== id) {
-          btn.classList.remove('activeSecondLevelBtn')
-        }
-      })
-
-      button.classList.toggle('activeSecondLevelBtn')
-      // Toggle menu
-      document.querySelector(id).classList.toggle('hidden')
-    } else {
-      document.querySelector(id).classList.toggle('hidden')
-    }
-  }
-
-  const handleClick = (id) => {
-    document.querySelector(id).classList.toggle('hidden')
-  }
-
-  const resetMenus = () => {
-    const menus = document.querySelectorAll(
-      'ul[id^="secondlevel-"], ul[id^="thirdlevel-"], ul[id^="fourthlevel-"]'
+    const secondLevelButtons = document.querySelectorAll(
+      '#secondlevel-button, #secondlevel-button-back'
     )
-    menus.forEach((menu) => {
-      menu.classList.add('hidden')
+    secondLevelButtons.forEach((button) => {
+      const id = button.getAttribute('aria-controls')
+      button.addEventListener('click', () => {
+        handleSecondLevelClick(`#${id}`, button)
+      })
     })
-  }
-
-  const menuButton = document.querySelector('#menu-button')
-  menuButton.addEventListener('click', handleMenuButtonClick)
-
-  const langButton = document.querySelector('#lang-button')
-  langButton.addEventListener('click', () => {
-    if (isDesktop) {
-      // Reset active states
-      const firstLevelButton = document.querySelector('#firstlevel-button')
-      const secondLevelButton = document.querySelector('#secondlevel-button')
-      firstLevelButton.classList.remove('activeFirstLevelBtn')
-      secondLevelButton.classList.remove('activeSecondLevelBtn')
-
-      document.querySelector('body').classList.remove('overflow-hidden')
-      document.querySelector('#header').classList.remove('fixed')
-      document.querySelector('#header').classList.remove('border-b-2')
-      document.querySelector('#header').classList.remove('border-fernaoGreen')
-    }
-    document.querySelector('#secondlevel-lang').classList.toggle('hidden')
-  })
-
-  const secondLevelButtons = document.querySelectorAll(
-    '#secondlevel-button, #secondlevel-button-back'
-  )
-  secondLevelButtons.forEach((button) => {
-    const id = button.getAttribute('aria-controls')
-    button.addEventListener('click', () => {
-      handleSecondLevelClick(`#${id}`, button)
+    const firstlevelButtons = document.querySelectorAll('#firstlevel-button')
+    firstlevelButtons.forEach((button) => {
+      const id = button.getAttribute('aria-controls')
+      button.addEventListener('click', () => {
+        handleFirstLevelClick(`#${id}`, button)
+      })
     })
-  })
-  const firstlevelButtons = document.querySelectorAll('#firstlevel-button')
-  firstlevelButtons.forEach((button) => {
-    const id = button.getAttribute('aria-controls')
-    button.addEventListener('click', () => {
-      handleFirstLevelClick(`#${id}`, button)
-    })
-  })
 
-  const buttons = document.querySelectorAll(
-    '#thirdlevel-button, #thirdlevel-button-back, #fourthlevel-button'
-  )
-  buttons.forEach((button) => {
-    const id = button.getAttribute('aria-controls')
-    button.addEventListener('click', () => {
-      handleClick(`#${id}`)
+    const buttons = document.querySelectorAll(
+      '#thirdlevel-button, #thirdlevel-button-back, #fourthlevel-button'
+    )
+    buttons.forEach((button) => {
+      const id = button.getAttribute('aria-controls')
+      button.addEventListener('click', () => {
+        handleClick(`#${id}`)
+      })
     })
-  })
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 1440) {
-      // reset mobile active states
-    } else {
-      // reset desktop active states
-    }
-  })
-</script>
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1440) {
+        // reset mobile active states
+      } else {
+        // reset desktop active states
+      }
+    })
+  </script>
+</nav>
