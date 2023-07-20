@@ -4,74 +4,50 @@ const images = [
   {
     src: 'https://source.unsplash.com/random/1000x800',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/1600x800',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/100x800',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/1000x800',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/1900x800',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/1000x80',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/500x800',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
   {
     src: 'https://source.unsplash.com/random/300x300',
     alt: 'A random image',
-    description:
-      'Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans.',
   },
 ]
 ---
@@ -94,12 +70,7 @@ const images = [
           images.map((image) => {
             return (
               <li class='splide__slide'>
-                <div class='splide__slide__container'>
-                  <img src={image.src} alt={image.alt} />
-                </div>
-                <p class='mx-auto mt-9 italic text-sliderCaption'>
-                  {image.description}
-                </p>
+                <img src={image.src} alt={image.alt} />
               </li>
             )
           })
