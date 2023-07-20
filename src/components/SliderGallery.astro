@@ -80,16 +80,16 @@ const images = [
   </section>
   <ul
     id='thumbnails'
-    class='mx-auto mb-0 flex flex-wrap justify-start gap-4 px-16 1024:gap-8'
+    class='mx-auto mb-0 grid grid-cols-2 justify-start gap-4 px-16 1024:grid-cols-5 1024:gap-8'
   >
     {
       images.map((image) => {
         return (
-          <li class='thumbnail h-[140px] w-[140px] cursor-pointer list-none overflow-hidden opacity-30 1024:h-[128px] 1024:w-[128px] 1920:h-[241px] 1920:w-[241px]'>
+          <li class='thumbnail cursor-pointer list-none overflow-hidden opacity-30'>
             <img
               src={image.src}
               alt={image.alt}
-              class='h-full w-full rounded-[5px] object-cover'
+              class='aspect-square h-full w-full rounded-[5px] object-cover'
             />
           </li>
         )
