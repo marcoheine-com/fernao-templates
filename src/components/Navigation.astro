@@ -403,7 +403,64 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
       if (window.innerWidth > 1440) {
         // reset mobile active states
       } else {
-        // reset desktop active states
+        document.querySelector('body').classList.remove('overflow-hidden')
+        document.querySelector('#header').classList.remove('fixed')
+        document.querySelector('#header').classList.remove('border-b-2')
+        document.querySelector('#header').classList.remove('border-fernaoGreen')
+        const firstLevelButtons = document.querySelectorAll(
+          '.activeFirstLevelBtn'
+        )
+        const secondLevelButtons = document.querySelectorAll(
+          '.activeSecondLevelBtn'
+        )
+        firstLevelButtons.forEach((btn) => {
+          btn.classList.remove('activeFirstLevelBtn')
+        })
+        secondLevelButtons.forEach((btn) => {
+          btn.classList.remove('activeSecondLevelBtn')
+        })
+        const menus = document.querySelectorAll(
+          'ul[id^="secondlevel-"], ul[id^="thirdlevel-"], ul[id^="fourthlevel-"]'
+        )
+        menus.forEach((menu) => {
+          menu.classList.add('hidden')
+        })
+      }
+    })
+
+    document.addEventListener('click', (e) => {
+      const nav = document.querySelector('#nav')
+
+      if (window.innerWidth < 1440) {
+        return
+      }
+
+      if (!nav.contains(e.target)) {
+        const firstLevelButtons = document.querySelectorAll(
+          '.activeFirstLevelBtn'
+        )
+        const secondLevelButtons = document.querySelectorAll(
+          '.activeSecondLevelBtn'
+        )
+        firstLevelButtons.forEach((btn) => {
+          btn.classList.remove('activeFirstLevelBtn')
+        })
+        secondLevelButtons.forEach((btn) => {
+          btn.classList.remove('activeSecondLevelBtn')
+        })
+
+        const thirdLevelMenu = document.querySelectorAll(
+          'ul[id^="thirdlevel-"]'
+        )
+        const fourthLevelMenu = document.querySelectorAll(
+          'ul[id^="fourthlevel-"]'
+        )
+        thirdLevelMenu.forEach((menu) => {
+          menu.classList.add('hidden')
+        })
+        fourthLevelMenu.forEach((menu) => {
+          menu.classList.add('hidden')
+        })
       }
     })
   </script>
