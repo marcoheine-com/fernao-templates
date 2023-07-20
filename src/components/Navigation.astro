@@ -399,7 +399,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
       })
     })
 
-    window.addEventListener('resize', () => {
+    document.addEventListener('resize', () => {
       if (window.innerWidth > 1440) {
         // reset mobile active states
       } else {
@@ -435,6 +435,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
         return
       }
 
+      // Close menu, if click is outside of nav
       if (!nav.contains(e.target)) {
         const firstLevelButtons = document.querySelectorAll(
           '.activeFirstLevelBtn'
