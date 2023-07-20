@@ -27,7 +27,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
 <nav class='relative border-fernaoGreen 1440:static 1440:w-full' id='nav'>
   {/* First Level */}
   <ul
-    class='absolute left-[50%] top-0 z-[1] mx-auto hidden w-full max-w-[394px] translate-x-[-50%] bg-fernaoBGWhite px-9 pt-8 1440:static 1440:left-0 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:translate-x-0 1440:items-center 1440:p-0'
+    class='absolute left-[50%] top-0 z-[1] mx-auto hidden w-full max-w-[394px] translate-x-[-50%] bg-fernaoBGWhite px-9 pt-8 1440:relative 1440:left-0 1440:top-0 1440:mx-0 1440:flex 1440:h-auto 1440:max-w-none 1440:translate-x-0 1440:items-center 1440:p-0'
     id='firstlevel-menu'
   >
     {
@@ -390,7 +390,7 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
     })
 
     const buttons = document.querySelectorAll(
-      '#thirdlevel-button, #thirdlevel-button-back, #fourthlevel-button'
+      '#thirdlevel-button, #thirdlevel-button-back'
     )
     buttons.forEach((button) => {
       const id = button.getAttribute('aria-controls')
