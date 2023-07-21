@@ -440,9 +440,15 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
         const firstLevelButtons = document.querySelectorAll(
           '.activeFirstLevelBtn'
         )
+
+        // Stop if no active buttons, meaning there is no open menu
+        if (firstLevelButtons?.length === 0) {
+          return
+        }
         const secondLevelButtons = document.querySelectorAll(
           '.activeSecondLevelBtn'
         )
+
         firstLevelButtons.forEach((btn) => {
           btn.classList.remove('activeFirstLevelBtn')
         })
@@ -462,6 +468,11 @@ import ThirdLevelNavItem from './ThirdLevelNavItem.astro'
         fourthLevelMenu.forEach((menu) => {
           menu.classList.add('hidden')
         })
+
+        document.querySelector('body').classList.remove('overflow-hidden')
+        document.querySelector('#header').classList.remove('fixed')
+        document.querySelector('#header').classList.remove('border-b-2')
+        document.querySelector('#header').classList.remove('border-fernaoGreen')
       }
     })
   </script>
